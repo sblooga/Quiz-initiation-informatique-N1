@@ -1,0 +1,86 @@
+:root {
+    --color-background: #F7F7F7;
+    --color-text: #1A1A1A;
+    --color-accent: #005A9E;
+    --color-surface: #FFFFFF;
+    --color-shadow: rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', 'Arial', 'Verdana', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.container {
+    width: min(90%, 960px);
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.site-header {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    padding: 3rem 0 2rem;
+    text-align: center;
+}
+
+.site-header .lead {
+    margin: 1rem auto 0;
+    max-width: 48ch;
+}
+
+main {
+    padding-bottom: 3rem;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.intro,
+.objectives {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--color-shadow);
+    margin-bottom: 2rem;
+}
+
+.objectives ul {
+    padding-left: 1.5rem;
+}
+
+.site-footer {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.site-footer p {
+    margin: 0;
+}
