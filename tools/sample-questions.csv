@@ -1,0 +1,9 @@
+ID,Type,Question,Choix,Réponse,Thème,RéférenceCours,MotCléRecherchePDF,PagePDF
+1,QCM,Quelle touche pour copier?,Ctrl+C|Ctrl+V|Alt+F4,Ctrl+C,Clavier,Chapitre 1,Copier,10
+2,Vrai/Faux,La souris a deux boutons?,,Vrai,Périphériques,Chapitre 1,Souris,5
+3,Compléter,Entrez le mot 'ordinateur',,ordinateur|ordinateur ,Bases,Chapitre 2,Ordinateur,15
+4,Associer,Associez les extensions,doc=Word|xls=Excel|ppt=PowerPoint,,Fichiers,Chapitre 3,Extensions,20
+5,QCM,Quelle touche pour coller?,Ctrl+V|Ctrl+C|Ctrl+X,Ctrl+V,Clavier,Chapitre 1,Coller,11
+6,Vrai/Faux,Internet est un logiciel?,,Faux,Internet,Chapitre 4,Internet,30
+7,Compléter,Écrivez 'souris',,souris,Souris,Chapitre 2,Souris,8
+8,Associer,Associez les outils,coupe=de couper|copie=de copier|colle=de coller,,Edition,Chapitre 5,Outils,25
