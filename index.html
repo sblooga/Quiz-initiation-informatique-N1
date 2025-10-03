@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz d'initiation informatique</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="brand">
+            <span aria-hidden="true" class="brand-icon">💡</span>
+            <h1>Initiation Informatique</h1>
+        </div>
+        <nav class="top-nav" aria-label="Navigation principale">
+            <a href="#quiz">Quiz</a>
+            <a href="#aides">Astuces</a>
+            <a href="#contact">Contact</a>
+            <button id="help-trigger" type="button" class="help-button" aria-haspopup="dialog">Aide</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="quiz" class="card">
+            <h2>Quiz : Premiers pas sur Internet</h2>
+            <p>Répondez à la question ci-dessous pour vérifier vos connaissances.</p>
+            <form id="quiz-form">
+                <fieldset>
+                    <legend>Quelle est la manière la plus sûre de créer un mot de passe&nbsp;?</legend>
+                    <label class="option">
+                        <input type="radio" name="password" value="simple" required>
+                        Utiliser le même mot de passe simple partout.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="password" value="complexe">
+                        Choisir un mot de passe long avec lettres, chiffres et symboles.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="password" value="notes">
+                        Écrire son mot de passe sur un post-it et le coller sur l'écran.
+                    </label>
+                </fieldset>
+                <button type="submit" class="primary">Valider</button>
+            </form>
+            <div id="quiz-status" class="alert alert-info" role="status" aria-live="polite" hidden>
+                <div class="alert-content">
+                    <span class="alert-icon" aria-hidden="true">🛡️</span>
+                    <div class="alert-body">
+                        <p class="alert-title">Votre réponse a été analysée</p>
+                        <p class="alert-message"></p>
+                        <div class="alert-actions">
+                            <button type="button" class="secondary" data-action="retry-quiz">Recommencer</button>
+                            <button type="button" class="primary" data-action="continue-quiz">Continuer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aides" class="card">
+            <h2>Astuces essentielles</h2>
+            <ul class="tips">
+                <li>Utilisez un mot de passe différent pour chaque site.</li>
+                <li>Mettez vos logiciels à jour régulièrement.</li>
+                <li>En cas de doute sur un message, demandez conseil avant de cliquer.</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="card">
+            <h2>Besoin d'aide&nbsp;?</h2>
+            <p>Envoyez-nous un message, nous vous répondrons rapidement.</p>
+            <form id="contact-form">
+                <label for="name">Votre nom</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Votre e-mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" class="primary">Envoyer</button>
+            </form>
+            <div id="form-status" class="alert alert-success" role="status" aria-live="polite" hidden>
+                <div class="alert-content">
+                    <span class="alert-icon" aria-hidden="true">✅</span>
+                    <div class="alert-body">
+                        <p class="alert-title">Message bien reçu&nbsp;!</p>
+                        <p class="alert-message"></p>
+                        <div class="alert-actions">
+                            <button type="button" class="secondary" data-action="retry-form">Recommencer</button>
+                            <button type="button" class="primary" data-action="continue-form">Continuer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="onboarding-modal" class="onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" hidden>
+        <div class="onboarding-backdrop" data-action="close"></div>
+        <div class="onboarding-dialog" role="document" tabindex="-1">
+            <header class="onboarding-header">
+                <h2 id="onboarding-title">Bienvenue sur le guide</h2>
+                <button type="button" class="close" data-action="close" aria-label="Fermer">×</button>
+            </header>
+            <div class="onboarding-steps">
+                <article class="onboarding-step" data-step="1" aria-hidden="false">
+                    <figure>
+                        <svg viewBox="0 0 120 80" role="img" aria-labelledby="step1-title">
+                            <title id="step1-title">Explorer la navigation</title>
+                            <rect x="5" y="5" width="110" height="50" rx="6" fill="#dbeafe"></rect>
+                            <rect x="15" y="20" width="90" height="10" rx="5" fill="#60a5fa"></rect>
+                            <circle cx="20" cy="65" r="8" fill="#f59e0b"></circle>
+                        </svg>
+                    </figure>
+                    <h3>Repérez-vous facilement</h3>
+                    <p>La barre supérieure vous guide vers les sections Quiz, Astuces et Contact. Utilisez le bouton «&nbsp;Aide&nbsp;» à tout moment.</p>
+                </article>
+                <article class="onboarding-step" data-step="2" aria-hidden="true">
+                    <figure>
+                        <svg viewBox="0 0 120 80" role="img" aria-labelledby="step2-title">
+                            <title id="step2-title">Répondre au quiz</title>
+                            <rect x="10" y="10" width="100" height="60" rx="8" fill="#dcfce7"></rect>
+                            <polyline points="25,45 50,65 95,20" fill="none" stroke="#22c55e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                        </svg>
+                    </figure>
+                    <h3>Validez vos connaissances</h3>
+                    <p>Répondez au quiz et obtenez un retour immédiat. Les boutons «&nbsp;Recommencer&nbsp;» et «&nbsp;Continuer&nbsp;» vous accompagnent.</p>
+                </article>
+                <article class="onboarding-step" data-step="3" aria-hidden="true">
+                    <figure>
+                        <svg viewBox="0 0 120 80" role="img" aria-labelledby="step3-title">
+                            <title id="step3-title">Envoyer un message</title>
+                            <rect x="8" y="8" width="104" height="64" rx="10" fill="#ede9fe"></rect>
+                            <path d="M20 25 L60 45 L100 25" fill="none" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <rect x="35" y="50" width="50" height="10" rx="5" fill="#a855f7"></rect>
+                        </svg>
+                    </figure>
+                    <h3>Contactez-nous sereinement</h3>
+                    <p>Envoyez un message depuis la section Contact. Un résumé clair confirme l'envoi et vous guide vers la suite.</p>
+                </article>
+                <article class="onboarding-step" data-step="4" aria-hidden="true">
+                    <figure>
+                        <svg viewBox="0 0 120 80" role="img" aria-labelledby="step4-title">
+                            <title id="step4-title">Profitez des aides</title>
+                            <rect x="10" y="10" width="100" height="60" rx="12" fill="#fef3c7"></rect>
+                            <circle cx="45" cy="40" r="14" fill="#fbbf24"></circle>
+                            <path d="M70 30 L95 30" stroke="#f97316" stroke-width="6" stroke-linecap="round"></path>
+                            <path d="M70 50 L95 50" stroke="#f97316" stroke-width="6" stroke-linecap="round"></path>
+                        </svg>
+                    </figure>
+                    <h3>Retrouvez les bonnes pratiques</h3>
+                    <p>Consultez les astuces essentielles pour sécuriser vos usages numériques. Nous sommes là pour vous accompagner.</p>
+                </article>
+            </div>
+            <footer class="onboarding-footer">
+                <button type="button" class="secondary" data-action="prev">Précédent</button>
+                <button type="button" class="primary" data-action="next">Suivant</button>
+                <button type="button" class="link" data-action="close">Terminer</button>
+            </footer>
+        </div>
+    </div>
+
+    <script src="scripts/onboarding.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+</body>
+</html>
