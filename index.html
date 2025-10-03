@@ -3,189 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz d'initiation à l'informatique</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Quiz d'initiation informatique</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
-
-    <header class="top-bar" role="banner">
-        <div class="top-bar__inner">
-            <div class="brand">
-                <span aria-hidden="true" class="brand-icon">💡</span>
-                <p class="brand-text">
-                    <span class="brand-title">Initiation informatique</span>
-                    <span class="brand-subtitle">Quiz et accompagnement</span>
-                </p>
-            </div>
-            <nav class="top-nav" aria-label="Navigation principale">
-                <a href="#quiz">Quiz</a>
-                <a href="#aides">Astuces</a>
-                <a href="#contact">Contact</a>
-                <button id="help-trigger" type="button" class="help-button" aria-haspopup="dialog">Aide</button>
-            </nav>
+    <header class="top-bar">
+        <div class="brand">
+            <span aria-hidden="true" class="brand-icon">💡</span>
+            <h1>Initiation Informatique</h1>
         </div>
+        <nav class="top-nav" aria-label="Navigation principale">
+            <a href="#quiz">Quiz</a>
+            <a href="#aides">Astuces</a>
+            <a href="#contact">Contact</a>
+            <button id="help-trigger" type="button" class="help-button" aria-haspopup="dialog">Aide</button>
+        </nav>
     </header>
 
-    <header class="site-header" role="region" aria-labelledby="hero-title">
-        <div class="container">
-            <h1 id="hero-title">Quiz d'initiation à l'informatique</h1>
-            <p class="lead">Un parcours ludique pensé pour les seniors qui souhaitent progresser sereinement dans leurs usages numériques.</p>
-            <a class="cta" href="#demarrer">Démarrer le quiz</a>
-        </div>
-    </header>
-
-    <main id="contenu-principal" role="main">
-        <div class="container flow">
-            <section class="intro" aria-labelledby="intro-title">
-                <div class="intro__media" role="presentation" aria-hidden="true"></div>
-                <div class="intro__content">
-                    <h2 id="intro-title">Bienvenue sur votre espace d'entraînement</h2>
-                    <p>Chaque question est accompagnée d'explications concrètes, d'illustrations claires et de conseils pratiques pour appliquer vos nouvelles connaissances immédiatement.</p>
-                    <ul class="intro__highlights">
-                        <li>Modules courts et progressifs de 5 minutes.</li>
-                        <li>Corrections détaillées avec astuces d'expert.</li>
-                        <li>Suivi automatique de vos progrès.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="objectives" aria-labelledby="objectives-title">
-                <h2 id="objectives-title">Ce que vous allez apprendre</h2>
-                <div class="grid">
-                    <article class="card">
-                        <h3>Utiliser un ordinateur</h3>
-                        <p>Découvrez le rôle des principaux composants (souris, clavier, écran) et apprenez les gestes de base pour naviguer sans stress.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Explorer Internet</h3>
-                        <p>Comprenez comment effectuer des recherches fiables, reconnaître les sites sécurisés et protéger vos informations personnelles.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Communiquer en ligne</h3>
-                        <p>Familiarisez-vous avec la messagerie électronique, la visioconférence et les bonnes pratiques pour rester en contact avec vos proches.</p>
-                    </article>
-                </div>
-            </section>
-
-            <section class="etapes" aria-labelledby="etapes-title">
-                <h2 id="etapes-title">Comment fonctionne le quiz&nbsp;?</h2>
-                <ol class="steps">
-                    <li>
-                        <h3>Choisissez votre niveau</h3>
-                        <p>Sélectionnez le module qui correspond le mieux à vos besoins actuels parmi les chapitres disponibles.</p>
-                    </li>
-                    <li>
-                        <h3>Répondez à votre rythme</h3>
-                        <p>Chaque question est lisible et illustrée. Vous pouvez prendre le temps nécessaire avant de valider.</p>
-                    </li>
-                    <li>
-                        <h3>Recevez un retour immédiat</h3>
-                        <p>Une explication claire vous accompagne pour comprendre vos erreurs et retenir les bonnes pratiques.</p>
-                    </li>
-                </ol>
-            </section>
-
-            <section class="demarrer" id="demarrer" aria-labelledby="demarrer-title">
-                <h2 id="demarrer-title">Prêt à tester vos connaissances&nbsp;?</h2>
-                <p>Profitez d'une interface accessible sur ordinateur et tablette, pensée pour un confort de lecture optimal.</p>
-                <a class="cta" href="#quiz">Commencer maintenant</a>
-            </section>
-        </div>
-
-        <section id="quiz" class="section" aria-labelledby="quiz-title">
-            <div class="container">
-                <article class="card card--feature">
-                    <h2 id="quiz-title">Quiz : Premiers pas sur Internet</h2>
-                    <p>Répondez à la question ci-dessous pour vérifier vos connaissances.</p>
-                    <form id="quiz-form">
-                        <fieldset>
-                            <legend>Quelle est la manière la plus sûre de créer un mot de passe&nbsp;?</legend>
-                            <label class="option">
-                                <input type="radio" name="password" value="simple" required>
-                                <span>Utiliser le même mot de passe simple partout.</span>
-                            </label>
-                            <label class="option">
-                                <input type="radio" name="password" value="complexe">
-                                <span>Choisir un mot de passe long avec lettres, chiffres et symboles.</span>
-                            </label>
-                            <label class="option">
-                                <input type="radio" name="password" value="notes">
-                                <span>Écrire son mot de passe sur un post-it et le coller sur l'écran.</span>
-                            </label>
-                        </fieldset>
-                        <button type="submit" class="primary">Valider</button>
-                    </form>
-                    <div id="quiz-status" class="alert alert-info" role="status" aria-live="polite" hidden>
-                        <div class="alert-content">
-                            <span class="alert-icon" aria-hidden="true">🛡️</span>
-                            <div class="alert-body">
-                                <p class="alert-title">Votre réponse a été analysée</p>
-                                <p class="alert-message"></p>
-                                <div class="alert-actions">
-                                    <button type="button" class="secondary" data-action="retry-quiz">Recommencer</button>
-                                    <button type="button" class="primary" data-action="continue-quiz">Continuer</button>
-                                </div>
-                            </div>
+    <main>
+        <section id="quiz" class="card">
+            <h2>Quiz : Premiers pas sur Internet</h2>
+            <p>Répondez à la question ci-dessous pour vérifier vos connaissances.</p>
+            <form id="quiz-form">
+                <fieldset>
+                    <legend>Quelle est la manière la plus sûre de créer un mot de passe&nbsp;?</legend>
+                    <label class="option">
+                        <input type="radio" name="password" value="simple" required>
+                        Utiliser le même mot de passe simple partout.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="password" value="complexe">
+                        Choisir un mot de passe long avec lettres, chiffres et symboles.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="password" value="notes">
+                        Écrire son mot de passe sur un post-it et le coller sur l'écran.
+                    </label>
+                </fieldset>
+                <button type="submit" class="primary">Valider</button>
+            </form>
+            <div id="quiz-status" class="alert alert-info" role="status" aria-live="polite" hidden>
+                <div class="alert-content">
+                    <span class="alert-icon" aria-hidden="true">🛡️</span>
+                    <div class="alert-body">
+                        <p class="alert-title">Votre réponse a été analysée</p>
+                        <p class="alert-message"></p>
+                        <div class="alert-actions">
+                            <button type="button" class="secondary" data-action="retry-quiz">Recommencer</button>
+                            <button type="button" class="primary" data-action="continue-quiz">Continuer</button>
                         </div>
                     </div>
-                </article>
+                </div>
             </div>
         </section>
 
-        <section id="aides" class="section" aria-labelledby="aides-title">
-            <div class="container">
-                <article class="card card--feature">
-                    <h2 id="aides-title">Astuces essentielles</h2>
-                    <ul class="tips">
-                        <li>Utilisez un mot de passe différent pour chaque site.</li>
-                        <li>Mettez vos logiciels à jour régulièrement.</li>
-                        <li>En cas de doute sur un message, demandez conseil avant de cliquer.</li>
-                    </ul>
-                </article>
-            </div>
+        <section id="aides" class="card">
+            <h2>Astuces essentielles</h2>
+            <ul class="tips">
+                <li>Utilisez un mot de passe différent pour chaque site.</li>
+                <li>Mettez vos logiciels à jour régulièrement.</li>
+                <li>En cas de doute sur un message, demandez conseil avant de cliquer.</li>
+            </ul>
         </section>
 
-        <section id="contact" class="section" aria-labelledby="contact-title">
-            <div class="container">
-                <article class="card card--feature">
-                    <h2 id="contact-title">Besoin d'aide&nbsp;?</h2>
-                    <p>Envoyez-nous un message, nous vous répondrons rapidement.</p>
-                    <form id="contact-form">
-                        <label for="name">Votre nom</label>
-                        <input type="text" id="name" name="name" required>
+        <section id="contact" class="card">
+            <h2>Besoin d'aide&nbsp;?</h2>
+            <p>Envoyez-nous un message, nous vous répondrons rapidement.</p>
+            <form id="contact-form">
+                <label for="name">Votre nom</label>
+                <input type="text" id="name" name="name" required>
 
-                        <label for="email">Votre e-mail</label>
-                        <input type="email" id="email" name="email" required>
+                <label for="email">Votre e-mail</label>
+                <input type="email" id="email" name="email" required>
 
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
 
-                        <button type="submit" class="primary">Envoyer</button>
-                    </form>
-                    <div id="form-status" class="alert alert-success" role="status" aria-live="polite" hidden>
-                        <div class="alert-content">
-                            <span class="alert-icon" aria-hidden="true">✅</span>
-                            <div class="alert-body">
-                                <p class="alert-title">Message bien reçu&nbsp;!</p>
-                                <p class="alert-message"></p>
-                                <div class="alert-actions">
-                                    <button type="button" class="secondary" data-action="retry-form">Recommencer</button>
-                                    <button type="button" class="primary" data-action="continue-form">Continuer</button>
-                                </div>
-                            </div>
+                <button type="submit" class="primary">Envoyer</button>
+            </form>
+            <div id="form-status" class="alert alert-success" role="status" aria-live="polite" hidden>
+                <div class="alert-content">
+                    <span class="alert-icon" aria-hidden="true">✅</span>
+                    <div class="alert-body">
+                        <p class="alert-title">Message bien reçu&nbsp;!</p>
+                        <p class="alert-message"></p>
+                        <div class="alert-actions">
+                            <button type="button" class="secondary" data-action="retry-form">Recommencer</button>
+                            <button type="button" class="primary" data-action="continue-form">Continuer</button>
                         </div>
                     </div>
-                </article>
+                </div>
             </div>
         </section>
     </main>
-
-    <footer class="site-footer" role="contentinfo">
-        <div class="container">
-            <p>&copy; 2024 Quiz Initiation Informatique N1. Conçu pour apprendre en toute confiance.</p>
-        </div>
-    </footer>
 
     <div id="onboarding-modal" class="onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" hidden>
         <div class="onboarding-backdrop" data-action="close"></div>
