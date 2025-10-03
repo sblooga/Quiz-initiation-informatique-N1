@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Initiation Informatique</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Quiz d'initiation à l'informatique</h1>
+      <p class="tagline">Accompagnez vos premiers pas sur Internet, en bureautique et en sécurité numérique.</p>
+    </div>
+  </header>
+
+  <main class="home" id="contenu-principal">
+    <div class="container">
+      <section class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M32 6C18.766 6 8 16.766 8 30s10.766 24 24 24 24-10.766 24-24S45.234 6 32 6zm0 4c10.493 0 19 8.507 19 19 0 3.656-1.054 7.064-2.872 9.963l-6.516-6.517A7.979 7.979 0 0 0 44 26a8 8 0 1 0-8 8c1.289 0 2.504-.302 3.575-.833l6.557 6.558A18.938 18.938 0 0 1 32 49c-10.493 0-19-8.507-19-19S21.507 10 32 10zm0 8a8 8 0 0 1 7.938 7H32a7 7 0 0 0-6.93 6.006A8.01 8.01 0 0 1 32 18z" />
+        </svg>
+        <h2>Découverte d'Internet</h2>
+        <p id="desc-internet">Apprenez à naviguer sur le Web en toute confiance et à reconnaître les informations fiables. Découvrez les gestes essentiels pour utiliser votre navigateur comme un pro.</p>
+        <button class="cta-button" type="button" aria-describedby="desc-internet" onclick="window.location.href='quiz-internet.html';">
+          Commencer le quiz Internet
+        </button>
+      </section>
+
+      <section class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M32 8C21.523 8 13 16.523 13 27v7.414l-4.707 4.707A1 1 0 0 0 9 40h46a1 1 0 0 0 .707-1.707L51 34.414V27c0-10.477-8.523-19-19-19zm0 4c8.837 0 16 7.163 16 16v8a2 2 0 0 0 .586 1.414L51.172 38H12.828l2.586-2.586A2 2 0 0 0 16 35v-7c0-8.837 7.163-16 16-16zm-4 30a4 4 0 0 0 8 0h-8z" />
+        </svg>
+        <h2>Sécurité numérique</h2>
+        <p id="desc-securite">Identifiez les bons réflexes pour protéger vos données et repérer les arnaques en ligne. Nous vous guidons dans la création de mots de passe solides et la gestion de vos appareils.</p>
+        <button class="cta-button" type="button" aria-describedby="desc-securite" onclick="window.location.href='tutoriel-securite.html';">
+          Explorer le tutoriel Sécurité
+        </button>
+      </section>
+
+      <section class="feature-card">
+        <svg class="feature-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M12 12h40a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H36l-4 8-4-8H12a2 2 0 0 1-2-2V14a2 2 0 0 1 2-2zm2 4v24h36V16H14zm6 4h24v4H20v-4zm0 8h16v4H20v-4z" />
+        </svg>
+        <h2>Bureautique essentielle</h2>
+        <p id="desc-bureautique">Maîtrisez les bases des logiciels de traitement de texte et de tableur pour gagner en autonomie. Des exercices guidés vous aident à mettre en pratique chaque nouvelle notion.</p>
+        <button class="cta-button" type="button" aria-describedby="desc-bureautique" onclick="window.location.href='quiz-bureautique.html';">
+          S'entraîner à la bureautique
+        </button>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 Quiz Initiation Informatique - Ressources pour débutants.</p>
+    </div>
+  </footer>
+</body>
+</html>
