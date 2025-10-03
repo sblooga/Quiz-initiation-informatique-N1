@@ -4,6 +4,7 @@
     --color-accent: #005A9E;
     --color-surface: #FFFFFF;
     --color-shadow: rgba(0, 0, 0, 0.08);
+    --color-muted: #657384;
 }
 
 * {
@@ -17,6 +18,30 @@ body {
     line-height: 1.6;
     background-color: var(--color-background);
     color: var(--color-text);
+}
+
+a {
+    color: inherit;
+}
+
+a:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 1rem;
 }
 
 .container {
@@ -33,12 +58,31 @@ body {
 }
 
 .site-header .lead {
-    margin: 1rem auto 0;
-    max-width: 48ch;
+    margin: 1rem auto 2rem;
+    max-width: 55ch;
+    color: var(--color-background);
+}
+
+.cta {
+    display: inline-block;
+    padding: 0.75rem 2.5rem;
+    border-radius: 999px;
+    background-color: var(--color-background);
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 20px rgba(0, 90, 158, 0.25);
+}
+
+.cta:hover,
+.cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 90, 158, 0.35);
 }
 
 main {
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
 }
 
 h1,
@@ -50,37 +94,147 @@ h3 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2.25rem, 4vw, 2.75rem);
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
-.intro,
-.objectives {
+.intro {
+    display: grid;
+    gap: 2rem;
     background-color: var(--color-surface);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px var(--color-shadow);
+    margin-bottom: 3rem;
+    align-items: center;
+}
+
+.intro__media {
+    min-height: 220px;
+    background: linear-gradient(135deg, rgba(0, 90, 158, 0.1), rgba(0, 90, 158, 0.25));
     border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px var(--color-shadow);
+}
+
+.intro__highlights {
+    padding-left: 1.5rem;
+    margin: 1.5rem 0 0;
+}
+
+.intro__highlights li + li {
+    margin-top: 0.75rem;
+}
+
+.objectives {
+    margin-bottom: 3rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--color-surface);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 14px 35px var(--color-shadow);
+}
+
+.card p {
+    color: var(--color-muted);
+    margin: 0;
+}
+
+.etapes {
+    background-color: var(--color-surface);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px var(--color-shadow);
+    margin-bottom: 3rem;
+}
+
+.steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.steps li {
+    display: grid;
+    gap: 0.5rem;
+    padding-left: 3.5rem;
+    position: relative;
     margin-bottom: 2rem;
 }
 
-.objectives ul {
-    padding-left: 1.5rem;
+.steps li:last-child {
+    margin-bottom: 0;
+}
+
+.steps li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+}
+
+.steps p {
+    color: var(--color-muted);
+    margin: 0;
+}
+
+.demarrer {
+    text-align: center;
+    background-color: transparent;
+}
+
+.demarrer p {
+    max-width: 60ch;
+    margin: 0 auto 2rem;
+    color: var(--color-muted);
 }
 
 .site-footer {
     background-color: var(--color-accent);
     color: var(--color-background);
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 1.75rem 0;
 }
 
 .site-footer p {
     margin: 0;
+}
+
+@media (max-width: 640px) {
+    .container {
+        width: 92%;
+        padding: 1.5rem 0;
+    }
+
+    .intro,
+    .etapes {
+        padding: 2rem;
+    }
+
+    .steps li {
+        padding-left: 3rem;
+    }
 }

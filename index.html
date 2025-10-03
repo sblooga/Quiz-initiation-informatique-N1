@@ -7,32 +7,76 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <header class="site-header">
+    <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+    <header class="site-header" role="banner">
         <div class="container">
             <h1>Quiz d'initiation à l'informatique</h1>
-            <p class="lead">Un parcours ludique pour découvrir les bases de l'informatique en toute simplicité.</p>
+            <p class="lead">Un parcours ludique pensé pour les seniors qui souhaitent progresser sereinement dans leurs usages numériques.</p>
+            <a class="cta" href="#demarrer">Démarrer le quiz</a>
         </div>
     </header>
 
-    <main class="container">
-        <section class="intro">
-            <h2>Bienvenue</h2>
-            <p>Ce quiz a été conçu pour accompagner les seniors dans la découverte du monde numérique. Chaque question est accompagnée d'explications claires afin de faciliter l'apprentissage.</p>
+    <main id="contenu-principal" class="container" role="main">
+        <section class="intro" aria-labelledby="intro-title">
+            <div class="intro__media" role="presentation" aria-hidden="true"></div>
+            <div class="intro__content">
+                <h2 id="intro-title">Bienvenue sur votre espace d'entraînement</h2>
+                <p>Chaque question est accompagnée d'explications concrètes, d'illustrations claires et de conseils pratiques pour appliquer vos nouvelles connaissances immédiatement.</p>
+                <ul class="intro__highlights">
+                    <li>Modules courts et progressifs de 5 minutes.</li>
+                    <li>Corrections détaillées avec astuces d'expert.</li>
+                    <li>Suivi automatique de vos progrès.</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="objectives">
-            <h3>Objectifs du quiz</h3>
-            <ul>
-                <li>Comprendre le vocabulaire informatique de base.</li>
-                <li>Apprendre à utiliser les outils du quotidien numérique.</li>
-                <li>Gagner en confiance dans l'utilisation de l'ordinateur.</li>
-            </ul>
+        <section class="objectives" aria-labelledby="objectives-title">
+            <h2 id="objectives-title">Ce que vous allez apprendre</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Utiliser un ordinateur</h3>
+                    <p>Découvrez le rôle des principaux composants (souris, clavier, écran) et apprenez les gestes de base pour naviguer sans stress.</p>
+                </article>
+                <article class="card">
+                    <h3>Explorer Internet</h3>
+                    <p>Comprenez comment effectuer des recherches fiables, reconnaître les sites sécurisés et protéger vos informations personnelles.</p>
+                </article>
+                <article class="card">
+                    <h3>Communiquer en ligne</h3>
+                    <p>Familiarisez-vous avec la messagerie électronique, la visioconférence et les bonnes pratiques pour rester en contact avec vos proches.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="etapes" aria-labelledby="etapes-title">
+            <h2 id="etapes-title">Comment fonctionne le quiz&nbsp;?</h2>
+            <ol class="steps">
+                <li>
+                    <h3>Choisissez votre niveau</h3>
+                    <p>Sélectionnez le module qui correspond le mieux à vos besoins actuels parmi les chapitres disponibles.</p>
+                </li>
+                <li>
+                    <h3>Répondez à votre rythme</h3>
+                    <p>Chaque question est lisible et illustrée. Vous pouvez prendre le temps nécessaire avant de valider.</p>
+                </li>
+                <li>
+                    <h3>Recevez un retour immédiat</h3>
+                    <p>Une explication claire vous accompagne pour comprendre vos erreurs et retenir les bonnes pratiques.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="demarrer" id="demarrer" aria-labelledby="demarrer-title">
+            <h2 id="demarrer-title">Prêt à tester vos connaissances&nbsp;?</h2>
+            <p>Profitez d'une interface accessible sur ordinateur et tablette, pensée pour un confort de lecture optimal.</p>
+            <a class="cta" href="#">Commencer maintenant</a>
         </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <div class="container">
-            <p>&copy; 2024 Quiz Initiation Informatique N1</p>
+            <p>&copy; 2024 Quiz Initiation Informatique N1. Conçu pour apprendre en toute confiance.</p>
         </div>
     </footer>
 </body>
