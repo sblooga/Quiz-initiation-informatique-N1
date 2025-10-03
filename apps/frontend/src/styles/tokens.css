@@ -1,0 +1,20 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-primary: #c8c3f9;
+  --color-secondary: #c2f5d9;
+  --color-accent: #ffd8c2;
+}
+
+[data-contrast='high'] {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-primary: #ffff00;
+  --color-secondary: #00ffff;
+  --color-accent: #ff00ff;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
