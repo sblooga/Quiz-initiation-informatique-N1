@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz d'initiation à l'informatique</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <h1>Quiz d'initiation à l'informatique</h1>
+      <div class="accessibility-controls" role="group" aria-label="Contrôles d'accessibilité">
+        <button type="button" class="accessibility-button" data-action="decrease-font" aria-label="Réduire la taille du texte">A−</button>
+        <button type="button" class="accessibility-button" data-action="increase-font" aria-label="Augmenter la taille du texte">A+</button>
+        <button type="button" class="accessibility-button" data-action="toggle-contrast" aria-pressed="false" aria-label="Activer le contraste élevé">Contraste élevé</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="instruction" id="introduction">
+      <div class="container">
+        <h2>Bienvenue</h2>
+        <p class="instruction-text">Bienvenue sur notre atelier d'initiation à l'informatique. Prenez votre temps pour découvrir les consignes et n'hésitez pas à utiliser les boutons d'accessibilité pour ajuster votre confort de lecture.</p>
+        <button type="button" class="listen-button" data-speak-target="#introduction .instruction-text">Écouter cette consigne</button>
+        <p class="speech-fallback" aria-hidden="true" hidden>La lecture audio n'est pas disponible sur ce navigateur. Vous pouvez lire la consigne écrite ci-dessus.</p>
+      </div>
+    </section>
+
+    <section class="instruction" id="inscription">
+      <div class="container">
+        <h2>Créer votre compte</h2>
+        <p class="instruction-text">Pour participer au quiz, cliquez sur le bouton "Je m'inscris" et remplissez votre nom ainsi qu'une adresse e-mail. Un guide étape par étape s'affichera pour vous aider si besoin.</p>
+        <button type="button" class="listen-button" data-speak-target="#inscription .instruction-text">Écouter cette consigne</button>
+        <p class="speech-fallback" aria-hidden="true" hidden>Votre navigateur ne permet pas la lecture vocale. Merci de suivre la consigne en lisant le texte.</p>
+      </div>
+    </section>
+
+    <section class="instruction" id="quiz">
+      <div class="container">
+        <h2>Répondre au questionnaire</h2>
+        <p class="instruction-text">Chaque question propose plusieurs choix de réponse. Sélectionnez celui qui vous semble correct, puis validez pour passer à la question suivante. Vous pouvez revenir en arrière si vous souhaitez vérifier une consigne.</p>
+        <button type="button" class="listen-button" data-speak-target="#quiz .instruction-text">Écouter cette consigne</button>
+        <p class="speech-fallback" aria-hidden="true" hidden>Si la lecture audio ne fonctionne pas, nous vous invitons à lire attentivement la consigne affichée.</p>
+      </div>
+    </section>
+
+    <section class="instruction" id="resultats">
+      <div class="container">
+        <h2>Consulter vos résultats</h2>
+        <p class="instruction-text">À la fin du quiz, vos résultats apparaîtront immédiatement. Des conseils personnalisés vous seront proposés pour progresser à votre rythme.</p>
+        <button type="button" class="listen-button" data-speak-target="#resultats .instruction-text">Écouter cette consigne</button>
+        <p class="speech-fallback" aria-hidden="true" hidden>Le mode audio n'est pas disponible. Veuillez lire la consigne affichée pour connaître la marche à suivre.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2024 Atelier numérique pour tous</p>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>
