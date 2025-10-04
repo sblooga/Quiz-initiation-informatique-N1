@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Papa from 'papaparse';
 import { Question } from './types';
 
@@ -52,20 +53,166 @@ export function detectDelimiter(csv: string): string {
   if (commaCount > semicolonCount) return ',';
   if (semicolonCount > 0) return ';';
   return ',';
+=======
+import Papa from "papaparse";
+import { normalize } from "./normalize";
+import { Question } from "./types";
+
+const DIACRITICS_REGEX = new RegExp("[\\u0300-\\u036f]", "g");
+
+export function detectDelimiter(csv: string): string {
+  const sampleLines = csv.split(/\r?\n/).slice(0, 5);
+  let semicolons = 0;
+  let commas = 0;
+
+  for (const line of sampleLines) {
+    semicolons += (line.match(/;/g) ?? []).length;
+    commas += (line.match(/,/g) ?? []).length;
+  }
+
+  if (semicolons === 0 && commas === 0) {
+    return ",";
+  }
+
+  return semicolons >= commas ? ";" : ",";
+>>>>>>> 5f4a8d9 (Backup auto avant pull (20251004-225942))
 }
 
-export function parseCSV(csv: string): { questions: Question[]; errors: string[] } {
+function normalizeHeaderKey(key: string): string {
+  return key
+    .replace(/^\ufeff/, "")
+    .normalize("NFD")
+    .replace(DIACRITICS_REGEX, "")
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .toLowerCase();
+}
+
+function normalizeValueKey(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(DIACRITICS_REGEX, "")
+    .replace(/[^a-z0-9]/g, "")
+    .toLowerCase();
+}
+
+function resolveQuestionType(
+  raw: string
+): "QCM" | "Vrai/Faux" | "Compléter" | "Associer" | undefined {
+  if (!raw) return undefined;
+  const normalized = normalizeValueKey(raw); // ex: "Vrai/Faux" → "vraifaux", "Compléter" → "completer"
+  if (!normalized) return undefined;
+
+  const has = (token: string) => normalized.includes(token);
+
+  // 🔹 Détection QCM (choix multiples)
+  if (
+    has("qcm") ||
+    has("qcu") ||
+    (has("choix") && (has("multiple") || has("unique")))
+  ) {
+    console.log("✅ Type détecté: QCM");
+    return "QCM";
+  }
+
+  // 🔹 Détection Vrai/Faux (questions booléennes)
+  if (
+    has("vraifaux") ||
+    has("vf") ||
+    has("vraioufaux") ||
+    (has("vrai") && has("faux"))
+  ) {
+    console.log("✅ Type détecté: Vrai/Faux");
+    return "Vrai/Faux";
+  }
+
+  // 🔹 Détection Compléter (réponse libre)
+  if (
+    has("completer") ||
+    has("comple") ||
+    has("lacune") ||
+    has("texte") ||
+    has("saisie")
+  ) {
+    console.log("✅ Type détecté: Compléter");
+    return "Compléter";
+  }
+
+  // 🔹 Détection Associer (appariement)
+  if (
+    has("associer") ||
+    has("assoc") ||
+    has("appari") ||
+    has("matching") ||
+    has("relier")
+  ) {
+    console.log("✅ Type détecté: Associer");
+    return "Associer";
+  }
+
+  console.warn("⚠️ Type non reconnu après normalisation:", normalized);
+  return undefined;
+}
+
+function buildLookup(
+  row: Record<string, string | undefined>
+): Record<string, string> {
+  const lookup: Record<string, string> = {};
+
+  for (const key of Object.keys(row)) {
+    const normalizedKey = normalizeHeaderKey(key);
+    if (!normalizedKey) continue;
+
+    const value = row[key];
+    if (value === undefined || value === null) continue;
+
+    if (!(normalizedKey in lookup)) {
+      lookup[normalizedKey] =
+        typeof value === "string" ? value.trim() : String(value);
+    }
+  }
+
+  return lookup;
+}
+
+function getValue(
+  lookup: Record<string, string>,
+  ...candidates: string[]
+): string | undefined {
+  for (const candidate of candidates) {
+    const normalizedCandidate = normalizeHeaderKey(candidate);
+    const value = lookup[normalizedCandidate];
+    if (value !== undefined && value !== "") {
+      return value;
+    }
+  }
+  return undefined;
+}
+
+function parsePairs(raw: string): Array<{ gauche: string; droite: string }> {
+  return raw
+    .split(/[|;]/)
+    .map((entry) => entry.split(/=|->|:/))
+    .filter((parts) => parts.length >= 2)
+    .map(([left, right]) => ({ gauche: left.trim(), droite: right.trim() }))
+    .filter((pair) => pair.gauche && pair.droite);
+}
+
+export function parseCSV(csv: string): {
+  questions: Question[];
+  errors: string[];
+} {
   const delimiter = detectDelimiter(csv);
-  const { data } = Papa.parse<Record<string, string>>(csv, {
+  const { data } = Papa.parse<Record<string, string | undefined>>(csv, {
     delimiter,
     header: true,
-    skipEmptyLines: true
+    skipEmptyLines: "greedy",
   });
   const questions: Question[] = [];
   const errors: string[] = [];
 
   data.forEach((row, index) => {
     try {
+<<<<<<< HEAD
       const resolvedType = resolveQuestionType(row['Type']);
       if (!resolvedType) throw new Error('Type inconnu');
 
@@ -84,28 +231,120 @@ export function parseCSV(csv: string): { questions: Question[]; errors: string[]
           const choices = (row['Choix'] || '').split(/[|;]/).map(c => c.trim()).filter(Boolean);
           const answerParts = (row['Réponse'] || '').split(/[|;]/).map(a => a.trim()).filter(Boolean);
           questions.push({ ...base, choices, answer: answerParts.length > 1 ? answerParts : answerParts[0] });
+=======
+      const lookup = buildLookup(row);
+      const id = getValue(lookup, "ID", "id")?.trim();
+      const rawType = getValue(lookup, "Type", "type")?.trim();
+      const questionText = getValue(lookup, "Question", "question")?.trim();
+
+      if (!id || !rawType || !questionText) {
+        throw new Error("Champ manquant");
+      }
+
+      const theme = getValue(lookup, "Theme", "theme") ?? "";
+      const referenceCours =
+        getValue(lookup, "ReferenceCours", "Reference") ?? "";
+      const motClePDF = getValue(
+        lookup,
+        "MotCleRecherchePDF",
+        "MotClePDF",
+        "MotCle"
+      );
+      const pagePDFRaw = getValue(lookup, "PagePDF", "Page");
+      const pagePDF = pagePDFRaw
+        ? Number(pagePDFRaw.replace(",", "."))
+        : undefined;
+      // 🧹 Nettoyage renforcé du type (supprime BOM, espaces et caractères invisibles)
+      const cleanedType = rawType.replace(/[\uFEFF\s]+/g, "").trim();
+      console.log("RAW TYPE DEBUG:", JSON.stringify(cleanedType)); // Debug console
+
+      const questionType = resolveQuestionType(cleanedType);
+
+      const base = {
+        id,
+        question: questionText,
+        theme,
+        referenceCours,
+        motClePDF: motClePDF || undefined,
+        pagePDF:
+          pagePDF !== undefined && !Number.isNaN(pagePDF) ? pagePDF : undefined,
+      } as const;
+
+      //const questionType = resolveQuestionType(rawType);
+
+      if (!questionType) {
+        throw new Error("Type inconnu (" + rawType + ")");
+      }
+
+      switch (questionType) {
+        case "QCM": {
+          const choicesRaw =
+            getValue(lookup, "Choix", "Choices", "Options") ?? "";
+          const answerRaw = getValue(lookup, "Reponse", "Answer") ?? "";
+          const choices = choicesRaw
+            .split(/[|;]/)
+            .map((choice) => choice.trim())
+            .filter(Boolean);
+          const answerParts = answerRaw
+            .split(/[|;]/)
+            .map((ans) => ans.trim())
+            .filter(Boolean);
+          questions.push({
+            ...base,
+            type: questionType,
+            choices,
+            answer: answerParts.length > 1 ? answerParts : answerParts[0],
+          });
+>>>>>>> 5f4a8d9 (Backup auto avant pull (20251004-225942))
           break;
         }
-        case 'Vrai/Faux': {
-          const ans = row['Réponse']?.trim();
-          if (ans !== 'Vrai' && ans !== 'Faux') throw new Error('Réponse Vrai/Faux incorrecte');
-          questions.push({ ...base, answer: ans });
+        case "Vrai/Faux": {
+          const answerRaw = getValue(lookup, "Reponse", "Answer")?.trim();
+          if (!answerRaw) throw new Error("Reponse Vrai/Faux manquante");
+          const normalizedAnswer = normalize(answerRaw);
+          if (
+            normalizedAnswer !== normalize("Vrai") &&
+            normalizedAnswer !== normalize("Faux")
+          ) {
+            throw new Error("Reponse Vrai/Faux incorrecte");
+          }
+          questions.push({
+            ...base,
+            type: questionType,
+            answer: normalizedAnswer === normalize("Vrai") ? "Vrai" : "Faux",
+          });
           break;
         }
-        case 'Compléter': {
-          const ans = (row['Réponse'] || '').split(/[|;]/).map(a => a.trim());
-          questions.push({ ...base, answer: ans.length > 1 ? ans : ans[0] });
+        case "Compléter": {
+          const answerRaw = getValue(lookup, "Reponse", "Answer") ?? "";
+          const answers = answerRaw
+            .split(/[|;]/)
+            .map((ans) => ans.trim())
+            .filter(Boolean);
+          if (!answers.length) throw new Error("Reponse manquante");
+          questions.push({
+            ...base,
+            type: questionType,
+            answer: answers.length > 1 ? answers : answers[0],
+          });
           break;
         }
-        case 'Associer': {
-          const pairs = (row['Choix'] || '').split(/[|;]/).map(p => p.split('='))
-            .filter(p => p.length === 2)
-            .map(([gauche, droite]) => ({ gauche: gauche.trim(), droite: droite.trim() }));
-          questions.push({ ...base, pairs });
+        case "Associer": {
+          const pairsSource =
+            getValue(lookup, "Choix", "Pairs", "Associations") ??
+            getValue(lookup, "Reponse", "Answer") ??
+            "";
+          const pairs = parsePairs(pairsSource);
+          if (!pairs.length) throw new Error("Paires manquantes");
+          questions.push({
+            ...base,
+            type: questionType,
+            pairs,
+          });
           break;
         }
         default:
-          throw new Error('Type inconnu');
+          throw new Error("Type inconnu");
       }
     } catch (e: any) {
       errors.push(`Ligne ${index + 2}: ${e.message}`);
