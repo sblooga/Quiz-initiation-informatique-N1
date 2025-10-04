@@ -10,4 +10,16 @@ describe('parseCSV', () => {
     expect(errors.length).toBe(0);
     expect(questions.length).toBeGreaterThan(0);
   });
+
+  it('détecte les points-virgules même avec des virgules dans les valeurs', () => {
+    const semicolonCsv = [
+      'ID;Type;Question;Choix;Réponse;Thème;RéférenceCours;MotCléRecherchePDF;PagePDF',
+      '1;QCM;Quelle touche, pour copier?;Ctrl+C|Ctrl+V;Ctrl+C;Clavier;Chapitre 1;;10'
+    ].join('\n');
+
+    const { questions, errors } = parseCSV(semicolonCsv);
+    expect(errors).toHaveLength(0);
+    expect(questions).toHaveLength(1);
+    expect(questions[0].choices).toEqual(['Ctrl+C', 'Ctrl+V']);
+  });
 });
