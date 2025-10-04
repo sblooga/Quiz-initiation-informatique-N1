@@ -3,7 +3,14 @@ import { Question } from './types';
 import { normalize } from './normalize';
 
 export function detectDelimiter(csv: string): string {
-  return csv.includes(';') && !csv.includes(',') ? ';' : ',';
+  const firstLine = csv.split(/\r?\n/, 1)[0] ?? '';
+  const commaCount = (firstLine.match(/,/g) ?? []).length;
+  const semicolonCount = (firstLine.match(/;/g) ?? []).length;
+
+  if (semicolonCount > commaCount) return ';';
+  if (commaCount > semicolonCount) return ',';
+  if (semicolonCount > 0) return ';';
+  return ',';
 }
 
 export function parseCSV(csv: string): { questions: Question[]; errors: string[] } {
