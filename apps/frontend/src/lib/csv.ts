@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Papa from 'papaparse';
 import { Question } from './types';
 
@@ -75,7 +74,7 @@ export function detectDelimiter(csv: string): string {
   }
 
   return semicolons >= commas ? ";" : ",";
->>>>>>> 5f4a8d9 (Backup auto avant pull (20251004-225942))
+
 }
 
 function normalizeHeaderKey(key: string): string {
@@ -231,71 +230,6 @@ export function parseCSV(csv: string): {
           const choices = (row['Choix'] || '').split(/[|;]/).map(c => c.trim()).filter(Boolean);
           const answerParts = (row['Réponse'] || '').split(/[|;]/).map(a => a.trim()).filter(Boolean);
           questions.push({ ...base, choices, answer: answerParts.length > 1 ? answerParts : answerParts[0] });
-=======
-      const lookup = buildLookup(row);
-      const id = getValue(lookup, "ID", "id")?.trim();
-      const rawType = getValue(lookup, "Type", "type")?.trim();
-      const questionText = getValue(lookup, "Question", "question")?.trim();
-
-      if (!id || !rawType || !questionText) {
-        throw new Error("Champ manquant");
-      }
-
-      const theme = getValue(lookup, "Theme", "theme") ?? "";
-      const referenceCours =
-        getValue(lookup, "ReferenceCours", "Reference") ?? "";
-      const motClePDF = getValue(
-        lookup,
-        "MotCleRecherchePDF",
-        "MotClePDF",
-        "MotCle"
-      );
-      const pagePDFRaw = getValue(lookup, "PagePDF", "Page");
-      const pagePDF = pagePDFRaw
-        ? Number(pagePDFRaw.replace(",", "."))
-        : undefined;
-      // 🧹 Nettoyage renforcé du type (supprime BOM, espaces et caractères invisibles)
-      const cleanedType = rawType.replace(/[\uFEFF\s]+/g, "").trim();
-      console.log("RAW TYPE DEBUG:", JSON.stringify(cleanedType)); // Debug console
-
-      const questionType = resolveQuestionType(cleanedType);
-
-      const base = {
-        id,
-        question: questionText,
-        theme,
-        referenceCours,
-        motClePDF: motClePDF || undefined,
-        pagePDF:
-          pagePDF !== undefined && !Number.isNaN(pagePDF) ? pagePDF : undefined,
-      } as const;
-
-      //const questionType = resolveQuestionType(rawType);
-
-      if (!questionType) {
-        throw new Error("Type inconnu (" + rawType + ")");
-      }
-
-      switch (questionType) {
-        case "QCM": {
-          const choicesRaw =
-            getValue(lookup, "Choix", "Choices", "Options") ?? "";
-          const answerRaw = getValue(lookup, "Reponse", "Answer") ?? "";
-          const choices = choicesRaw
-            .split(/[|;]/)
-            .map((choice) => choice.trim())
-            .filter(Boolean);
-          const answerParts = answerRaw
-            .split(/[|;]/)
-            .map((ans) => ans.trim())
-            .filter(Boolean);
-          questions.push({
-            ...base,
-            type: questionType,
-            choices,
-            answer: answerParts.length > 1 ? answerParts : answerParts[0],
-          });
->>>>>>> 5f4a8d9 (Backup auto avant pull (20251004-225942))
           break;
         }
         case "Vrai/Faux": {
