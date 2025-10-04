@@ -1,6 +1,47 @@
 import Papa from 'papaparse';
 import { Question } from './types';
-import { normalize } from './normalize';
+
+const DIACRITICS_REGEX = /\p{Diacritic}/gu;
+
+function normalizeValueKey(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(DIACRITICS_REGEX, '')
+    .replace(/[^\w]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
+function resolveQuestionType(raw: string | undefined): 'QCM' | 'Vrai/Faux' | 'Compléter' | 'Associer' | undefined {
+  if (!raw) return undefined;
+  const normalized = normalizeValueKey(raw);
+  if (!normalized) return undefined;
+
+  const has = (token: string) => normalized.includes(token);
+
+  if (has('qcm') || has('qcu') || (has('choix') && (has('multiple') || has('unique')))) {
+    console.log('✅ Type detected: QCM');
+    return 'QCM';
+  }
+
+  if (has('vraifaux') || has('vf') || has('vraioufaux') || (has('vrai') && has('faux')) || has('vraiaux')) {
+    console.log('✅ Type detected: Vrai/Faux');
+    return 'Vrai/Faux';
+  }
+
+  if (has('completer') || has('ompleter') || has('texte') || has('saisie') || has('lacune')) {
+    console.log('✅ Type detected: Compléter');
+    return 'Compléter';
+  }
+
+  if (has('associer') || has('assoc') || has('appari') || has('matching') || has('relier')) {
+    console.log('✅ Type detected: Associer');
+    return 'Associer';
+  }
+
+  console.warn('⚠️ Unrecognized type after normalization:', normalized);
+  return undefined;
+}
 
 export function detectDelimiter(csv: string): string {
   const firstLine = csv.split(/\r?\n/, 1)[0] ?? '';
@@ -25,9 +66,12 @@ export function parseCSV(csv: string): { questions: Question[]; errors: string[]
 
   data.forEach((row, index) => {
     try {
+      const resolvedType = resolveQuestionType(row['Type']);
+      if (!resolvedType) throw new Error('Type inconnu');
+
       const base = {
         id: row['ID'],
-        type: row['Type'] as any,
+        type: resolvedType,
         question: row['Question'],
         theme: row['Thème'],
         referenceCours: row['RéférenceCours'],
