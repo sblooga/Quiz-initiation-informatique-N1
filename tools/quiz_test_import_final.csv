@@ -1,0 +1,4 @@
+ID;Type;Question;Choix;Reponse;Theme;ReferenceCours;PagePDF
+1;Vrai/Faux;Les virus peuvent se cacher dans des fichiers téléchargés sur Internet;Vrai|Faux;Vrai;Sécurité & Sauvegarde;Leçon 029;38
+2;QCM;Quels supports sont des vecteurs fréquents d'infection ?;Clé USB|Pièces jointes e-mail|Liens SMS/WhatsApp;Clé USB|Pièces jointes e-mail|Liens SMS/WhatsApp;Sécurité & Sauvegarde;Leçon 029;39
+3;Compléter;Le logiciel antivirus installé sur le PC est ____;Malwarebytes;Malwarebytes;Sécurité & Sauvegarde;Leçon 029;40
