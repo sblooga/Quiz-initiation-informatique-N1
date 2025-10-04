@@ -1,0 +1,118 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, #3f87ff, #003f91);
+  color: #ffffff;
+  padding: 2rem 1.5rem 1rem;
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1.5rem 4rem;
+  line-height: 1.6;
+  display: grid;
+  gap: 2rem;
+}
+
+section {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-top {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.navbar-bottom {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 2px solid #003f91;
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.12);
+  justify-content: space-around;
+  z-index: 1000;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  background: #e7edfb;
+  color: #0a2342;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.nav-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px rgba(63, 135, 255, 0.25);
+  background: #d6e3ff;
+}
+
+.nav-button[aria-current="page"] {
+  background: #0b3d91;
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(11, 61, 145, 0.35);
+}
+
+.nav-button:focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 4px;
+}
+
+.icon {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding-bottom: 0.5rem;
+  }
+
+  .navbar-top {
+    display: none;
+  }
+
+  main {
+    padding-bottom: 6.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-bottom {
+    display: none;
+  }
+}
