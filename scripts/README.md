@@ -67,3 +67,19 @@ node -e "console.log('Node fonctionne', process.version)"
 
 
 Si toutes les commandes affichent une version et aucun message d’erreur → ✅ prêt pour Codex.
+Dans le terminal VS Code, exécute :
+
+git add scripts
+git commit -m "Ajout des scripts Node.js (MSI, NVM, Test, README)"
+git push
+
+
+👉 Les fichiers seront alors présents dans ton dépôt GitHub.
+
+Sur chacun de tes autres PC :
+
+cd "D:\TonDepot"   # ou le chemin où ton projet est cloné
+git pull
+
+
+➜ Les scripts apparaîtront automatiquement dans scripts/.
