@@ -1,0 +1,1324 @@
+[
+  {
+    "id": "1",
+    "type": "Vrai/Faux",
+    "question": "Les virus peuvent se cacher dans des fichiers PDF et des photos.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "virus PDF photo",
+    "pagePDF": 38,
+    "answer": "Vrai"
+  },
+  {
+    "id": "2",
+    "type": "Vrai/Faux",
+    "question": "Cliquer sur un lien d’un expéditeur inconnu est une bonne pratique.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "liens inconnus prudence",
+    "pagePDF": 38,
+    "answer": "Faux"
+  },
+  {
+    "id": "3",
+    "type": "QCM",
+    "question": "Quels supports sont des vecteurs fréquents d'infection ?",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "sources infection",
+    "pagePDF": 38,
+    "choices": [
+      "Clé USB",
+      "Pièces jointes e-mail",
+      "Liens SMS/WhatsApp",
+      "Imprimante"
+    ],
+    "answer": [
+      "Clé USB",
+      "Pièces jointes e-mail",
+      "Liens SMS/WhatsApp"
+    ]
+  },
+  {
+    "id": "4",
+    "type": "Compléter",
+    "question": "Le logiciel antivirus installé sur le PC est __________.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "Malwarebytes",
+    "pagePDF": 38,
+    "answer": "Malwarebytes"
+  },
+  {
+    "id": "5",
+    "type": "QCM",
+    "question": "Quels symptômes peuvent révéler une infection ?",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "symptômes infection",
+    "pagePDF": 38,
+    "choices": [
+      "Ralentissements",
+      "Blocage souris",
+      "Redémarrages en boucle",
+      "Démarrage plus rapide"
+    ],
+    "answer": [
+      "Ralentissements",
+      "Blocage souris",
+      "Redémarrages en boucle"
+    ]
+  },
+  {
+    "id": "6",
+    "type": "Vrai/Faux",
+    "question": "Il faut devenir paranoïaque pour éviter toutes les attaques.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "rester prudent",
+    "pagePDF": 38,
+    "answer": "Faux"
+  },
+  {
+    "id": "7",
+    "type": "QCM",
+    "question": "Quelles sont les trois sauvegardes prévues ?",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "sauvegarde clé formateur drive",
+    "pagePDF": 4,
+    "choices": [
+      "Clé USB Patriot",
+      "Sauvegarde chez le formateur",
+      "Google Drive",
+      "DVD gravé"
+    ],
+    "answer": [
+      "Clé USB Patriot",
+      "Sauvegarde chez le formateur",
+      "Google Drive"
+    ]
+  },
+  {
+    "id": "8",
+    "type": "Compléter",
+    "question": "La clé USB Patriot a une capacité d’environ ______ Go.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "clé Patriot 1 To",
+    "pagePDF": 4,
+    "answer": "1000"
+  },
+  {
+    "id": "9",
+    "type": "QCM",
+    "question": "Quel stockage est recommandé pour éviter la perte lors d’une réinstallation ?",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Partie 1 / Stockage recommandé",
+    "motClePDF": "Google Drive recommandé",
+    "pagePDF": 6,
+    "choices": [
+      "C:\\\\Users\\\\...",
+      "Google Drive",
+      "Bureau",
+      "Téléchargements"
+    ],
+    "answer": "Google Drive"
+  },
+  {
+    "id": "10",
+    "type": "Vrai/Faux",
+    "question": "OneDrive offre 15 Go gratuits selon le cours.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "OneDrive 15 Go",
+    "pagePDF": 4,
+    "answer": "Vrai"
+  },
+  {
+    "id": "11",
+    "type": "QCM",
+    "question": "Quels éléments l’antivirus peut analyser avant ouverture ?",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "analyse antivirus",
+    "pagePDF": 38,
+    "choices": [
+      "PDF",
+      "Photos",
+      "Fichiers ZIP",
+      "Thème Windows"
+    ],
+    "answer": [
+      "PDF",
+      "Photos",
+      "Fichiers ZIP"
+    ]
+  },
+  {
+    "id": "12",
+    "type": "Compléter",
+    "question": "La bonne pratique est d’________ le dossier Téléchargements régulièrement.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "nettoyage Téléchargements",
+    "pagePDF": 38,
+    "answer": [
+      "assainir",
+      "nettoyer"
+    ]
+  },
+  {
+    "id": "13",
+    "type": "Vrai/Faux",
+    "question": "Partager ses mots de passe via une clé USB familiale est conseillé.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "mots de passe confidentialité",
+    "pagePDF": 4,
+    "answer": "Faux"
+  },
+  {
+    "id": "14",
+    "type": "QCM",
+    "question": "Quel abonnement Google Drive est recommandé ?",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "Workspace 2 To 99,99€",
+    "pagePDF": 4,
+    "choices": [
+      "Gratuit 15 Go",
+      "Premium Workspace 2 To",
+      "Entreprise 5 To"
+    ],
+    "answer": "Premium Workspace 2 To"
+  },
+  {
+    "id": "15",
+    "type": "Compléter",
+    "question": "La sauvegarde système est effectuée avec __________ Reflect.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "Macrium Reflect",
+    "pagePDF": 4,
+    "answer": "Macrium"
+  },
+  {
+    "id": "16",
+    "type": "Vrai/Faux",
+    "question": "Une sauvegarde trimestrielle avec Macrium Reflect est recommandée.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "sauvegarde trimestrielle",
+    "pagePDF": 38,
+    "answer": "Vrai"
+  },
+  {
+    "id": "17",
+    "type": "QCM",
+    "question": "Que faire après un nettoyage réussi avec Glary Utilities ?",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 033",
+    "motClePDF": "Glary redémarrer",
+    "pagePDF": 42,
+    "choices": [
+      "Éteindre le PC",
+      "Redémarrer l’ordinateur",
+      "Désinstaller Glary"
+    ],
+    "answer": "Redémarrer l’ordinateur"
+  },
+  {
+    "id": "18",
+    "type": "Compléter",
+    "question": "Pour toute erreur disque détectée par Glary Utilities, il faut __________.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 033",
+    "motClePDF": "erreur disque appeler",
+    "pagePDF": 42,
+    "answer": "appeler le formateur"
+  },
+  {
+    "id": "19",
+    "type": "Vrai/Faux",
+    "question": "Séparer les sessions limite la propagation virale et protège la confidentialité.",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Leçon 032",
+    "motClePDF": "cloisonnement sessions",
+    "pagePDF": 41,
+    "answer": "Vrai"
+  },
+  {
+    "id": "20",
+    "type": "QCM",
+    "question": "Quels emplacements de sauvegarde sont listés ?",
+    "theme": "Sécurité & Sauvegarde",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "emplacements sauvegarde",
+    "pagePDF": 4,
+    "choices": [
+      "Clé Patriot",
+      "SSD formateur",
+      "Compte Google payant",
+      "Lecteur CD"
+    ],
+    "answer": [
+      "Clé Patriot",
+      "SSD formateur",
+      "Compte Google payant"
+    ]
+  },
+  {
+    "id": "21",
+    "type": "Vrai/Faux",
+    "question": "La session Administrateur sert aux installations et dépannages, pas au travail quotidien.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 001-002",
+    "motClePDF": "session administrateur",
+    "pagePDF": 4,
+    "answer": "Vrai"
+  },
+  {
+    "id": "22",
+    "type": "Vrai/Faux",
+    "question": "La session Renata est la session par défaut pour travailler.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 001",
+    "motClePDF": "session Renata",
+    "pagePDF": 4,
+    "answer": "Vrai"
+  },
+  {
+    "id": "23",
+    "type": "QCM",
+    "question": "Quelles méthodes permettent d’ouvrir le menu Windows ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 005",
+    "motClePDF": "menu Windows",
+    "pagePDF": 12,
+    "choices": [
+      "Clic gauche sur l’icône",
+      "Clic droit (menu contextuel)",
+      "Ctrl+Alt+Suppr"
+    ],
+    "answer": [
+      "Clic gauche sur l’icône",
+      "Clic droit (menu contextuel)"
+    ]
+  },
+  {
+    "id": "24",
+    "type": "Compléter",
+    "question": "Le raccourci pour ouvrir l’Explorateur de fichiers est __________.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 006",
+    "motClePDF": "raccourci explorateur",
+    "pagePDF": 13,
+    "answer": "Windows+E"
+  },
+  {
+    "id": "25",
+    "type": "QCM",
+    "question": "Comment ancrer une fenêtre à gauche/droite ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 007",
+    "motClePDF": "ancrage fenêtres",
+    "pagePDF": 13,
+    "choices": [
+      "Windows+Flèche gauche",
+      "Windows+Flèche droite",
+      "Alt+Tab",
+      "Windows+D"
+    ],
+    "answer": [
+      "Windows+Flèche gauche",
+      "Windows+Flèche droite"
+    ]
+  },
+  {
+    "id": "26",
+    "type": "Vrai/Faux",
+    "question": "Pour copier des éléments, on peut glisser-déposer en vérifiant l’étiquette « Copier ».",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 008",
+    "motClePDF": "glisser copier",
+    "pagePDF": 15,
+    "answer": "Vrai"
+  },
+  {
+    "id": "27",
+    "type": "QCM",
+    "question": "Quelle touche bascule entre Copier et Déplacer lors d’un glisser-déposer selon le cours ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 008",
+    "motClePDF": "bascule copier déplacer",
+    "pagePDF": 15,
+    "choices": [
+      "Shift (Maj)",
+      "Ctrl",
+      "Alt"
+    ],
+    "answer": "Shift (Maj)"
+  },
+  {
+    "id": "28",
+    "type": "Compléter",
+    "question": "Le raccourci « Couper » est __________.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 008",
+    "motClePDF": "raccourci couper",
+    "pagePDF": 15,
+    "answer": "Ctrl+X"
+  },
+  {
+    "id": "29",
+    "type": "QCM",
+    "question": "Quelles méthodes de sélection existent ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 010",
+    "motClePDF": "sélections",
+    "pagePDF": 18,
+    "choices": [
+      "Shift+clic",
+      "Ctrl+clic",
+      "Clic-glisser",
+      "Ctrl+A"
+    ],
+    "answer": [
+      "Shift+clic",
+      "Ctrl+clic",
+      "Clic-glisser",
+      "Ctrl+A"
+    ]
+  },
+  {
+    "id": "30",
+    "type": "Vrai/Faux",
+    "question": "Il est conseillé d’utiliser des espaces et des accents dans les noms de fichiers.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 012-014",
+    "motClePDF": "noms fichiers",
+    "pagePDF": 22,
+    "answer": "Faux"
+  },
+  {
+    "id": "31",
+    "type": "QCM",
+    "question": "Quels caractères sont interdits dans un nom de fichier Windows ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 014",
+    "motClePDF": "caractères interdits",
+    "pagePDF": 24,
+    "choices": [
+      "<",
+      ">",
+      ":",
+      "\"",
+      "/",
+      "\\",
+      "\\?",
+      "*"
+    ],
+    "answer": [
+      "<",
+      ">",
+      ":",
+      "\"",
+      "/",
+      "\\",
+      "\\?",
+      "*"
+    ]
+  },
+  {
+    "id": "32",
+    "type": "Compléter",
+    "question": "La bonne pratique est d’éviter les ________ trop longs.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 017",
+    "motClePDF": "nom trop long",
+    "pagePDF": 25,
+    "answer": "noms de fichiers"
+  },
+  {
+    "id": "33",
+    "type": "QCM",
+    "question": "Quels outils de recherche sont mentionnés ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 018-021",
+    "motClePDF": "recherche Everything",
+    "pagePDF": 25,
+    "choices": [
+      "Explorateur Windows",
+      "Everything",
+      "Spotlight"
+    ],
+    "answer": [
+      "Explorateur Windows",
+      "Everything"
+    ]
+  },
+  {
+    "id": "34",
+    "type": "Vrai/Faux",
+    "question": "Les filtres de recherche utilisent des mots-clés en anglais comme size, type, author.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 020-021",
+    "motClePDF": "filtres anglais",
+    "pagePDF": 25,
+    "answer": "Vrai"
+  },
+  {
+    "id": "35",
+    "type": "Compléter",
+    "question": "Le caractère générique pour remplacer n’importe quels caractères est ______.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 020-021",
+    "motClePDF": "joker étoile",
+    "pagePDF": 25,
+    "answer": "*"
+  },
+  {
+    "id": "36",
+    "type": "Compléter",
+    "question": "Pour sélectionner tout le contenu d’un dossier : __________.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 010",
+    "motClePDF": "Ctrl+A",
+    "pagePDF": 18,
+    "answer": "Ctrl+A"
+  },
+  {
+    "id": "37",
+    "type": "QCM",
+    "question": "Où trouver les sessions dans l’interface de connexion ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 001",
+    "motClePDF": "sessions",
+    "pagePDF": 4,
+    "choices": [
+      "Profil Administrateur",
+      "Profil Renata",
+      "Profil Famille",
+      "Profil Invité masqué"
+    ],
+    "answer": [
+      "Profil Administrateur",
+      "Profil Renata",
+      "Profil Famille"
+    ]
+  },
+  {
+    "id": "38",
+    "type": "Vrai/Faux",
+    "question": "Le raccourci Windows+D affiche ou masque le Bureau.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Raccourcis",
+    "motClePDF": "Windows+D",
+    "pagePDF": 35,
+    "answer": "Vrai"
+  },
+  {
+    "id": "39",
+    "type": "QCM",
+    "question": "Quels éléments sont présents dans le volet « Réglages rapides » (icône réseau) ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 004",
+    "motClePDF": "réglages rapides",
+    "pagePDF": 11,
+    "choices": [
+      "Wi‑Fi",
+      "Bluetooth",
+      "Mode avion",
+      "Luminosité",
+      "Son",
+      "Batterie"
+    ],
+    "answer": [
+      "Wi‑Fi",
+      "Bluetooth",
+      "Mode avion",
+      "Luminosité",
+      "Son",
+      "Batterie"
+    ]
+  },
+  {
+    "id": "40",
+    "type": "Compléter",
+    "question": "Pour verrouiller la session : __________.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Raccourcis",
+    "motClePDF": "verrouiller session",
+    "pagePDF": 35,
+    "answer": "Windows+L"
+  },
+  {
+    "id": "41",
+    "type": "Vrai/Faux",
+    "question": "Alt+F4 ferme la fenêtre active.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Raccourcis",
+    "motClePDF": "Alt+F4",
+    "pagePDF": 35,
+    "answer": "Vrai"
+  },
+  {
+    "id": "42",
+    "type": "QCM",
+    "question": "Quelle combinaison ouvre le Gestionnaire des tâches directement ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Raccourcis",
+    "motClePDF": "gestionnaire tâches",
+    "pagePDF": 35,
+    "choices": [
+      "Ctrl+Maj+Échap",
+      "Ctrl+Alt+Suppr",
+      "Alt+Tab"
+    ],
+    "answer": "Ctrl+Maj+Échap"
+  },
+  {
+    "id": "43",
+    "type": "Compléter",
+    "question": "Pour annuler une action : __________ ; pour rétablir : __________.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Raccourcis",
+    "motClePDF": "annuler rétablir",
+    "pagePDF": 35,
+    "answer": [
+      "Ctrl+Z",
+      "Ctrl+Y"
+    ]
+  },
+  {
+    "id": "44",
+    "type": "QCM",
+    "question": "Quels emplacements éviter pour stocker durablement ?",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Partie 1 / Stockage",
+    "motClePDF": "emplacement éviter",
+    "pagePDF": 6,
+    "choices": [
+      "C\\\\Users\\\\Nom\\\\Documents",
+      "Bureau",
+      "Google Drive"
+    ],
+    "answer": [
+      "C\\\\Users\\\\Nom\\\\Documents",
+      "Bureau"
+    ]
+  },
+  {
+    "id": "45",
+    "type": "Vrai/Faux",
+    "question": "Tout nommage doit exclure les articles inutiles et rester concis.",
+    "theme": "Windows 11 & Fichiers",
+    "referenceCours": "Leçon 017",
+    "motClePDF": "noms concis",
+    "pagePDF": 25,
+    "answer": "Vrai"
+  },
+  {
+    "id": "46",
+    "type": "QCM",
+    "question": "Quels traitements de texte sont cités ?",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 022-023-026",
+    "motClePDF": "traitement de texte",
+    "pagePDF": 28,
+    "choices": [
+      "Microsoft Word",
+      "LibreOffice Writer",
+      "Google Docs",
+      "Paint"
+    ],
+    "answer": [
+      "Microsoft Word",
+      "LibreOffice Writer",
+      "Google Docs"
+    ]
+  },
+  {
+    "id": "47",
+    "type": "Vrai/Faux",
+    "question": "Google Docs enregistre automatiquement dans le cloud.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 023",
+    "motClePDF": "enregistrement auto",
+    "pagePDF": 30,
+    "answer": "Vrai"
+  },
+  {
+    "id": "48",
+    "type": "Compléter",
+    "question": "L’extension native d’un document LibreOffice Writer est ______.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 026",
+    "motClePDF": "extension odt",
+    "pagePDF": 33,
+    "answer": ".odt"
+  },
+  {
+    "id": "49",
+    "type": "QCM",
+    "question": "Où sont rangés les logiciels portables sur le PC ?",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 025",
+    "motClePDF": "emplacement portables",
+    "pagePDF": 32,
+    "choices": [
+      "C\\\\USB-(PORTABLE-APPS)\\\\PortableApps",
+      "Clé 128GORENATA\\\\USB-(PORTABLE-APPS)\\\\PortableApps",
+      "C\\\\Program Files"
+    ],
+    "answer": [
+      "C\\\\USB-(PORTABLE-APPS)\\\\PortableApps",
+      "Clé 128GORENATA\\\\USB-(PORTABLE-APPS)\\\\PortableApps"
+    ]
+  },
+  {
+    "id": "50",
+    "type": "Vrai/Faux",
+    "question": "Installer un logiciel nécessite le mot de passe Administrateur si on est en session Renata.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 030",
+    "motClePDF": "setup mot de passe",
+    "pagePDF": 38,
+    "answer": "Vrai"
+  },
+  {
+    "id": "51",
+    "type": "Compléter",
+    "question": "Pour désinstaller un logiciel : clic droit sur le menu Windows → __________.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 031",
+    "motClePDF": "désinstaller",
+    "pagePDF": 40,
+    "answer": "Applications installées"
+  },
+  {
+    "id": "52",
+    "type": "QCM",
+    "question": "Quels exemples de logiciels portables sont cités ?",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 024-025",
+    "motClePDF": "exemples portables",
+    "pagePDF": 32,
+    "choices": [
+      "Notepad++",
+      "Foxit PDF Reader",
+      "LibreOffice",
+      "Photoshop"
+    ],
+    "answer": [
+      "Notepad++",
+      "Foxit PDF Reader",
+      "LibreOffice"
+    ]
+  },
+  {
+    "id": "53",
+    "type": "Vrai/Faux",
+    "question": "Indesign peut être créé directement via « Nouveau » dans l’explorateur Windows.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 009",
+    "motClePDF": "indesign création",
+    "pagePDF": 16,
+    "answer": "Faux"
+  },
+  {
+    "id": "54",
+    "type": "Compléter",
+    "question": "Pour exporter un document vers PDF dans LibreOffice Writer : Fichier → __________.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 026",
+    "motClePDF": "export PDF",
+    "pagePDF": 33,
+    "answer": "Exporter en PDF"
+  },
+  {
+    "id": "55",
+    "type": "QCM",
+    "question": "Quels navigateurs sont cités comme compatibles avec Drive/Docs ?",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 023",
+    "motClePDF": "navigateurs",
+    "pagePDF": 30,
+    "choices": [
+      "Google Chrome",
+      "Mozilla Firefox",
+      "Microsoft Edge",
+      "Safari"
+    ],
+    "answer": [
+      "Google Chrome",
+      "Mozilla Firefox",
+      "Microsoft Edge"
+    ]
+  },
+  {
+    "id": "56",
+    "type": "Vrai/Faux",
+    "question": "Les logiciels open source sont généralement modifiables selon leur licence.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 024",
+    "motClePDF": "open source",
+    "pagePDF": 32,
+    "answer": "Vrai"
+  },
+  {
+    "id": "57",
+    "type": "Compléter",
+    "question": "Le lanceur des applis portables se nomme __________.exe",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 025",
+    "motClePDF": "Start.exe",
+    "pagePDF": 32,
+    "answer": "Start"
+  },
+  {
+    "id": "58",
+    "type": "QCM",
+    "question": "Quels suites logicielles installées sont mentionnées ?",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 028-04",
+    "motClePDF": "suites installées",
+    "pagePDF": 36,
+    "choices": [
+      "Microsoft Office",
+      "Adobe",
+      "Corel Draw",
+      "SketchUp",
+      "VirtualDJ"
+    ],
+    "answer": [
+      "Microsoft Office",
+      "Adobe",
+      "Corel Draw",
+      "SketchUp",
+      "VirtualDJ"
+    ]
+  },
+  {
+    "id": "59",
+    "type": "Vrai/Faux",
+    "question": "Word, LibreOffice et Google Docs sont interchangeables pour des usages courants.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 035",
+    "motClePDF": "équivalences",
+    "pagePDF": 47,
+    "answer": "Vrai"
+  },
+  {
+    "id": "60",
+    "type": "Compléter",
+    "question": "Dans Google Drive, « Mon Drive » correspond à la ______ du stockage.",
+    "theme": "Logiciels & Bureautique",
+    "referenceCours": "Leçon 035",
+    "motClePDF": "racine",
+    "pagePDF": 47,
+    "answer": "racine"
+  },
+  {
+    "id": "61",
+    "type": "Vrai/Faux",
+    "question": "Toujours vérifier que l’on est connecté au bon compte Gmail avant d’envoyer un message.",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 039",
+    "motClePDF": "bon compte Gmail",
+    "pagePDF": 59,
+    "answer": "Vrai"
+  },
+  {
+    "id": "62",
+    "type": "Compléter",
+    "question": "Dans le champ « A », on saisit le ou les __________.",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 039",
+    "motClePDF": "destinataires",
+    "pagePDF": 59,
+    "answer": "destinataires"
+  },
+  {
+    "id": "63",
+    "type": "QCM",
+    "question": "Quels navigateurs sont cités pour accéder à Gmail/Drive ?",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 023-039",
+    "motClePDF": "navigateurs",
+    "pagePDF": 30,
+    "choices": [
+      "Chrome",
+      "Firefox",
+      "Edge",
+      "Internet Explorer"
+    ],
+    "answer": [
+      "Chrome",
+      "Firefox",
+      "Edge"
+    ]
+  },
+  {
+    "id": "64",
+    "type": "Vrai/Faux",
+    "question": "Il est inutile d’ajouter les contacts fréquents dans le carnet d’adresses Google.",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 039",
+    "motClePDF": "carnet d’adresses",
+    "pagePDF": 59,
+    "answer": "Faux"
+  },
+  {
+    "id": "65",
+    "type": "Compléter",
+    "question": "Pour rechercher un contact lors de la saisie du champ « A », on commence à taper le ______.",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 039",
+    "motClePDF": "auto-complétion",
+    "pagePDF": 59,
+    "answer": "nom"
+  },
+  {
+    "id": "66",
+    "type": "QCM",
+    "question": "Que contient le volet Réseau (Réglages rapides) utile pour le Wi‑Fi ?",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 004",
+    "motClePDF": "wifi réglages",
+    "pagePDF": 11,
+    "choices": [
+      "Activation Wi‑Fi",
+      "Liste des réseaux",
+      "Réglage Bluetooth",
+      "Mode avion"
+    ],
+    "answer": [
+      "Activation Wi‑Fi",
+      "Liste des réseaux",
+      "Mode avion"
+    ]
+  },
+  {
+    "id": "67",
+    "type": "Vrai/Faux",
+    "question": "Le mode avion coupe les communications sans fil.",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 004",
+    "motClePDF": "mode avion",
+    "pagePDF": 11,
+    "answer": "Vrai"
+  },
+  {
+    "id": "68",
+    "type": "Compléter",
+    "question": "Pour ouvrir la boîte « Exécuter » sous Windows : __________.",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Raccourcis",
+    "motClePDF": "Win+R",
+    "pagePDF": 35,
+    "answer": "Windows+R"
+  },
+  {
+    "id": "69",
+    "type": "QCM",
+    "question": "Quels éléments vérifier avant d’envoyer un e-mail ?",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 039",
+    "motClePDF": "bonnes pratiques e-mail",
+    "pagePDF": 59,
+    "choices": [
+      "Bon compte expéditeur",
+      "Destinataire correct",
+      "Objet parlant",
+      "Police fantaisie obligatoire"
+    ],
+    "answer": [
+      "Bon compte expéditeur",
+      "Destinataire correct",
+      "Objet parlant"
+    ]
+  },
+  {
+    "id": "70",
+    "type": "Vrai/Faux",
+    "question": "Les pièces jointes peuvent être porteuses de malwares.",
+    "theme": "Internet & Gmail",
+    "referenceCours": "Leçon 029",
+    "motClePDF": "pièces jointes risque",
+    "pagePDF": 38,
+    "answer": "Vrai"
+  },
+  {
+    "id": "71",
+    "type": "Vrai/Faux",
+    "question": "Photoshop est un logiciel installable et payant.",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 037",
+    "motClePDF": "Photoshop payant",
+    "pagePDF": 50,
+    "answer": "Vrai"
+  },
+  {
+    "id": "72",
+    "type": "Compléter",
+    "question": "Pour enregistrer fréquemment dans Photoshop, on utilise le raccourci __________.",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 037",
+    "motClePDF": "Ctrl+S Photoshop",
+    "pagePDF": 50,
+    "answer": "Ctrl+S"
+  },
+  {
+    "id": "73",
+    "type": "QCM",
+    "question": "Quels logiciels appartiennent à la suite Adobe citée ?",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 028-037",
+    "motClePDF": "suite Adobe",
+    "pagePDF": 36,
+    "choices": [
+      "Photoshop",
+      "Illustrator",
+      "InDesign",
+      "Excel"
+    ],
+    "answer": [
+      "Photoshop",
+      "Illustrator",
+      "InDesign"
+    ]
+  },
+  {
+    "id": "74",
+    "type": "Vrai/Faux",
+    "question": "Avant de créer une publication, il est conseillé de faire des croquis à main levée.",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 037",
+    "motClePDF": "croquis préalable",
+    "pagePDF": 50,
+    "answer": "Vrai"
+  },
+  {
+    "id": "75",
+    "type": "Compléter",
+    "question": "Le fichier de travail natif de Photoshop porte l’extension ______.",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 037",
+    "motClePDF": "extension psd",
+    "pagePDF": 50,
+    "answer": ".psd"
+  },
+  {
+    "id": "76",
+    "type": "QCM",
+    "question": "Où stocker le projet de démo selon le cours ?",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 037",
+    "motClePDF": "emplacement démo",
+    "pagePDF": 50,
+    "choices": [
+      "Clé 128GORENATA sous EXERCICES‑GAUCHE",
+      "Bureau",
+      "Téléchargements"
+    ],
+    "answer": "Clé 128GORENATA sous EXERCICES‑GAUCHE"
+  },
+  {
+    "id": "77",
+    "type": "Vrai/Faux",
+    "question": "Les suites Adobe/Corel/SketchUp sont listées comme installées sur le PC.",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 028",
+    "motClePDF": "suites installées",
+    "pagePDF": 36,
+    "answer": "Vrai"
+  },
+  {
+    "id": "78",
+    "type": "Compléter",
+    "question": "Pour copier un chemin d’accès complet dans l’explorateur : Shift + clic droit → __________.",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 037",
+    "motClePDF": "copier chemin accès",
+    "pagePDF": 50,
+    "answer": "Copier en tant que chemin d’accès"
+  },
+  {
+    "id": "79",
+    "type": "QCM",
+    "question": "Quels formats peut‑on exporter depuis Writer pour compatibilité ?",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 026",
+    "motClePDF": "export Writer",
+    "pagePDF": 33,
+    "choices": [
+      ".docx",
+      ".pdf",
+      ".psd"
+    ],
+    "answer": [
+      ".docx",
+      ".pdf"
+    ]
+  },
+  {
+    "id": "80",
+    "type": "Vrai/Faux",
+    "question": "Les documents .gdoc n’affichent pas l’extension dans l’interface web de Google Drive.",
+    "theme": "Multimédia & Création",
+    "referenceCours": "Leçon 035",
+    "motClePDF": ".gdoc extensions",
+    "pagePDF": 47,
+    "answer": "Vrai"
+  },
+  {
+    "id": "81",
+    "type": "Vrai/Faux",
+    "question": "Jan est une IA locale qui préserve la confidentialité des données.",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "Jan local",
+    "pagePDF": 53,
+    "answer": "Vrai"
+  },
+  {
+    "id": "82",
+    "type": "QCM",
+    "question": "Quelles IA en ligne sont citées ?",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "IA en ligne",
+    "pagePDF": 53,
+    "choices": [
+      "ChatGPT",
+      "Copilot",
+      "Perplexity.ai",
+      "Jan"
+    ],
+    "answer": [
+      "ChatGPT",
+      "Copilot",
+      "Perplexity.ai"
+    ]
+  },
+  {
+    "id": "83",
+    "type": "Compléter",
+    "question": "Un bon prompt comporte un rôle, une tâche et un ________.",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "rôle tâche contexte",
+    "pagePDF": 53,
+    "answer": "contexte"
+  },
+  {
+    "id": "84",
+    "type": "Vrai/Faux",
+    "question": "Les IA peuvent parfois inventer des informations : on parle d’hallucinations.",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "hallucinations",
+    "pagePDF": 53,
+    "answer": "Vrai"
+  },
+  {
+    "id": "85",
+    "type": "QCM",
+    "question": "Quel coût typique est évoqué pour un abonnement mensuel d’IA ?",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "coût IA",
+    "pagePDF": 53,
+    "choices": [
+      "Environ 20 € / mois",
+      "Gratuit illimité",
+      "200 € / mois"
+    ],
+    "answer": "Environ 20 € / mois"
+  },
+  {
+    "id": "86",
+    "type": "Compléter",
+    "question": "Pour économiser, on peut acheter un forfait en fonction de sa __________.",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "forfait consommation",
+    "pagePDF": 53,
+    "answer": "consommation"
+  },
+  {
+    "id": "87",
+    "type": "Vrai/Faux",
+    "question": "Les réponses varient selon l’IA interrogée.",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "variabilité IA",
+    "pagePDF": 53,
+    "answer": "Vrai"
+  },
+  {
+    "id": "88",
+    "type": "QCM",
+    "question": "Où rédiger son prompt avant de le coller dans l’IA (selon le cours) ?",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "préparer prompt Notepad++",
+    "pagePDF": 53,
+    "choices": [
+      "Notepad++",
+      "Word",
+      "Paint"
+    ],
+    "answer": "Notepad++"
+  },
+  {
+    "id": "89",
+    "type": "Compléter",
+    "question": "Le nombre d’unités de calcul facturées par certaines IA s’appelle des __________.",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "tokens",
+    "pagePDF": 53,
+    "answer": "tokens"
+  },
+  {
+    "id": "90",
+    "type": "Vrai/Faux",
+    "question": "Copilot et Perplexity ont accès au web, ce qui peut améliorer la précision sur l’actualité.",
+    "theme": "IA & Outils modernes",
+    "referenceCours": "Leçon 038",
+    "motClePDF": "web accès",
+    "pagePDF": 53,
+    "answer": "Vrai"
+  },
+  {
+    "id": "91",
+    "type": "Vrai/Faux",
+    "question": "Glary Utilities Pro est un outil de maintenance puissant à utiliser avec précaution.",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Leçon 033",
+    "motClePDF": "Glary puissant",
+    "pagePDF": 42,
+    "answer": "Vrai"
+  },
+  {
+    "id": "92",
+    "type": "QCM",
+    "question": "Quelles étapes recommande le cours pour utiliser Glary en 1‑clic ?",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Leçon 033",
+    "motClePDF": "Glary 1-clic",
+    "pagePDF": 42,
+    "choices": [
+      "Sélectionner toutes les options",
+      "Analyser",
+      "Autoriser la réparation automatique",
+      "Redémarrer"
+    ],
+    "answer": [
+      "Sélectionner toutes les options",
+      "Analyser",
+      "Autoriser la réparation automatique",
+      "Redémarrer"
+    ]
+  },
+  {
+    "id": "93",
+    "type": "Compléter",
+    "question": "Après un nettoyage Glary réussi, il est conseillé de __________ l’ordinateur.",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Leçon 033",
+    "motClePDF": "redémarrer",
+    "pagePDF": 42,
+    "answer": "redémarrer"
+  },
+  {
+    "id": "94",
+    "type": "Vrai/Faux",
+    "question": "Installer des logiciels inutiles n’impacte pas les performances.",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Leçon 029-030",
+    "motClePDF": "installer inutile",
+    "pagePDF": 38,
+    "answer": "Faux"
+  },
+  {
+    "id": "95",
+    "type": "QCM",
+    "question": "Pourquoi éviter C\\\\Users pour stocker le long terme ?",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Partie 1 / Stockage",
+    "motClePDF": "éviter C\\\\Users",
+    "pagePDF": 6,
+    "choices": [
+      "Risque de perte à la réinstallation",
+      "Dispersion entre sessions",
+      "Manque d’espace",
+      "Sécurité"
+    ],
+    "answer": [
+      "Risque de perte à la réinstallation",
+      "Dispersion entre sessions"
+    ]
+  },
+  {
+    "id": "96",
+    "type": "Compléter",
+    "question": "Pour rechercher efficacement des fichiers : utiliser Everything avec les ________ génériques (*, ?).",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Leçon 021",
+    "motClePDF": "Everything caractères",
+    "pagePDF": 26,
+    "answer": "caractères"
+  },
+  {
+    "id": "97",
+    "type": "Vrai/Faux",
+    "question": "Séparer Administrateur/Renata/Famille protège aussi la confidentialité.",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Leçon 032",
+    "motClePDF": "confidentialité sessions",
+    "pagePDF": 41,
+    "answer": "Vrai"
+  },
+  {
+    "id": "98",
+    "type": "QCM",
+    "question": "Quels services cloud sont cités dans le cours ?",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "cloud cités",
+    "pagePDF": 4,
+    "choices": [
+      "Google Drive",
+      "OneDrive",
+      "iCloud"
+    ],
+    "answer": [
+      "Google Drive",
+      "OneDrive"
+    ]
+  },
+  {
+    "id": "99",
+    "type": "Compléter",
+    "question": "Le concurrent direct de Google Drive cité est __________.",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Partie 1 / Sauvegardes",
+    "motClePDF": "concurrent Drive",
+    "pagePDF": 4,
+    "answer": "OneDrive"
+  },
+  {
+    "id": "100",
+    "type": "Vrai/Faux",
+    "question": "Les logiciels installables sont souvent propriétaires et payants.",
+    "theme": "Divers & Maintenance PC",
+    "referenceCours": "Leçon 024",
+    "motClePDF": "propriétaires payants",
+    "pagePDF": 32,
+    "answer": "Vrai"
+  }
+]
