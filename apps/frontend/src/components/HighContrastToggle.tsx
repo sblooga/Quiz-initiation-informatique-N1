@@ -8,7 +8,10 @@ export default function HighContrastToggle() {
   }, [high]);
 
   return (
-    <button onClick={() => setHigh(h => !h)} className="border p-2 rounded">
+    <button
+      onClick={() => setHigh(h => !h)}
+      className="rounded-full bg-white/70 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-700 shadow transition hover:bg-white"
+    >
       {high ? 'Contraste normal' : 'Contraste élevé'}
     </button>
   );
