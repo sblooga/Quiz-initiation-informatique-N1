@@ -3,5 +3,42 @@
 @tailwind utilities;
 
 html, body {
-  font-family: sans-serif;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #fefcff;
+  color: #1f2937;
+}
+
+.font-display {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #1f2937;
+  outline-offset: 2px;
+}
+
+[data-contrast='high'] body,
+[data-contrast='high'] .bg-white\/80,
+[data-contrast='high'] .bg-white\/90,
+[data-contrast='high'] .bg-white\/70,
+[data-contrast='high'] .bg-white\/60 {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+}
+
+[data-contrast='high'] a,
+[data-contrast='high'] p,
+[data-contrast='high'] span,
+[data-contrast='high'] h1,
+[data-contrast='high'] h2,
+[data-contrast='high'] h3 {
+  color: #f9fafb !important;
+}
+
+[data-contrast='high'] button {
+  background-color: #f9fafb !important;
+  color: #111827 !important;
+  border-color: #f9fafb !important;
 }

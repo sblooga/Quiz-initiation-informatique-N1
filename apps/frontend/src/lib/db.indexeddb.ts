@@ -41,3 +41,8 @@ export async function getSessions(profile: string): Promise<SessionItem[]> {
   const all = await db.getAll('sessions');
   return all.filter((s: SessionItem) => s.profile === profile);
 }
+
+export async function getAllSessions(): Promise<SessionItem[]> {
+  const db = await getDB();
+  return db.getAll('sessions');
+}
