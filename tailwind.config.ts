@@ -12,7 +12,9 @@ const config: Config = {
           lavender: '#c8c3f9',
           mint: '#c2f5d9',
           peach: '#ffd8c2',
-          sky: '#cce4ff'
+          sky: '#cce4ff',
+          rose: '#ffd6eb',
+          butter: '#fff4c6'
         }
       }
     }
