@@ -25,6 +25,8 @@ export default function Quiz() {
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
   const [status, setStatus] = useState<QuizStatus>('loading');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [lastUserAnswer, setLastUserAnswer] = useState<any>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -68,11 +70,27 @@ export default function Quiz() {
 
     const newAnswers = [...answers, { question: current, user: userAnswer, correct }];
     setAnswers(newAnswers);
+    if (!correct) {
+      setShowFeedback(true);
+      setLastUserAnswer(userAnswer);
+      return;
+    }
 
     if (index + 1 >= questions.length) {
       const score = newAnswers.filter(a => a.correct).length;
       saveSession({ profile, date: Date.now(), score });
       navigate('/resultats', { state: { answers: newAnswers, profile } });
+    } else {
+      setIndex(i => i + 1);
+    }
+  };
+
+  const continueAfterFeedback = () => {
+    setShowFeedback(false);
+    if (index + 1 >= questions.length) {
+      const score = answers.filter(a => a.correct).length;
+      saveSession({ profile, date: Date.now(), score });
+      navigate('/resultats', { state: { answers, profile } });
     } else {
       setIndex(i => i + 1);
     }
@@ -151,7 +169,26 @@ export default function Quiz() {
           <h2 className="text-2xl font-bold text-slate-900">{q.question}</h2>
           <p className="mt-2 text-base text-slate-600">Répondez en prenant votre temps. Chaque bouton et champ est volontairement large pour votre confort.</p>
           <div className="mt-6">
-            <QuestionRenderer question={q} onAnswer={handleAnswer} />
+            {!showFeedback ? (
+              <QuestionRenderer question={q} onAnswer={handleAnswer} />
+            ) : (
+              <div className="rounded-3xl bg-white/80 p-6 shadow-inner" aria-live="polite">
+                <p className="text-lg font-semibold text-red-700">Mauvaise réponse</p>
+                <p className="mt-2 text-slate-700">Bonne réponse : <span className="font-semibold">{JSON.stringify(q.answer)}</span></p>
+                {q.pagePDF && (
+                  <div className="mt-3">
+                    <PDFLink page={q.pagePDF} motCle={q.motClePDF} />
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={continueAfterFeedback}
+                  className="mt-4 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-white shadow-lg transition hover:bg-slate-700"
+                >
+                  Continuer
+                </button>
+              </div>
+            )}
           </div>
           {q.pagePDF && (
             <div className="mt-6">

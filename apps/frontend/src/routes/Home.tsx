@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import HighContrastToggle from '../components/HighContrastToggle';
 import ProfilePicker from '../components/ProfilePicker';
+import { getSettings } from '../lib/settings';
 
-const teacherPhoto = 'https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80';
+const teacherPhotoDefault = 'https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80';
 const heroBackdrop = 'https://images.unsplash.com/photo-1523475472560-d2df97ec485c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
 const secondaryVisuals = [
   {
@@ -26,6 +27,7 @@ const secondaryVisuals = [
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const settings = getSettings();
 
   const goToFirstProfile = () => {
     navigate('/inscription');
@@ -38,7 +40,7 @@ export default function Home() {
           <div className="flex flex-col gap-2">
             <p className="text-sm font-semibold uppercase tracking-[0.5em] text-slate-600">Programme seniors</p>
             <h1 className="text-3xl font-extrabold tracking-[0.3em] text-slate-900 sm:text-4xl">
-              INITIATION INFORMATIQUE N1 SENIORS
+              COURS D'INITIATION INFORMATIQUE N1
             </h1>
           </div>
           <div className="flex items-center gap-3 self-end">
@@ -85,7 +87,7 @@ export default function Home() {
             <div className="relative flex flex-col items-center gap-6 p-8 sm:flex-row sm:items-end sm:justify-between">
               <div className="flex items-center gap-6">
                 <div className="overflow-hidden rounded-full border-[6px] border-white shadow-2xl">
-                  <img src={teacherPhoto} alt="Richard, votre professeur" className="h-40 w-40 object-cover" />
+                  <img src={settings.teacherPhotoUrl || teacherPhotoDefault} alt="Richard, votre professeur" className="h-40 w-40 object-cover" />
                 </div>
                 <div>
                   <p className="text-sm uppercase tracking-[0.5em] text-slate-600">Votre accompagnateur</p>

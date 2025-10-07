@@ -2,14 +2,18 @@ import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { parseCSV } from '../lib/csv';
 import { saveQuestions } from '../lib/db.indexeddb';
+import { useSettings } from '../lib/settings';
 
-const REQUIRED_CODE = '00000';
 
 export default function Admin() {
+  const [settings, setSettings] = useSettings();
   const [report, setReport] = useState<string[]>([]);
   const [code, setCode] = useState('');
   const [authorized, setAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [newCode, setNewCode] = useState('');
+  const [teacherPhoto, setTeacherPhoto] = useState(settings.teacherPhotoUrl);
+  const [summary, setSummary] = useState(settings.courseSummary);
 
   const handleFile = async (file: File) => {
     setIsLoading(true);
@@ -26,9 +30,25 @@ export default function Admin() {
     }
   };
 
+  const onSaveSettings = (event: FormEvent) => {
+    event.preventDefault();
+    if (!authorized) return;
+    const patch: any = { teacherPhotoUrl: teacherPhoto, courseSummary: summary };
+    if (newCode.trim()) {
+      if (!/^\d{6}$/.test(newCode.trim())) {
+        setReport(["Le code doit contenir 6 chiffres."]);
+        return;
+      }
+      patch.adminCode = newCode.trim();
+    }
+    setSettings(patch);
+    setReport(["Parametres sauvegardes."]);
+    setNewCode('');
+  };
+
   const onSubmitCode = (event: FormEvent) => {
     event.preventDefault();
-    if (code.trim() === REQUIRED_CODE) {
+    if (code.trim() === settings.adminCode) {
       setAuthorized(true);
       setReport(['Code accepté. Vous pouvez importer un fichier.']);
     } else {
@@ -62,7 +82,7 @@ export default function Admin() {
                 value={code}
                 onChange={event => setCode(event.target.value)}
                 className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-lg tracking-[0.4em] text-slate-800 shadow-inner focus:border-slate-500 focus:outline-none"
-                placeholder="00000"
+                placeholder="000000"
                 aria-label="Code de sécurité"
               />
             </label>
@@ -71,6 +91,52 @@ export default function Admin() {
               className="mt-4 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-white shadow-lg transition hover:bg-slate-700 sm:mt-auto"
             >
               Valider
+            </button>
+          </form>
+        </section>
+        
+        <section className={`rounded-3xl p-6 shadow-lg ${authorized ? 'bg-white/90' : 'bg-white/50 opacity-70'}`} aria-disabled={!authorized}>
+          <h2 className="text-xl font-semibold text-slate-800">Etape 3 - Parametres de la page d'accueil</h2>
+          <form onSubmit={onSaveSettings} className="mt-4 space-y-4">
+            <label className="block">
+              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Photo du professeur (URL)</span>
+              <input
+                type="url"
+                value={teacherPhoto}
+                onChange={e => setTeacherPhoto(e.target.value)}
+                className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 shadow-inner focus:border-slate-500 focus:outline-none"
+                placeholder="https://..."
+                disabled={!authorized}
+              />
+            </label>
+            <label className="block">
+              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Resume du cours</span>
+              <textarea
+                value={summary}
+                onChange={e => setSummary(e.target.value)}
+                className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 shadow-inner focus:border-slate-500 focus:outline-none"
+                rows={4}
+                disabled={!authorized}
+              />
+            </label>
+            <label className="block">
+              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Nouveau code d'acces (6 chiffres)</span>
+              <input
+                type="password"
+                inputMode="numeric"
+                value={newCode}
+                onChange={e => setNewCode(e.target.value)}
+                className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-lg tracking-[0.4em] text-slate-800 shadow-inner focus:border-slate-500 focus:outline-none"
+                placeholder="000000"
+                disabled={!authorized}
+              />
+            </label>
+            <button
+              type="submit"
+              disabled={!authorized}
+              className="rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-white shadow-lg transition hover:bg-slate-700 disabled:opacity-50"
+            >
+              Enregistrer les parametres
             </button>
           </form>
         </section>
