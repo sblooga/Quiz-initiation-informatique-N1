@@ -7,11 +7,10 @@ export type Settings = {
 const STORAGE_KEY = 'quiz-n1-settings-v1';
 
 const defaultSettings: Settings = {
-  adminCode: '000000',
-  teacherPhotoUrl:
-    'https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80',
+  adminCode: '00000',
+  teacherPhotoUrl: '',
   courseSummary:
-    'Pas à pas, je vous guide pour gagner en confiance avec l\'ordinateur. Prenez votre temps, je suis là pour vous !',
+    "Pas à pas, je vous guide pour gagner en confiance avec l'ordinateur. Prenez votre temps, je suis là pour vous !",
 };
 
 export function getSettings(): Settings {
@@ -30,7 +29,7 @@ export function saveSettings(next: Partial<Settings> | ((prev: Settings) => Part
   if (typeof window === 'undefined') return;
   const prev = getSettings();
   const patch = typeof next === 'function' ? (next as (prev: Settings) => Partial<Settings>)(prev) : next;
-  const merged = { ...prev, ...patch } satisfies Settings;
+  const merged = { ...prev, ...patch } as Settings;
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
   window.dispatchEvent(new Event('settings-updated'));
 }
@@ -57,3 +56,4 @@ export function useSettings(): [Settings, (next: Partial<Settings> | ((prev: Set
 
   return [settings, set];
 }
+

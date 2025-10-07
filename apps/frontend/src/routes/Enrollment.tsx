@@ -1,6 +1,6 @@
 import { FormEvent, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PROFILE_PHOTO_LIBRARY, Profile, useProfiles } from '../lib/profiles';
+import { Profile, useProfiles } from '../lib/profiles';
 
 interface DraftProfile {
   name: string;
@@ -8,7 +8,7 @@ interface DraftProfile {
   color: string;
 }
 
-const palette = ['#d9cffc', '#ffe4c4', '#d1f2ff', '#ffe3f3', '#fdf3c7', '#c9f5e9'];
+const palette = ['#374151', '#4b5563', '#6b7280', '#1f2937', '#111827', '#0f172a'];
 
 const createId = () =>
   typeof crypto !== 'undefined' && 'randomUUID' in crypto
@@ -21,14 +21,14 @@ function createDraftFromProfile(profile: Profile): DraftProfile {
 
 export default function Enrollment() {
   const { profiles, setProfiles } = useProfiles();
-  const [draft, setDraft] = useState<DraftProfile>(() => ({ name: '', photo: PROFILE_PHOTO_LIBRARY[0], color: palette[0] }));
+  const [draft, setDraft] = useState<DraftProfile>(() => ({ name: '', photo: '', color: palette[0] }));
   const [editingId, setEditingId] = useState<string | null>(null);
   const [feedback, setFeedback] = useState('');
 
   const sortedProfiles = useMemo(() => profiles.slice().sort((a, b) => a.name.localeCompare(b.name)), [profiles]);
 
   const resetDraft = () => {
-    setDraft({ name: '', photo: PROFILE_PHOTO_LIBRARY[0], color: palette[Math.floor(Math.random() * palette.length)] });
+    setDraft({ name: '', photo: '', color: palette[Math.floor(Math.random() * palette.length)] });
   };
 
   const handleSubmit = (event: FormEvent) => {
@@ -81,75 +81,61 @@ export default function Enrollment() {
     setFeedback(`${profile.name} a été retiré(e) de la liste.`);
   };
 
-  const onSelectPhoto = (url: string) => {
-    setDraft(prev => ({ ...prev, photo: url }));
-  };
-
-  const onSelectColor = (color: string) => {
-    setDraft(prev => ({ ...prev, color }));
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pastel-rose via-pastel-butter to-pastel-sky px-6 py-10 text-slate-800">
-      <div className="mx-auto max-w-5xl space-y-10 rounded-[2.75rem] bg-white/80 p-8 shadow-2xl backdrop-blur">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black px-6 py-10 text-slate-100">
+      <div className="mx-auto max-w-5xl space-y-10 rounded-[2.75rem] surface-dark p-8 shadow-2xl">
         <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.5em] text-slate-500">Espace formateur</p>
-            <h1 className="text-3xl font-extrabold text-slate-900 md:text-4xl">Gestion des profils élèves</h1>
+            <p className="text-sm uppercase tracking-[0.5em] text-slate-400">Espace formateur</p>
+            <h1 className="text-3xl font-extrabold text-white md:text-4xl">Gestion des profils élèves</h1>
           </div>
-          <Link to="/" className="rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-white shadow-lg transition hover:bg-slate-700">
-            Retour à l'accueil
-          </Link>
+          <Link to="/" className="btn-red">Retour à l'accueil</Link>
         </header>
 
         <section className="grid gap-8 lg:grid-cols-[2fr,3fr]">
-          <form onSubmit={editingId ? saveEdit : handleSubmit} className="rounded-3xl bg-white/90 p-6 shadow-lg">
-            <h2 className="text-xl font-semibold text-slate-800">{editingId ? 'Modifier un profil' : 'Inscrire un nouvel élève'}</h2>
+          <form onSubmit={editingId ? saveEdit : handleSubmit} className="rounded-3xl bg-gray-800/70 p-6 shadow-lg">
+            <h2 className="text-xl font-semibold text-slate-100">{editingId ? 'Modifier un profil' : 'Inscrire un nouvel élève'}</h2>
             <div className="mt-6 space-y-6">
-              <label className="block text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
+              <label className="block text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
                 Prénom
                 <input
                   value={draft.name}
                   onChange={event => setDraft(prev => ({ ...prev, name: event.target.value }))}
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-lg text-slate-800 shadow-inner focus:border-slate-500 focus:outline-none"
+                  className="input-dark mt-2 w-full rounded-2xl px-4 py-3 text-lg shadow-inner"
                   placeholder="Ex : Marie"
                   aria-label="Prénom de l'élève"
                 />
               </label>
 
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Photo du profil</p>
-                <div className="mt-3 grid gap-3 sm:grid-cols-3">
-                  {PROFILE_PHOTO_LIBRARY.map(url => (
-                    <button
-                      type="button"
-                      key={url}
-                      onClick={() => onSelectPhoto(url)}
-                      className={`overflow-hidden rounded-2xl border-4 ${draft.photo === url ? 'border-slate-900' : 'border-transparent'} bg-slate-100 shadow`}
-                      aria-label="Sélectionner cette photo"
-                    >
-                      <img src={url} alt="Option de photo" className="h-24 w-full object-cover" />
-                    </button>
-                  ))}
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Photo du profil (URL optionnelle)</p>
+                <div className="mt-3 flex items-center gap-4">
+                  <div className="grid h-20 w-20 place-items-center rounded-full border-4 border-gray-700 bg-gray-900 text-white shadow-inner">
+                    {draft.photo ? (
+                      <img src={draft.photo} alt="Aperçu" className="h-full w-full rounded-full object-cover" />
+                    ) : (
+                      <span className="text-xl font-bold">{draft.name?.[0]?.toUpperCase() || '?'}</span>
+                    )}
+                  </div>
+                  <input
+                    type="url"
+                    placeholder="Collez l'URL d'une photo (facultatif)"
+                    className="input-dark w-full rounded-2xl px-4 py-3 text-sm"
+                    value={draft.photo}
+                    onChange={event => setDraft(prev => ({ ...prev, photo: event.target.value }))}
+                  />
                 </div>
-                <input
-                  type="url"
-                  placeholder="Ou collez l'URL d'une photo personnalisée"
-                  className="mt-3 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 focus:border-slate-500 focus:outline-none"
-                  value={draft.photo.startsWith('http') ? draft.photo : ''}
-                  onChange={event => onSelectPhoto(event.target.value)}
-                />
               </div>
 
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Couleur de fond</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Couleur de fond</p>
                 <div className="mt-3 flex flex-wrap gap-3">
                   {palette.map(color => (
                     <button
                       type="button"
                       key={color}
-                      onClick={() => onSelectColor(color)}
-                      className={`h-10 w-10 rounded-full border-4 ${draft.color === color ? 'border-slate-900' : 'border-white'} shadow`}
+                      onClick={() => setDraft(prev => ({ ...prev, color }))}
+                      className={`h-10 w-10 rounded-full border-4 ${draft.color === color ? 'border-red-600' : 'border-gray-700'} shadow`}
                       style={{ background: color }}
                       aria-label={`Choisir la couleur ${color}`}
                     />
@@ -159,56 +145,41 @@ export default function Enrollment() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <button
-                type="submit"
-                className="rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-white shadow-lg transition hover:bg-slate-700"
-              >
-                {editingId ? 'Enregistrer' : 'Ajouter'}
-              </button>
+              <button type="submit" className="btn-red">{editingId ? 'Enregistrer' : 'Ajouter'}</button>
               {editingId && (
-                <button
-                  type="button"
-                  onClick={cancelEdit}
-                  className="rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-slate-800 shadow-lg transition hover:bg-slate-100"
-                >
-                  Annuler
-                </button>
+                <button type="button" onClick={cancelEdit} className="btn-red">Annuler</button>
               )}
             </div>
-            {feedback && <p className="mt-4 text-sm text-slate-600">{feedback}</p>}
+            {feedback && <p className="mt-4 text-sm text-slate-300">{feedback}</p>}
           </form>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-800">Profils enregistrés</h2>
+            <h2 className="text-xl font-semibold text-slate-100">Profils enregistrés</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               {sortedProfiles.map(profile => (
-                <article key={profile.id} className="relative overflow-hidden rounded-3xl bg-white/80 shadow-lg">
-                  <div className="absolute inset-0 opacity-40" style={{ background: profile.color }} aria-hidden="true" />
+                <article key={profile.id} className="relative overflow-hidden rounded-3xl bg-gray-800/70 shadow-lg">
+                  <div className="absolute inset-0 opacity-30" style={{ background: profile.color }} aria-hidden="true" />
                   <div className="relative p-6">
-                    <img src={profile.photo} alt={profile.name} className="h-32 w-full rounded-2xl object-cover shadow-lg" />
-                    <h3 className="mt-4 text-lg font-semibold text-slate-900">{profile.name}</h3>
-                    <p className="text-sm text-slate-600">Couleur associée : {profile.color}</p>
+                    <div className="grid h-28 w-full place-items-center overflow-hidden rounded-2xl bg-gray-900">
+                      {profile.photo ? (
+                        <img src={profile.photo} alt={profile.name} className="h-28 w-full rounded-2xl object-cover" />
+                      ) : (
+                        <div className="grid h-28 w-full place-items-center text-2xl font-bold text-white">
+                          {profile.name?.[0]?.toUpperCase() || '?'}
+                        </div>
+                      )}
+                    </div>
+                    <h3 className="mt-4 text-lg font-semibold text-white">{profile.name}</h3>
+                    <p className="text-sm text-slate-300">Couleur associée : {profile.color}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <button
-                        type="button"
-                        onClick={() => startEdit(profile)}
-                        className="rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow hover:bg-slate-700"
-                      >
-                        Modifier
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => removeProfile(profile)}
-                        className="rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-800 shadow hover:bg-slate-100"
-                      >
-                        Supprimer
-                      </button>
+                      <button type="button" onClick={() => startEdit(profile)} className="btn-red px-4 py-2 text-xs">Modifier</button>
+                      <button type="button" onClick={() => removeProfile(profile)} className="btn-red px-4 py-2 text-xs">Supprimer</button>
                     </div>
                   </div>
                 </article>
               ))}
               {!sortedProfiles.length && (
-                <p className="rounded-3xl bg-white/80 p-6 text-center text-slate-600 shadow-inner">
+                <p className="rounded-3xl bg-gray-800/70 p-6 text-center text-slate-300 shadow-inner">
                   Aucun élève inscrit pour le moment. Ajoutez votre première fiche à gauche.
                 </p>
               )}
@@ -219,3 +190,4 @@ export default function Enrollment() {
     </div>
   );
 }
+

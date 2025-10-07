@@ -21,11 +21,11 @@ export default function MatchPairs({ pairs, onSubmit }: Props) {
   return (
     <div className="space-y-4">
       {pairs.map(pair => (
-        <div key={pair.gauche} className="flex flex-col gap-2 rounded-3xl bg-pastel-butter/60 p-4 shadow">
-          <span className="text-lg font-semibold text-slate-800">{pair.gauche}</span>
+        <div key={pair.gauche} className="flex flex-col gap-2 rounded-3xl bg-gray-800/70 p-4 shadow">
+          <span className="text-lg font-semibold text-slate-100">{pair.gauche}</span>
           <select
             onChange={event => handleChange(pair.gauche, event.target.value)}
-            className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-800 focus:border-slate-500 focus:outline-none"
+            className="input-dark w-full rounded-2xl px-4 py-3 text-base"
           >
             <option value="">Choisir...</option>
             {options.map(option => (
@@ -34,12 +34,7 @@ export default function MatchPairs({ pairs, onSubmit }: Props) {
           </select>
         </div>
       ))}
-      <button
-        onClick={submit}
-        className="rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-white shadow-lg transition hover:bg-slate-700"
-      >
-        Valider
-      </button>
+      <button onClick={submit} className="btn-red">Valider</button>
     </div>
   );
 }

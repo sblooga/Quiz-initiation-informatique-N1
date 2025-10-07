@@ -1,20 +1,15 @@
 :root {
-  --color-bg: #ffffff;
-  --color-text: #000000;
-  --color-primary: #c8c3f9;
-  --color-secondary: #c2f5d9;
-  --color-accent: #ffd8c2;
-}
-
-[data-contrast='high'] {
-  --color-bg: #000000;
-  --color-text: #ffffff;
-  --color-primary: #ffff00;
-  --color-secondary: #00ffff;
-  --color-accent: #ff00ff;
+  --color-bg: #0b0f17;
+  --color-bg-soft: rgba(17, 24, 39, 0.9);
+  --color-surface: rgba(31, 41, 55, 0.9);
+  --color-text: #e5e7eb;
+  --color-heading: #f9fafb;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
 }
 
 body {
-  background: var(--color-bg);
+  background: radial-gradient(1200px 800px at 20% -10%, #111827 0%, #0b0f17 50%, #06080d 100%);
   color: var(--color-text);
 }
