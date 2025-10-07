@@ -182,7 +182,7 @@ export function parseCSV(csv: string): {
         case "Vrai/Faux": {
           const rawAnswer = getValue(lookup, "Reponse", "Answer")?.trim() ?? "";
           const normalized = normalize(rawAnswer);
-          if (!normalized.match(/^vrai|faux$/i))
+          if (!normalized.match(/^(vrai|faux)$/i))
             throw new Error("Réponse Vrai/Faux incorrecte");
           questions.push({
             ...base,
