@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
-import { loadQuestions, saveSession } from '../lib/db.indexeddb';
-import { Question } from '../lib/types';
+import { saveSession } from '../lib/db.indexeddb';
+import { Question } from '../types';
 import { shuffle, seedFromProfile } from '../lib/random';
+import Answer from '../components/Answer';
 import QuestionRenderer from '../components/QuestionRenderer';
 import PDFLink from '../components/PDFLink';
 
@@ -35,7 +36,11 @@ export default function Quiz() {
 
     (async () => {
       try {
-        const all = await loadQuestions();
+        const response = await fetch('http://localhost:3001/questions');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const all = await response.json();
         if (cancelled) return;
 
         if (!all.length) {
@@ -168,7 +173,7 @@ export default function Quiz() {
             ) : (
               <div className="rounded-3xl bg-gray-800/80 p-6 shadow-inner" aria-live="polite">
                 <p className="text-lg font-semibold text-red-400">Mauvaise réponse</p>
-                <p className="mt-2 text-slate-200">Bonne réponse : <span className="font-semibold">{JSON.stringify(q.answer)}</span></p>
+                <p className="mt-2 text-slate-200">Bonne réponse : <Answer question={q} /></p>
                 {q.pagePDF && (
                   <div className="mt-3">
                     <PDFLink page={q.pagePDF} motCle={q.motClePDF} />
