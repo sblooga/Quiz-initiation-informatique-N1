@@ -16,6 +16,10 @@ export default function QuestionRenderer({ question, onAnswer }: Props) {
     setInput('');
   }, [question]);
 
+  if (!question) {
+    return <div>Chargement...</div>;
+  }
+
   const handleChoice = (choice: string) => {
     const correct = Array.isArray(question.answer)
       ? (question.answer as string[]).some(a => normalize(a) === normalize(choice))
@@ -57,8 +61,11 @@ export default function QuestionRenderer({ question, onAnswer }: Props) {
         </div>
       );
     case 'Associer':
-        const q = question as AssocierQuestion;
-        const pairs = q.choices.map((choice, i) => ({ gauche: choice, droite: q.answer[i] as string }));
+      const q = question as AssocierQuestion;
+      if (!q.choices) {
+        return <div>Question de type "Associer" mal formée.</div>;
+      }
+      const pairs = q.choices.map((choice, i) => ({ gauche: choice, droite: q.answer[i] as string }));
       return <MatchPairs pairs={pairs} onSubmit={handleAssocier} />;
     case 'Compléter':
       return (

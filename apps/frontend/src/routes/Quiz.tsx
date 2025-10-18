@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
-import { saveSession } from '../lib/db.indexeddb';
-import { Question } from '../types';
+import { saveSession, loadQuestions } from '../lib/db.indexeddb';
+import { Question } from '../lib/types';
 import { shuffle, seedFromProfile } from '../lib/random';
 import Answer from '../components/Answer';
 import QuestionRenderer from '../components/QuestionRenderer';
@@ -36,11 +36,17 @@ export default function Quiz() {
 
     (async () => {
       try {
-        const response = await fetch('http://localhost:3001/questions');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        let all: Question[];
+        if (import.meta.env.VITE_STORAGE === 'indexeddb') {
+          all = await loadQuestions();
+        } else {
+          const response = await fetch('http://localhost:3001/questions');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          all = await response.json();
         }
-        const all = await response.json();
+
         if (cancelled) return;
 
         if (!all.length) {
