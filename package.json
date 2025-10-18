@@ -15,7 +15,9 @@
     "start:backend": "npm --workspace apps/backend run start",
     "lint": "eslint .",
     "test": "vitest --run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "noco": "powershell -ExecutionPolicy Bypass -File ./noco/start-nocodb.ps1",
+    "noco:unix": "bash ./noco/start-nocodb.sh"
   },
   "devDependencies": {
     "@types/papaparse": "^5.3.16",

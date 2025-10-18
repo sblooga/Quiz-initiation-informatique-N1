@@ -6,3 +6,8 @@ coverage/
 apps/frontend/.vite
 apps/frontend/dist
 apps/backend/dist
+/noco/data/
+/noco/*.log
+.nocodb/
+*.db
+*.sqlite*
