@@ -19,8 +19,22 @@ export default function Admin() {
     try {
       const text = await file.text();
       const { questions, errors } = parseCSV(text);
-      await saveQuestions(questions);
-      setReport(errors.length ? errors : ['Import réussi !']);
+
+      if (import.meta.env.VITE_STORAGE === 'indexeddb') {
+        await saveQuestions(questions);
+        setReport(errors.length ? errors : ['Import réussi dans IndexedDB !']);
+      } else {
+        const response = await fetch('http://localhost:3001/questions/import', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ questions }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        setReport(errors.length ? errors : ['Import réussi dans NocoDB !']);
+      }
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Erreur inconnue';
       setReport([`Import impossible : ${message}`]);

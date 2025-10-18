@@ -16,6 +16,8 @@
     "lint": "eslint .",
     "test": "vitest --run",
     "test:e2e": "playwright test",
+    "dev:indexeddb": "VITE_STORAGE=indexeddb npm run dev",
+    "test:e2e:indexeddb": "VITE_STORAGE=indexeddb npm run test:e2e",
     "noco": "powershell -ExecutionPolicy Bypass -File ./noco/start-nocodb.ps1",
     "noco:unix": "bash ./noco/start-nocodb.sh"
   },
