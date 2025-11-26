@@ -81,7 +81,12 @@ export default function QuestionRenderer({ question, onAnswer }: Props) {
             <input
               value={input}
               onChange={event => setInput(event.target.value)}
-              className="input-dark w-full rounded-2xl px-4 py-3 text-lg shadow-inner"
+              className="w-full rounded-2xl px-4 py-3 text-lg shadow-inner border-2"
+              style={{
+                color: '#ffffff',
+                backgroundColor: '#1e293b',
+                borderColor: '#475569'
+              }}
               placeholder="Écrivez votre réponse ici"
               aria-label="Votre réponse"
               autoFocus

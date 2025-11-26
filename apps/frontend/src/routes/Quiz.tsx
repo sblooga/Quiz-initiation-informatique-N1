@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams, useNavigate, Link } from 'react-router-dom';
-import { saveSession, loadQuestions } from '../lib/db.indexeddb';
-import { Question } from '../lib/types';
-import { shuffle, seedFromProfile } from '../lib/random';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Answer from '../components/Answer';
-import QuestionRenderer from '../components/QuestionRenderer';
 import PDFLink from '../components/PDFLink';
+import QuestionRenderer from '../components/QuestionRenderer';
+import { loadQuestions, saveSession } from '../lib/db.indexeddb';
+import { seedFromProfile, shuffle } from '../lib/random';
+import { Question } from '../lib/types';
+import { fetchQuestions } from '../services/quizApiService';
 
 type QuizStatus = 'loading' | 'ready' | 'empty' | 'error';
 
@@ -36,24 +37,27 @@ export default function Quiz() {
 
     (async () => {
       try {
-        let all: Question[];
-        if (import.meta.env.VITE_STORAGE === 'indexeddb') {
-          all = await loadQuestions();
-        } else {
-          const response = await fetch('http://localhost:3001/questions');
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          all = await response.json();
-        }
+        const apiQuestions = await fetchQuestions();
 
         if (cancelled) return;
 
-        if (!all.length) {
+        if (!apiQuestions.length) {
           setQuestions([]);
           setStatus('empty');
           return;
         }
+
+        const all: Question[] = apiQuestions.map(q => ({
+          id: String(q.id),
+          type: q.type === 'VraiFaux' ? 'Vrai/Faux' : q.type,
+          question: q.label,
+          theme: q.meta.theme || '',
+          referenceCours: q.meta.courseRef || '',
+          motClePDF: q.meta.pdfKeyword || undefined,
+          pagePDF: q.meta.pdfPage || undefined,
+          choices: q.choices,
+          answer: q.answer.text || '',
+        } as Question));
 
         const seed = seedFromProfile(profile, Date.now());
         const shuffled = shuffle(all, seed).slice(0, 10);
@@ -159,14 +163,19 @@ export default function Quiz() {
     <div className={wrapperClass} aria-live="polite">
       <div className="mx-auto flex max-w-5xl flex-col gap-8">
         <header className="rounded-[2.75rem] surface-dark px-8 py-8 shadow-2xl">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.5em] text-slate-400">Séance en cours</p>
-              <h1 className="text-3xl font-extrabold text-white">Question {index + 1} / {questions.length}</h1>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:gap-6">
+              <div>
+                <p className="text-sm uppercase tracking-[0.5em] text-slate-400">Séance en cours</p>
+                <h1 className="text-3xl font-extrabold text-white">Question {index + 1} / {questions.length}</h1>
+              </div>
+              <div className="rounded-3xl bg-gray-800/80 px-5 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-slate-200 shadow">
+                Profil : {profile}
+              </div>
             </div>
-            <div className="rounded-3xl bg-gray-800/80 px-5 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-slate-200 shadow">
-              Profil : {profile}
-            </div>
+            <Link to="/" className="btn-red px-4 py-2 text-sm">
+              ← Quitter
+            </Link>
           </div>
         </header>
 

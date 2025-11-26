@@ -20,7 +20,7 @@ function createDraftFromProfile(profile: Profile): DraftProfile {
 }
 
 export default function Enrollment() {
-  const { profiles, setProfiles } = useProfiles();
+  const { profiles, addProfile, updateProfile, removeProfile } = useProfiles();
   const [draft, setDraft] = useState<DraftProfile>(() => ({ name: '', photo: '', color: palette[0] }));
   const [editingId, setEditingId] = useState<string | null>(null);
   const [feedback, setFeedback] = useState('');
@@ -31,24 +31,20 @@ export default function Enrollment() {
     setDraft({ name: '', photo: '', color: palette[Math.floor(Math.random() * palette.length)] });
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (!draft.name.trim()) {
       setFeedback('Veuillez entrer un prénom.');
       return;
     }
 
-    setProfiles(prev => [
-      ...prev,
-      {
-        id: createId(),
-        name: draft.name.trim(),
-        photo: draft.photo,
-        color: draft.color
-      }
-    ]);
-    setFeedback(`Profil de ${draft.name.trim()} ajouté !`);
-    resetDraft();
+    try {
+      await addProfile(draft.name.trim(), draft.photo, draft.color);
+      setFeedback(`Profil de ${draft.name.trim()} ajouté !`);
+      resetDraft();
+    } catch (e) {
+      setFeedback('Erreur lors de l\'ajout.');
+    }
   };
 
   const startEdit = (profile: Profile) => {
@@ -61,7 +57,7 @@ export default function Enrollment() {
     resetDraft();
   };
 
-  const saveEdit = (event: FormEvent) => {
+  const saveEdit = async (event: FormEvent) => {
     event.preventDefault();
     if (!editingId) return;
     if (!draft.name.trim()) {
@@ -69,16 +65,24 @@ export default function Enrollment() {
       return;
     }
 
-    setProfiles(prev => prev.map(p => (p.id === editingId ? { ...p, name: draft.name.trim(), photo: draft.photo, color: draft.color } : p)));
-    setFeedback(`Profil de ${draft.name.trim()} mis à jour !`);
-    setEditingId(null);
-    resetDraft();
+    try {
+      await updateProfile(editingId, draft.name.trim(), draft.photo, draft.color);
+      setFeedback(`Profil de ${draft.name.trim()} mis à jour !`);
+      setEditingId(null);
+      resetDraft();
+    } catch (e) {
+      setFeedback('Erreur lors de la modification.');
+    }
   };
 
-  const removeProfile = (profile: Profile) => {
+  const handleRemoveProfile = async (profile: Profile) => {
     if (!confirm(`Supprimer ${profile.name} ?`)) return;
-    setProfiles(prev => prev.filter(p => p.id !== profile.id));
-    setFeedback(`${profile.name} a été retiré(e) de la liste.`);
+    try {
+      await removeProfile(profile.id);
+      setFeedback(`${profile.name} a été retiré(e) de la liste.`);
+    } catch (e) {
+      setFeedback('Erreur lors de la suppression.');
+    }
   };
 
   return (
@@ -108,7 +112,7 @@ export default function Enrollment() {
               </label>
 
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Photo du profil (URL optionnelle)</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Photo du profil</p>
                 <div className="mt-3 flex items-center gap-4">
                   <div className="grid h-20 w-20 place-items-center rounded-full border-4 border-gray-700 bg-gray-900 text-white shadow-inner">
                     {draft.photo ? (
@@ -117,13 +121,41 @@ export default function Enrollment() {
                       <span className="text-xl font-bold">{draft.name?.[0]?.toUpperCase() || '?'}</span>
                     )}
                   </div>
-                  <input
-                    type="url"
-                    placeholder="Collez l'URL d'une photo (facultatif)"
-                    className="input-dark w-full rounded-2xl px-4 py-3 text-sm"
-                    value={draft.photo}
-                    onChange={event => setDraft(prev => ({ ...prev, photo: event.target.value }))}
-                  />
+                  <div className="flex-1 space-y-2">
+                    <input
+                      type="url"
+                      placeholder="Collez l'URL d'une photo (facultatif)"
+                      className="input-dark w-full rounded-2xl px-4 py-3 text-sm"
+                      value={draft.photo}
+                      onChange={event => setDraft(prev => ({ ...prev, photo: event.target.value }))}
+                    />
+                    <div className="flex gap-2">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            const reader = new FileReader();
+                            reader.onload = () => {
+                              setDraft(prev => ({ ...prev, photo: reader.result as string }));
+                            };
+                            reader.readAsDataURL(file);
+                          }
+                        }}
+                        className="w-full rounded-2xl border border-dashed border-gray-600 bg-gray-900/70 px-4 py-2 text-slate-300 text-sm shadow-inner"
+                      />
+                      {draft.photo && (
+                        <button
+                          type="button"
+                          onClick={() => setDraft(prev => ({ ...prev, photo: '' }))}
+                          className="btn-red px-3 py-2 text-xs shrink-0"
+                        >
+                          Effacer
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -173,7 +205,7 @@ export default function Enrollment() {
                     <p className="text-sm text-slate-300">Couleur associée : {profile.color}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       <button type="button" onClick={() => startEdit(profile)} className="btn-red px-4 py-2 text-xs">Modifier</button>
-                      <button type="button" onClick={() => removeProfile(profile)} className="btn-red px-4 py-2 text-xs">Supprimer</button>
+                      <button type="button" onClick={() => handleRemoveProfile(profile)} className="btn-red px-4 py-2 text-xs">Supprimer</button>
                     </div>
                   </div>
                 </article>

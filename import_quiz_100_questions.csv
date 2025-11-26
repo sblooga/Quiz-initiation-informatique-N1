@@ -1,0 +1,101 @@
+QuestionID;Type;Question;Choix;Réponse;Thème;RéférenceCours;MotCléRecherchePDF;PagePDF
+1;VraiFaux;Les virus peuvent se cacher dans des fichiers PDF et des photos.;;Vrai;Sécurité & Sauvegarde;Leçon 029;virus PDF photo;38
+2;VraiFaux;Cliquer sur un lien d’un expéditeur inconnu est une bonne pratique.;;Faux;Sécurité & Sauvegarde;Leçon 029;liens inconnus prudence;38
+3;QCM;Quels supports sont des vecteurs fréquents d'infection ?;Clé USB|Pièces jointes e-mail|Liens SMS/WhatsApp|Imprimante;Clé USB|Pièces jointes e-mail|Liens SMS/WhatsApp;Sécurité & Sauvegarde;Leçon 029;sources infection;38
+4;Compléter;Le logiciel antivirus installé sur le PC est __________.;;Malwarebytes;Sécurité & Sauvegarde;Leçon 029;Malwarebytes;38
+5;QCM;Quels symptômes peuvent révéler une infection ?;Ralentissements|Blocage souris|Redémarrages en boucle|Démarrage plus rapQuestionIDe;Ralentissements|Blocage souris|Redémarrages en boucle;Sécurité & Sauvegarde;Leçon 029;symptômes infection;38
+6;VraiFaux;Il faut devenir paranoïaque pour éviter toutes les attaques.;;Faux;Sécurité & Sauvegarde;Leçon 029;rester prudent;38
+7;QCM;Quelles sont les trois sauvegardes prévues ?;Clé USB Patriot|Sauvegarde chez le formateur|Google Drive|DVD gravé;Clé USB Patriot|Sauvegarde chez le formateur|Google Drive;Sécurité & Sauvegarde;Partie 1 / Sauvegardes;sauvegarde clé formateur drive;4
+8;Compléter;La clé USB Patriot a une capacité d’environ ______ Go.;;1000;Sécurité & Sauvegarde;Partie 1 / Sauvegardes;clé Patriot 1 To;4
+9;QCM;Quel stockage est recommandé pour éviter la perte lors d’une réinstallation ?;C:\Users\...|Google Drive|Bureau|Téléchargements;Google Drive;Sécurité & Sauvegarde;Partie 1 / Stockage recommandé;Google Drive recommandé;6
+10;VraiFaux;OneDrive offre 15 Go gratuits selon le cours.;;Vrai;Sécurité & Sauvegarde;Partie 1 / Sauvegardes;OneDrive 15 Go;4
+11;QCM;Quels éléments l’antivirus peut analyser avant ouverture ?;PDF|Photos|Fichiers ZIP|Thème Windows;PDF|Photos|Fichiers ZIP;Sécurité & Sauvegarde;Leçon 029;analyse antivirus;38
+12;Compléter;La bonne pratique est d’________ le dossier Téléchargements régulièrement.;;assainir/nettoyer;Sécurité & Sauvegarde;Leçon 029;nettoyage Téléchargements;38
+13;VraiFaux;Partager ses mots de passe via une clé USB familiale est conseillé.;;Faux;Sécurité & Sauvegarde;Partie 1 / Sauvegardes;mots de passe confQuestionIDentialité;4
+14;QCM;Quel abonnement Google Drive est recommandé ?;Gratuit 15 Go|Premium Workspace 2 To|Entreprise 5 To;Premium Workspace 2 To;Sécurité & Sauvegarde;Partie 1 / Sauvegardes;Workspace 2 To 99,99€;4
+15;Compléter;La sauvegarde système est effectuée avec __________ Reflect.;;Macrium;Sécurité & Sauvegarde;Partie 1 / Sauvegardes;Macrium Reflect;4
+16;VraiFaux;Une sauvegarde trimestrielle avec Macrium Reflect est recommandée.;;Vrai;Sécurité & Sauvegarde;Leçon 029;sauvegarde trimestrielle;38
+17;QCM;Que faire après un nettoyage réussi avec Glary Utilities ?;Éteindre le PC|Redémarrer l’ordinateur|Désinstaller Glary;Redémarrer l’ordinateur;Sécurité & Sauvegarde;Leçon 033;Glary redémarrer;42
+18;Compléter;Pour toute erreur disque détectée par Glary Utilities, il faut __________.;;appeler le formateur;Sécurité & Sauvegarde;Leçon 033;erreur disque appeler;42
+19;VraiFaux;Séparer les sessions limite la propagation virale et protège la confQuestionIDentialité.;;Vrai;Sécurité & Sauvegarde;Leçon 032;cloisonnement sessions;41
+20;QCM;Quels emplacements de sauvegarde sont listés ?;Clé Patriot|SSD formateur|Compte Google payant|Lecteur CD;Clé Patriot|SSD formateur|Compte Google payant;Sécurité & Sauvegarde;Partie 1 / Sauvegardes;emplacements sauvegarde;4
+21;VraiFaux;La session Administrateur sert aux installations et dépannages, pas au travail quotQuestionIDien.;;Vrai;Windows 11 & Fichiers;Leçon 001-002;session administrateur;4
+22;VraiFaux;La session Renata est la session par défaut pour travailler.;;Vrai;Windows 11 & Fichiers;Leçon 001;session Renata;4
+23;QCM;Quelles méthodes permettent d’ouvrir le menu Windows ?;Clic gauche sur l’icône|Clic droit (menu contextuel)|Ctrl+Alt+Suppr;Clic gauche sur l’icône|Clic droit (menu contextuel);Windows 11 & Fichiers;Leçon 005;menu Windows;12
+24;Compléter;Le raccourci pour ouvrir l’Explorateur de fichiers est __________.;;Windows+E;Windows 11 & Fichiers;Leçon 006;raccourci explorateur;13
+25;QCM;Comment ancrer une fenêtre à gauche/droite ?;Windows+Flèche gauche|Windows+Flèche droite|Alt+Tab|Windows+D;Windows+Flèche gauche|Windows+Flèche droite;Windows 11 & Fichiers;Leçon 007;ancrage fenêtres;13
+26;VraiFaux;Pour copier des éléments, on peut glisser-déposer en vérifiant l’étiquette « Copier ».;;Vrai;Windows 11 & Fichiers;Leçon 008;glisser copier;15
+27;QCM;Quelle touche bascule entre Copier et Déplacer lors d’un glisser-déposer selon le cours ?;Shift (Maj)|Ctrl|Alt;Shift (Maj);Windows 11 & Fichiers;Leçon 008;bascule copier déplacer;15
+28;Compléter;Le raccourci « Couper » est __________.;;Ctrl+X;Windows 11 & Fichiers;Leçon 008;raccourci couper;15
+29;QCM;Quelles méthodes de sélection existent ?;Shift+clic|Ctrl+clic|Clic-glisser|Ctrl+A;Shift+clic|Ctrl+clic|Clic-glisser|Ctrl+A;Windows 11 & Fichiers;Leçon 010;sélections;18
+30;VraiFaux;Il est conseillé d’utiliser des espaces et des accents dans les noms de fichiers.;;Faux;Windows 11 & Fichiers;Leçon 012-014;noms fichiers;22
+31;QCM;Quels caractères sont interdits dans un nom de fichier Windows ?;"<|>|:|""|/|\|\||\?|*";"<|>|:|""|/|\|\||\?|*";Windows 11 & Fichiers;Leçon 014;caractères interdits;24
+32;Compléter;La bonne pratique est d’éviter les ________ trop longs.;;noms de fichiers;Windows 11 & Fichiers;Leçon 017;nom trop long;25
+33;QCM;Quels outils de recherche sont mentionnés ?;Explorateur Windows|Everything|Spotlight;Explorateur Windows|Everything;Windows 11 & Fichiers;Leçon 018-021;recherche Everything;25
+34;VraiFaux;Les filtres de recherche utilisent des mots-clés en anglais comme size, type, author.;;Vrai;Windows 11 & Fichiers;Leçon 020-021;filtres anglais;25
+35;Compléter;Le caractère générique pour remplacer n’importe quels caractères est ______.;;*;Windows 11 & Fichiers;Leçon 020-021;joker étoile;25
+36;Compléter;Pour sélectionner tout le contenu d’un dossier : __________.;;Ctrl+A;Windows 11 & Fichiers;Leçon 010;Ctrl+A;18
+37;QCM;Où trouver les sessions dans l’interface de connexion ?;Profil Administrateur|Profil Renata|Profil Famille|Profil Invité masqué;Profil Administrateur|Profil Renata|Profil Famille;Windows 11 & Fichiers;Leçon 001;sessions;4
+38;VraiFaux;Le raccourci Windows+D affiche ou masque le Bureau.;;Vrai;Windows 11 & Fichiers;Raccourcis;Windows+D;35
+39;QCM;Quels éléments sont présents dans le volet « Réglages rapQuestionIDes » (icône réseau) ?;Wi‑Fi|Bluetooth|Mode avion|Luminosité|Son|Batterie;Wi‑Fi|Bluetooth|Mode avion|Luminosité|Son|Batterie;Windows 11 & Fichiers;Leçon 004;réglages rapQuestionIDes;11
+40;Compléter;Pour verrouiller la session : __________.;;Windows+L;Windows 11 & Fichiers;Raccourcis;verrouiller session;35
+41;VraiFaux;Alt+F4 ferme la fenêtre active.;;Vrai;Windows 11 & Fichiers;Raccourcis;Alt+F4;35
+42;QCM;Quelle combinaison ouvre le Gestionnaire des tâches directement ?;Ctrl+Maj+Échap|Ctrl+Alt+Suppr|Alt+Tab;Ctrl+Maj+Échap;Windows 11 & Fichiers;Raccourcis;gestionnaire tâches;35
+43;Compléter;"Pour annuler une action : __________ ; pour rétablir : __________.";;"Ctrl+Z ; Ctrl+Y";Windows 11 & Fichiers;Raccourcis;annuler rétablir;35
+44;QCM;Quels emplacements éviter pour stocker durablement ?;C:\Users\Nom\Documents|Bureau|Google Drive;C:\Users\Nom\Documents|Bureau;Windows 11 & Fichiers;Partie 1 / Stockage;emplacement éviter;6
+45;VraiFaux;Tout nommage doit exclure les articles inutiles et rester concis.;;Vrai;Windows 11 & Fichiers;Leçon 017;noms concis;25
+46;QCM;Quels traitements de texte sont cités ?;Microsoft Word|LibreOffice Writer|Google Docs|Paint;Microsoft Word|LibreOffice Writer|Google Docs;Logiciels & Bureautique;Leçon 022-023-026;traitement de texte;28
+47;VraiFaux;Google Docs enregistre automatiquement dans le cloud.;;Vrai;Logiciels & Bureautique;Leçon 023;enregistrement auto;30
+48;Compléter;L’extension native d’un document LibreOffice Writer est ______.;;.odt;Logiciels & Bureautique;Leçon 026;extension odt;33
+49;QCM;Où sont rangés les logiciels portables sur le PC ?;C:\USB-(PORTABLE-APPS)\PortableApps|Clé 128GORENATA\USB-(PORTABLE-APPS)\PortableApps|C:\Program Files;C:\USB-(PORTABLE-APPS)\PortableApps|Clé 128GORENATA\USB-(PORTABLE-APPS)\PortableApps;Logiciels & Bureautique;Leçon 025;emplacement portables;32
+50;VraiFaux;Installer un logiciel nécessite le mot de passe Administrateur si on est en session Renata.;;Vrai;Logiciels & Bureautique;Leçon 030;setup mot de passe;38
+51;Compléter;Pour désinstaller un logiciel : clic droit sur le menu Windows → __________.;;Applications installées;Logiciels & Bureautique;Leçon 031;désinstaller;40
+52;QCM;Quels exemples de logiciels portables sont cités ?;Notepad++|Foxit PDF Reader|LibreOffice|Photoshop;Notepad++|Foxit PDF Reader|LibreOffice;Logiciels & Bureautique;Leçon 024-025;exemples portables;32
+53;VraiFaux;Indesign peut être créé directement via « Nouveau » dans l’explorateur Windows.;;Faux;Logiciels & Bureautique;Leçon 009;indesign création;16
+54;Compléter;Pour exporter un document vers PDF dans LibreOffice Writer : Fichier → __________.;;Exporter en PDF;Logiciels & Bureautique;Leçon 026;export PDF;33
+55;QCM;Quels navigateurs sont cités comme compatibles avec Drive/Docs ?;Google Chrome|Mozilla Firefox|Microsoft Edge|Safari;Google Chrome|Mozilla Firefox|Microsoft Edge;Logiciels & Bureautique;Leçon 023;navigateurs;30
+56;VraiFaux;Les logiciels open source sont généralement modifiables selon leur licence.;;Vrai;Logiciels & Bureautique;Leçon 024;open source;32
+57;Compléter;Le lanceur des applis portables se nomme __________.exe;;Start;Logiciels & Bureautique;Leçon 025;Start.exe;32
+58;QCM;Quels suites logicielles installées sont mentionnées ?;Microsoft Office|Adobe|Corel Draw|SketchUp|VirtualDJ;Microsoft Office|Adobe|Corel Draw|SketchUp|VirtualDJ;Logiciels & Bureautique;Leçon 028-04;suites installées;36
+59;VraiFaux;Word, LibreOffice et Google Docs sont interchangeables pour des usages courants.;;Vrai;Logiciels & Bureautique;Leçon 035;équivalences;47
+60;Compléter;Dans Google Drive, « Mon Drive » correspond à la ______ du stockage.;;racine;Logiciels & Bureautique;Leçon 035;racine;47
+61;VraiFaux;Toujours vérifier que l’on est connecté au bon compte Gmail avant d’envoyer un message.;;Vrai;Internet & Gmail;Leçon 039;bon compte Gmail;59
+62;Compléter;Dans le champ « A », on saisit le ou les __________.;;destinataires;Internet & Gmail;Leçon 039;destinataires;59
+63;QCM;Quels navigateurs sont cités pour accéder à Gmail/Drive ?;Chrome|Firefox|Edge|Internet Explorer;Chrome|Firefox|Edge;Internet & Gmail;Leçon 023-039;navigateurs;30
+64;VraiFaux;Il est inutile d’ajouter les contacts fréquents dans le carnet d’adresses Google.;;Faux;Internet & Gmail;Leçon 039;carnet d’adresses;59
+65;Compléter;Pour rechercher un contact lors de la saisie du champ « A », on commence à taper le ______.;;nom;Internet & Gmail;Leçon 039;auto-complétion;59
+66;QCM;Que contient le volet Réseau (Réglages rapQuestionIDes) utile pour le Wi‑Fi ?;Activation Wi‑Fi|Liste des réseaux|Réglage Bluetooth|Mode avion;Activation Wi‑Fi|Liste des réseaux|Mode avion;Internet & Gmail;Leçon 004;wifi réglages;11
+67;VraiFaux;Le mode avion coupe les communications sans fil.;;Vrai;Internet & Gmail;Leçon 004;mode avion;11
+68;Compléter;Pour ouvrir la boîte « Exécuter » sous Windows : __________.;;Windows+R;Internet & Gmail;Raccourcis;Win+R;35
+69;QCM;Quels éléments vérifier avant d’envoyer un e-mail ?;Bon compte expéditeur|Destinataire correct|Objet parlant|Police fantaisie obligatoire;Bon compte expéditeur|Destinataire correct|Objet parlant;Internet & Gmail;Leçon 039;bonnes pratiques e-mail;59
+70;VraiFaux;Les pièces jointes peuvent être porteuses de malwares.;;Vrai;Internet & Gmail;Leçon 029;pièces jointes risque;38
+71;VraiFaux;Photoshop est un logiciel installable et payant.;;Vrai;Multimédia & Création;Leçon 037;Photoshop payant;50
+72;Compléter;Pour enregistrer fréquemment dans Photoshop, on utilise le raccourci __________.;;Ctrl+S;Multimédia & Création;Leçon 037;Ctrl+S Photoshop;50
+73;QCM;Quels logiciels appartiennent à la suite Adobe citée ?;Photoshop|Illustrator|InDesign|Excel;Photoshop|Illustrator|InDesign;Multimédia & Création;Leçon 028-037;suite Adobe;36
+74;VraiFaux;Avant de créer une publication, il est conseillé de faire des croquis à main levée.;;Vrai;Multimédia & Création;Leçon 037;croquis préalable;50
+75;Compléter;Le fichier de travail natif de Photoshop porte l’extension ______.;;.psd;Multimédia & Création;Leçon 037;extension psd;50
+76;QCM;Où stocker le projet de démo selon le cours ?;Clé 128GORENATA sous EXERCICES‑GAUCHE|Bureau|Téléchargements;Clé 128GORENATA sous EXERCICES‑GAUCHE;Multimédia & Création;Leçon 037;emplacement démo;50
+77;VraiFaux;Les suites Adobe/Corel/SketchUp sont listées comme installées sur le PC.;;Vrai;Multimédia & Création;Leçon 028;suites installées;36
+78;Compléter;Pour copier un chemin d’accès complet dans l’explorateur : Shift + clic droit → __________.;;Copier en tant que chemin d’accès;Multimédia & Création;Leçon 037;copier chemin accès;50
+79;QCM;Quels formats peut‑on exporter depuis Writer pour compatibilité ?;.docx|.pdf|.psd;.docx|.pdf;Multimédia & Création;Leçon 026;export Writer;33
+80;VraiFaux;Les documents .gdoc n’affichent pas l’extension dans l’interface web de Google Drive.;;Vrai;Multimédia & Création;Leçon 035;.gdoc extensions;47
+81;VraiFaux;Jan est une IA locale qui préserve la confQuestionIDentialité des données.;;Vrai;IA & Outils modernes;Leçon 038;Jan local;53
+82;QCM;Quelles IA en ligne sont citées ?;ChatGPT|Copilot|Perplexity.ai|Jan;ChatGPT|Copilot|Perplexity.ai;IA & Outils modernes;Leçon 038;IA en ligne;53
+83;Compléter;Un bon prompt comporte un rôle, une tâche et un ________.;;contexte;IA & Outils modernes;Leçon 038;rôle tâche contexte;53
+84;VraiFaux;Les IA peuvent parfois inventer des informations : on parle d’hallucinations.;;Vrai;IA & Outils modernes;Leçon 038;hallucinations;53
+85;QCM;Quel coût typique est évoqué pour un abonnement mensuel d’IA ?;Environ 20 € / mois|Gratuit illimité|200 € / mois;Environ 20 € / mois;IA & Outils modernes;Leçon 038;coût IA;53
+86;Compléter;Pour économiser, on peut acheter un forfait en fonction de sa __________.;;consommation;IA & Outils modernes;Leçon 038;forfait consommation;53
+87;VraiFaux;Les réponses varient selon l’IA interrogée.;;Vrai;IA & Outils modernes;Leçon 038;variabilité IA;53
+88;QCM;Où rédiger son prompt avant de le coller dans l’IA (selon le cours) ?;Notepad++|Word|Paint;Notepad++;IA & Outils modernes;Leçon 038;préparer prompt Notepad++;53
+89;Compléter;Le nombre d’unités de calcul facturées par certaines IA s’appelle des __________.;;tokens;IA & Outils modernes;Leçon 038;tokens;53
+90;VraiFaux;Copilot et Perplexity ont accès au web, ce qui peut améliorer la précision sur l’actualité.;;Vrai;IA & Outils modernes;Leçon 038;web accès;53
+91;VraiFaux;Glary Utilities Pro est un outil de maintenance puissant à utiliser avec précaution.;;Vrai;Divers & Maintenance PC;Leçon 033;Glary puissant;42
+92;QCM;Quelles étapes recommande le cours pour utiliser Glary en 1‑clic ?;Sélectionner toutes les options|Analyser|Autoriser la réparation automatique|Redémarrer;Sélectionner toutes les options|Analyser|Autoriser la réparation automatique|Redémarrer;Divers & Maintenance PC;Leçon 033;Glary 1-clic;42
+93;Compléter;Après un nettoyage Glary réussi, il est conseillé de __________ l’ordinateur.;;redémarrer;Divers & Maintenance PC;Leçon 033;redémarrer;42
+94;VraiFaux;Installer des logiciels inutiles n’impacte pas les performances.;;Faux;Divers & Maintenance PC;Leçon 029-030;installer inutile;38
+95;QCM;Pourquoi éviter C:\Users pour stocker le long terme ?;Risque de perte à la réinstallation|Dispersion entre sessions|Manque d’espace|Sécurité;Risque de perte à la réinstallation|Dispersion entre sessions;Divers & Maintenance PC;Partie 1 / Stockage;éviter C:\Users;6
+96;Compléter;Pour rechercher efficacement des fichiers : utiliser Everything avec les ________ génériques (*, ?).;;caractères;Divers & Maintenance PC;Leçon 021;Everything caractères;26
+97;VraiFaux;Séparer Administrateur/Renata/Famille protège aussi la confQuestionIDentialité.;;Vrai;Divers & Maintenance PC;Leçon 032;confQuestionIDentialité sessions;41
+98;QCM;Quels services cloud sont cités dans le cours ?;Google Drive|OneDrive|iCloud;Google Drive|OneDrive;Divers & Maintenance PC;Partie 1 / Sauvegardes;cloud cités;4
+99;Compléter;Le concurrent direct de Google Drive cité est __________.;;OneDrive;Divers & Maintenance PC;Partie 1 / Sauvegardes;concurrent Drive;4
+100;VraiFaux;Les logiciels installables sont souvent propriétaires et payants.;;Vrai;Divers & Maintenance PC;Leçon 024;propriétaires payants;32

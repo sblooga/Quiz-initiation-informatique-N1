@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { fetchStudents, createStudent, deleteStudent, updateStudent, Student } from '../services/quizApiService';
 
 export interface Profile {
   id: string;
@@ -7,85 +8,84 @@ export interface Profile {
   color: string;
 }
 
-const STORAGE_KEY = 'quiz-n1-profiles-v2';
-
-const pastelPalette = ['#374151', '#4b5563', '#6b7280', '#1f2937', '#111827', '#0f172a'];
-const defaultPhotos: string[] = [];
-export const PROFILE_PHOTO_LIBRARY: string[] = [];
-
-function randomId() {
-  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
-    return crypto.randomUUID();
-  }
-  return Math.random().toString(36).slice(2, 10);
+export interface Student {
+  id: number;
+  name: string;
+  photo: string;
+  color: string;
 }
 
-function withDefaults(profile: Partial<Profile>, index: number): Profile {
+const pastelPalette = ['#374151', '#4b5563', '#6b7280', '#1f2937', '#111827', '#0f172a'];
+
+function withDefaults(student: Student, index: number): Profile {
   return {
-    id: profile.id ?? randomId(),
-    name: profile.name ?? 'Élève',
-    photo: profile.photo ?? '',
-    color: profile.color ?? pastelPalette[index % pastelPalette.length]
+    id: String(student.id),
+    name: student.name,
+    photo: student.photo || '',
+    color: student.color || pastelPalette[index % pastelPalette.length]
   };
 }
 
-const defaultProfiles: Profile[] = [];
-
-function loadProfilesFromStorage(): Profile[] {
-  if (typeof window === 'undefined') {
-    return defaultProfiles;
-  }
-
-  const raw = window.localStorage.getItem(STORAGE_KEY);
-  if (!raw) {
-    saveProfilesToStorage(defaultProfiles);
-    return defaultProfiles;
-  }
-
-  try {
-    const parsed = JSON.parse(raw) as Partial<Profile>[];
-    return parsed.map((p, index) => withDefaults(p, index));
-  } catch (error) {
-    console.error('Impossible de lire les profils, réinitialisation.', error);
-    return defaultProfiles;
-  }
-}
-
-function saveProfilesToStorage(profiles: Profile[]) {
-  if (typeof window === 'undefined') return;
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles));
-  window.dispatchEvent(new Event('profiles-updated'));
-}
-
 export function useProfiles() {
-  const [profiles, setProfilesState] = useState<Profile[]>(() => loadProfilesFromStorage());
+  const [profiles, setProfilesState] = useState<Profile[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const refreshProfiles = useCallback(async () => {
+    try {
+      setLoading(true);
+      const students = await fetchStudents();
+      setProfilesState(students.map((s, i) => withDefaults(s, i)));
+      setError(null);
+    } catch (err) {
+      console.error('Failed to fetch profiles', err);
+      setError('Impossible de charger les profils.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    const refresh = () => {
-      setProfilesState(loadProfilesFromStorage());
-    };
+    refreshProfiles();
+  }, [refreshProfiles]);
 
-    window.addEventListener('storage', refresh);
-    window.addEventListener('profiles-updated', refresh);
-    return () => {
-      window.removeEventListener('storage', refresh);
-      window.removeEventListener('profiles-updated', refresh);
-    };
-  }, []);
+  const addProfile = useCallback(async (name: string, photo: string, color: string) => {
+    try {
+      await createStudent(name, photo, color);
+      await refreshProfiles();
+    } catch (err) {
+      console.error('Failed to create profile', err);
+      throw err;
+    }
+  }, [refreshProfiles]);
 
-  const setProfiles = useCallback((updater: Profile[] | ((prev: Profile[]) => Profile[])) => {
-    setProfilesState(prev => {
-      const computed = typeof updater === 'function' ? (updater as (prev: Profile[]) => Profile[])(prev) : updater;
-      const next = computed.map((p, index) => withDefaults(p, index));
-      saveProfilesToStorage(next);
-      return next;
-    });
-  }, []);
+  const updateProfile = useCallback(async (id: string, name: string, photo: string, color: string) => {
+    try {
+      await updateStudent(Number(id), name, photo, color);
+      await refreshProfiles();
+    } catch (err) {
+      console.error('Failed to update profile', err);
+      throw err;
+    }
+  }, [refreshProfiles]);
 
-  return useMemo(() => ({ profiles, setProfiles, pastelPalette }), [profiles, setProfiles]);
+  const removeProfile = useCallback(async (id: string) => {
+    try {
+      await deleteStudent(Number(id));
+      await refreshProfiles();
+    } catch (err) {
+      console.error('Failed to delete profile', err);
+      throw err;
+    }
+  }, [refreshProfiles]);
+
+  return useMemo(() => ({
+    profiles,
+    loading,
+    error,
+    addProfile,
+    updateProfile,
+    removeProfile,
+    pastelPalette
+  }), [profiles, loading, error, addProfile, updateProfile, removeProfile]);
 }
-
-export function resetProfiles() {
-  saveProfilesToStorage(defaultProfiles);
-}
-

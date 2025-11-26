@@ -11,3 +11,7 @@ apps/backend/dist
 .nocodb/
 *.db
 *.sqlite*
+apps/backend/.env*
+apps/frontend/.env*
+apps/backend/app/data/
+*.sqlite
