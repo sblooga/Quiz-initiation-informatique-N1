@@ -3,28 +3,32 @@ import db from '../db.js';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  const rows = db.prepare('SELECT * FROM profiles').all();
-  res.json(rows);
+router.get('/', async (req, res) => {
+  try {
+    const rows = await db.query('SELECT * FROM profiles');
+    res.json(rows);
+  } catch (e) {
+    res.status(500).json({ error: 'Impossible de récupérer les profils' });
+  }
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const { name, photo, color } = req.body;
   try {
-    const info = db.prepare('INSERT INTO profiles(name, photo, color) VALUES(?, ?, ?)').run(name, photo || '', color || '');
-    res.json({ id: info.lastInsertRowid, name, photo: photo || '', color: color || '' });
+    const result = await db.run('INSERT INTO profiles(name, photo, color) VALUES(?, ?, ?)', [name, photo || '', color || '']);
+    res.json({ id: result.id, name, photo: photo || '', color: color || '' });
   } catch (e) {
     res.status(400).json({ error: 'Impossible d\'ajouter' });
   }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const profileId = req.params.id;
     // D'abord supprimer les sessions associées (scores)
-    db.prepare('DELETE FROM sessions WHERE profileId = ?').run(profileId);
+    await db.run('DELETE FROM sessions WHERE "profileId" = ?', [profileId]);
     // Ensuite supprimer le profil
-    db.prepare('DELETE FROM profiles WHERE id = ?').run(profileId);
+    await db.run('DELETE FROM profiles WHERE id = ?', [profileId]);
     res.json({ success: true });
   } catch (e) {
     console.error(e);
@@ -32,10 +36,10 @@ router.delete('/:id', (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   const { name, photo, color } = req.body;
   try {
-    db.prepare('UPDATE profiles SET name = ?, photo = ?, color = ? WHERE id = ?').run(name, photo || '', color || '', req.params.id);
+    await db.run('UPDATE profiles SET name = ?, photo = ?, color = ? WHERE id = ?', [name, photo || '', color || '', req.params.id]);
     res.json({ success: true });
   } catch (e) {
     res.status(500).json({ error: 'Impossible de modifier' });

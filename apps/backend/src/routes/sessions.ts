@@ -4,9 +4,9 @@ import db from '../db.js';
 const router = Router();
 
 // GET /api/sessions - Get all sessions
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const rows = db.prepare('SELECT * FROM sessions ORDER BY date DESC').all();
+    const rows = await db.query('SELECT * FROM sessions ORDER BY date DESC');
     res.json(rows);
   } catch (e) {
     console.error(e);
@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/sessions/:profileId - Get sessions for a specific profile
-router.get('/:profileId', (req, res) => {
+router.get('/:profileId', async (req, res) => {
   try {
-    const rows = db.prepare('SELECT * FROM sessions WHERE profileId = ? ORDER BY date DESC').all(req.params.profileId);
+    const rows = await db.query('SELECT * FROM sessions WHERE "profileId" = ? ORDER BY date DESC', [req.params.profileId]);
     res.json(rows);
   } catch (e) {
     console.error(e);
@@ -26,7 +26,7 @@ router.get('/:profileId', (req, res) => {
 });
 
 // POST /api/sessions - Create a new session
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { profileId, date, score } = req.body;
 
@@ -34,8 +34,8 @@ router.post('/', (req, res) => {
       return res.status(400).json({ error: 'Missing required fields: profileId, date, score' });
     }
 
-    const info = db.prepare('INSERT INTO sessions(profileId, date, score) VALUES(?,?,?)').run(profileId, date, score);
-    res.json({ id: info.lastInsertRowid, profileId, date, score });
+    const result = await db.run('INSERT INTO sessions("profileId", date, score) VALUES(?,?,?)', [profileId, date, score]);
+    res.json({ id: result.id, profileId, date, score });
   } catch (e) {
     console.error(e);
     res.status(500).json({ error: 'Failed to create session' });
