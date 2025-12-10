@@ -20,9 +20,14 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   try {
-    db.prepare('DELETE FROM profiles WHERE id = ?').run(req.params.id);
+    const profileId = req.params.id;
+    // D'abord supprimer les sessions associées (scores)
+    db.prepare('DELETE FROM sessions WHERE profileId = ?').run(profileId);
+    // Ensuite supprimer le profil
+    db.prepare('DELETE FROM profiles WHERE id = ?').run(profileId);
     res.json({ success: true });
   } catch (e) {
+    console.error(e);
     res.status(500).json({ error: 'Impossible de supprimer' });
   }
 });

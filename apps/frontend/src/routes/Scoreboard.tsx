@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { getAllSessions, SessionItem } from '../lib/db.indexeddb';
 import { useProfiles } from '../lib/profiles';
+import { fetchSessions, Session } from '../services/quizApiService';
 
 interface ChartDatum {
   profile: string;
   average: number;
   best: number;
-  sessions: SessionItem[];
+  sessions: Array<{ date: number; score: number }>;
   color: string;
 }
 
@@ -18,11 +18,11 @@ function formatScore(score: number) {
 export default function Scoreboard() {
   const location = useLocation();
   const { profiles } = useProfiles();
-  const [sessions, setSessions] = useState<SessionItem[]>([]);
+  const [sessions, setSessions] = useState<Session[]>([]);
   const [selectedProfile, setSelectedProfile] = useState<string>('');
 
   useEffect(() => {
-    getAllSessions().then(setSessions);
+    fetchSessions().then(setSessions).catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -34,26 +34,33 @@ export default function Scoreboard() {
   }, [location.search]);
 
   const chartData = useMemo<ChartDatum[]>(() => {
-    const groups = new Map<string, SessionItem[]>();
+    const groups = new Map<string, Array<{ date: number; score: number }>>();
+
+    // Map sessions by profile name
     sessions.forEach(session => {
-      if (!groups.has(session.profile)) {
-        groups.set(session.profile, []);
+      const profile = profiles.find(p => p.id === String(session.profileId));
+      if (!profile) return; // Skip sessions for deleted profiles
+
+      if (!groups.has(profile.name)) {
+        groups.set(profile.name, []);
       }
-      groups.get(session.profile)!.push(session);
+      groups.get(profile.name)!.push({ date: session.date, score: session.score });
     });
 
-    return Array.from(groups.entries()).map(([profile, entries]) => {
-      const best = entries.reduce((max, current) => Math.max(max, current.score), 0);
-      const average = entries.reduce((sum, current) => sum + current.score, 0) / entries.length;
-      const profileMeta = profiles.find(p => p.name === profile);
-      return {
-        profile,
-        best,
-        average,
-        sessions: entries.sort((a, b) => b.date - a.date),
-        color: profileMeta?.color ?? '#374151'
-      };
-    });
+    return Array.from(groups.entries())
+      .filter(([profileName]) => profiles.some(p => p.name === profileName))
+      .map(([profile, entries]) => {
+        const best = entries.reduce((max, current) => Math.max(max, current.score), 0);
+        const average = entries.reduce((sum, current) => sum + current.score, 0) / entries.length;
+        const profileMeta = profiles.find(p => p.name === profile);
+        return {
+          profile,
+          best,
+          average,
+          sessions: entries.sort((a, b) => b.date - a.date),
+          color: profileMeta?.color ?? '#374151'
+        };
+      });
   }, [profiles, sessions]);
 
   useEffect(() => {
@@ -119,22 +126,24 @@ export default function Scoreboard() {
             <h2 className="text-xl font-semibold text-slate-100">Historique de {active.profile}</h2>
             <p className="text-sm text-slate-300">Les points représentent les scores obtenus. Passez la souris pour voir la date.</p>
             <div className="mt-6 overflow-hidden rounded-3xl bg-gradient-to-b from-gray-900 to-gray-800 p-6 shadow-inner">
-              <div className="grid grid-cols-12 gap-2">
-                {active.sessions.map(session => {
-                  const height = Math.max(12, (session.score / 10) * 100);
-                  return (
-                    <div key={session.date} className="col-span-3 flex flex-col items-center gap-2 sm:col-span-2 lg:col-span-1">
-                      <div className="relative flex h-32 w-12 items-end justify-center rounded-full bg-gray-800">
-                        <div
-                          className="w-8 rounded-t-full"
-                          style={{ height: `${height}%`, background: active.color }}
-                          title={`${session.score}/10 - ${new Date(session.date).toLocaleDateString()}`}
-                        />
+              <div className="overflow-x-auto pb-2">
+                <div className="flex gap-4 min-w-max">
+                  {active.sessions.map(session => {
+                    const height = Math.max(12, (session.score / 10) * 100);
+                    return (
+                      <div key={session.date} className="flex flex-col items-center gap-2">
+                        <div className="relative flex h-32 w-12 items-end justify-center rounded-full bg-gray-800">
+                          <div
+                            className="w-8 rounded-t-full"
+                            style={{ height: `${height}%`, background: active.color }}
+                            title={`${session.score}/10 - ${new Date(session.date).toLocaleDateString()}`}
+                          />
+                        </div>
+                        <span className="text-xs font-semibold text-slate-300">{session.score}/10</span>
                       </div>
-                      <span className="text-xs font-semibold text-slate-300">{session.score}/10</span>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </section>

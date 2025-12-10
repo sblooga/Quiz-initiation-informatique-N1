@@ -36,7 +36,7 @@ export default function Results() {
           <div className="relative mx-auto grid h-48 w-48 place-items-center">
             <svg viewBox="0 0 36 36" className="h-48 w-48 -rotate-90">
               <path d="M18 2 a 16 16 0 1 1 0 32 a 16 16 0 1 1 0 -32" fill="none" stroke="#1f2937" strokeWidth="4" />
-              <path d="M18 2 a 16 16 0 1 1 0 32 a 16 16 0 1 1 0 -32" fill="none" stroke="#dc2626" strokeDasharray={`${(score/10)*100}, 100`} strokeLinecap="round" strokeWidth="4" />
+              <path d="M18 2 a 16 16 0 1 1 0 32 a 16 16 0 1 1 0 -32" fill="none" stroke="#dc2626" strokeDasharray={`${(score / 10) * 100}, 100`} strokeLinecap="round" strokeWidth="4" />
             </svg>
             <div className="absolute grid place-items-center">
               <p className="text-3xl font-extrabold text-white">{score}/10</p>
@@ -66,9 +66,9 @@ export default function Results() {
                   <p className="text-lg font-semibold text-white">{mistake.question.question}</p>
                   <p className="mt-2 text-sm text-slate-300">Votre réponse : <span className="font-semibold text-slate-100">{JSON.stringify(mistake.user)}</span></p>
                   <p className="text-sm text-slate-300">Bonne réponse : <span className="font-semibold text-slate-100">{JSON.stringify(mistake.question.answer)}</span></p>
-                  {mistake.question.pagePDF && (
+                  {(mistake.question.lesson || mistake.question.pagePDF || mistake.question.pdfSearchText) && (
                     <div className="mt-3">
-                      <PDFLink page={mistake.question.pagePDF} motCle={mistake.question.motClePDF} />
+                      <PDFLink lesson={mistake.question.lesson} page={mistake.question.pagePDF} motCle={mistake.question.motClePDF} searchText={mistake.question.pdfSearchText} />
                     </div>
                   )}
                 </li>

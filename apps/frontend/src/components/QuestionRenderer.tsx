@@ -20,11 +20,24 @@ export default function QuestionRenderer({ question, onAnswer }: Props) {
     return <div>Chargement...</div>;
   }
 
-  const handleChoice = (choice: string) => {
-    const correct = Array.isArray(question.answer)
-      ? (question.answer as string[]).some(a => normalize(a) === normalize(choice))
-      : normalize(choice) === normalize(question.answer as string);
-    onAnswer(correct, choice);
+  const handleChoice = (choices: string[]) => {
+    // Normaliser les réponses utilisateur
+    const normalizedUserAnswers = choices.map(c => normalize(c));
+
+    // Récupérer la réponse attendue (peut être string ou string[])
+    const rawAnswer = question.answer;
+    const expectedAnswers = Array.isArray(rawAnswer)
+      ? rawAnswer.map(a => normalize(a))
+      : [normalize(rawAnswer as string)];
+
+    // Vérification : 
+    // 1. Le nombre de réponses doit être identique
+    // 2. Toutes les réponses utilisateur doivent être dans les réponses attendues
+    const correct =
+      normalizedUserAnswers.length === expectedAnswers.length &&
+      normalizedUserAnswers.every(ans => expectedAnswers.includes(ans));
+
+    onAnswer(correct, choices);
   };
 
   const handleVF = (val: 'Vrai' | 'Faux') => {

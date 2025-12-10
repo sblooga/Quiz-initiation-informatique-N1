@@ -34,10 +34,12 @@ app.use((req: Request, _res, next) => {
 app.get('/health', (_req, res) => res.send('OK'));
 
 import profilesRouter from './routes/profiles.js';
+import sessionsRouter from './routes/sessions.js';
 
 const apiRouter = express.Router();
 apiRouter.use('/questions', questionsRouter);
 apiRouter.use('/students', profilesRouter);
+apiRouter.use('/sessions', sessionsRouter);
 
 app.use('/api', apiRouter);
 

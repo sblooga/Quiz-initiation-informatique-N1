@@ -23,8 +23,17 @@ export interface Question {
         theme: string | null;
         courseRef: string | null;
         pdfKeyword: string | null;
+        lesson: string | null;
         pdfPage: number | null;
+        pdfSearchText: string | null;
     };
+}
+
+export interface Session {
+    id: number;
+    profileId: number;
+    date: number;
+    score: number;
 }
 
 const api = axios.create({
@@ -82,10 +91,32 @@ export const fetchQuestions = async (): Promise<Question[]> => {
     }
 };
 
+export const fetchSessions = async (): Promise<Session[]> => {
+    try {
+        const response = await api.get('/api/sessions');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching sessions:', error);
+        throw error;
+    }
+};
+
+export const saveSession = async (profileId: number, date: number, score: number): Promise<Session> => {
+    try {
+        const response = await api.post('/api/sessions', { profileId, date, score });
+        return response.data;
+    } catch (error) {
+        console.error('Error saving session:', error);
+        throw error;
+    }
+};
+
 export default {
     fetchStudents,
     createStudent,
     deleteStudent,
     updateStudent,
     fetchQuestions,
+    fetchSessions,
+    saveSession,
 };

@@ -1,3 +1,119 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #0b0f17;
+    color: #e5e7eb;
+}
+
+.font-display {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #e11d48;
+    outline-offset: 2px;
+}
+
+/* Shared red button */
+.btn-red {
+    background: linear-gradient(90deg, #f43f5e, #e11d48);
+    color: #fff;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    box-shadow: 0 10px 20px rgba(225, 29, 72, 0.25), 0 6px 6px rgba(0, 0, 0, 0.25);
+    transition: transform 150ms ease, filter 150ms ease, background 200ms ease;
+}
+
+.btn-red:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn-red:active {
+    transform: translateY(0);
+    filter: brightness(0.98);
+}
+
+.btn-red:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Dark surfaces and inputs */
+.card-dark {
+    background-color: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(6px);
+}
+
+.surface-dark {
+    background-color: rgba(31, 41, 55, 0.98);
+    backdrop-filter: blur(6px);
+}
+
+/* Opacité augmentée de 0.85 à 0.98 */
+.input-dark {
+    background-color: #0f172a !important;
+    /* slate-950 - très sombre */
+    color: #ffffff !important;
+    /* blanc pur - très visible */
+    border: 1px solid #334155;
+}
+
+.input-dark::placeholder {
+    color: #94a3b8;
+}
+
+.input-dark:focus {
+    border-color: #e11d48;
+    outline: none;
+}
+
+.btn-outline-red {
+    background: transparent;
+    color: #f43f5e;
+    border: 2px solid #f43f5e;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: all 200ms ease;
+}
+
+.btn-outline-red:hover {
+    background: rgba(244, 63, 94, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Typography improvements - prevent orphan punctuation */
+h1, h2, h3, h4, h5, h6, p, li, span {
+    /* Enable hyphenation for French */
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    
+    /* Prevent orphan words (widows and orphans) */
+    orphans: 3;
+    widows: 3;
+    
+    /* Better word breaking */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Prevent single punctuation marks at the start of a line */
+p::after, h2::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+}

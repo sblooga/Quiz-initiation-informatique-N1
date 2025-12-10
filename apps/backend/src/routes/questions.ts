@@ -51,7 +51,7 @@ r.get('/', async (_req, res) => {
       // ⚠️ TRIM ajouté ici pour la sécurité, bien que le problème soit sur l'INSERT.
       const rows = await db.all(`
         SELECT id, question_id, type, label, choices_json, answer_text, answer_index,
-               theme, course_ref, pdf_keyword, pdf_page
+        theme, course_ref, pdf_keyword, lesson, pdf_page, pdf_search_text
         FROM questions
         ORDER BY id ASC
       `.trim()); // <-- .trim() ajouté
@@ -73,7 +73,9 @@ r.get('/', async (_req, res) => {
             theme: r.theme ?? null,
             courseRef: r.course_ref ?? null,
             pdfKeyword: r.pdf_keyword ?? null,
+            lesson: r.lesson ?? null,
             pdfPage: r.pdf_page ?? null,
+            pdfSearchText: r.pdf_search_text ?? null,
           },
         };
       });
@@ -145,21 +147,23 @@ r.post('/import', upload.single('quizFile'), async (req, res) => { // <-- MULTER
     await db.exec(`
       DROP TABLE IF EXISTS questions;
 
-      CREATE TABLE IF NOT EXISTS questions (
-        id              INTEGER PRIMARY KEY AUTOINCREMENT,
-        question_id     INTEGER,
-        type            TEXT NOT NULL, 	      -- "QCM" | "VraiFaux" | "Compléter"
-        label           TEXT NOT NULL, 	      -- Question
-        choices_json    TEXT, 	 	      -- JSON.stringify(string[]) pour QCM/VF
-        answer_text     TEXT, 	 	      -- Réponse (texte libre)
-        answer_index    INTEGER, 	      -- index dans choices si déterminable
-        theme           TEXT, 	 	      -- Thème
-        course_ref      TEXT, 	 	      -- RéférenceCours
-        pdf_keyword     TEXT, 	 	      -- MotCléRecherchePDF
-        pdf_page        INTEGER, 	      -- PagePDF
-        created_at      TEXT DEFAULT (datetime('now'))
-      );
-    `.trim()); // <-- .trim() ajouté ici
+      CREATE TABLE IF NOT EXISTS questions(
+          id              INTEGER PRIMARY KEY AUTOINCREMENT,
+          question_id     INTEGER,
+          type            TEXT NOT NULL, -- "QCM" | "VraiFaux" | "Compléter"
+        label           TEXT NOT NULL, --Question
+        choices_json    TEXT, --JSON.stringify(string[]) pour QCM / VF
+        answer_text     TEXT, --Réponse(texte libre)
+        answer_index    INTEGER, --index dans choices si déterminable
+        theme           TEXT, --Thème
+        course_ref      TEXT, --RéférenceCours
+        pdf_keyword     TEXT, --MotCléRecherchePDF
+        lesson          TEXT, --Leçon
+        pdf_page        INTEGER, --PagePDF
+        pdf_search_text TEXT, --TexteRecherchePDF
+        created_at      TEXT DEFAULT(datetime('now'))
+        );
+      `.trim()); // <-- .trim() ajouté ici
 
     await db.exec('BEGIN');
     try {
@@ -168,11 +172,11 @@ r.post('/import', upload.single('quizFile'), async (req, res) => { // <-- MULTER
 
       // ⚠️ L'espace après le backtick était la cause la plus probable de l'erreur
       // J'ai mis la requête sur une seule ligne (plus robuste) ou supprimé l'espace initial
-      const stmt = await db.prepare(`INSERT INTO questions (
-          question_id, type, label, choices_json, answer_text, answer_index,
-          theme, course_ref, pdf_keyword, pdf_page
-        ) VALUES (?,?,?,?,?,?,?,?,?,?)
-      `.trim()); // <-- .trim() ajouté ici
+      const stmt = await db.prepare(`INSERT INTO questions(
+        question_id, type, label, choices_json, answer_text, answer_index,
+        theme, course_ref, pdf_keyword, lesson, pdf_page, pdf_search_text
+      ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)
+        `.trim()); // <-- .trim() ajouté ici
 
       for (const raw of questions) {
         const questionId = toInt(raw.QuestionID);
@@ -200,6 +204,8 @@ r.post('/import', upload.single('quizFile'), async (req, res) => { // <-- MULTER
         const theme = String(raw.Thème ?? '').trim();
         const courseRef = String(raw.RéférenceCours ?? '').trim();
         const pdfKeyword = String(raw.MotCléRecherchePDF ?? '').trim();
+        const lesson = String(raw.Leçon ?? '').trim();
+        const pdfSearchText = String(raw.TexteRecherchePDF ?? '').trim();
         const pdfPage = toInt(raw.PagePDF);
 
         await stmt.run([
@@ -212,7 +218,9 @@ r.post('/import', upload.single('quizFile'), async (req, res) => { // <-- MULTER
           theme || null,
           courseRef || null,
           pdfKeyword || null,
+          lesson || null,
           pdfPage ?? null,
+          pdfSearchText || null,
         ]);
       }
 

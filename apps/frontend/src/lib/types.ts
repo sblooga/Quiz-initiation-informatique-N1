@@ -5,7 +5,9 @@ export type QuestionBase = {
   theme: string;
   referenceCours: string;
   motClePDF?: string;
+  lesson?: string;
   pagePDF?: number;
+  pdfSearchText?: string;
 };
 
 export interface QCMQuestion extends QuestionBase {

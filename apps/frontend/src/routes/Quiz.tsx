@@ -3,10 +3,9 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Answer from '../components/Answer';
 import PDFLink from '../components/PDFLink';
 import QuestionRenderer from '../components/QuestionRenderer';
-import { loadQuestions, saveSession } from '../lib/db.indexeddb';
 import { seedFromProfile, shuffle } from '../lib/random';
 import { Question } from '../lib/types';
-import { fetchQuestions } from '../services/quizApiService';
+import { fetchQuestions, fetchStudents, saveSession as saveSessionAPI } from '../services/quizApiService';
 
 type QuizStatus = 'loading' | 'ready' | 'empty' | 'error';
 
@@ -47,17 +46,27 @@ export default function Quiz() {
           return;
         }
 
-        const all: Question[] = apiQuestions.map(q => ({
-          id: String(q.id),
-          type: q.type === 'VraiFaux' ? 'Vrai/Faux' : q.type,
-          question: q.label,
-          theme: q.meta.theme || '',
-          referenceCours: q.meta.courseRef || '',
-          motClePDF: q.meta.pdfKeyword || undefined,
-          pagePDF: q.meta.pdfPage || undefined,
-          choices: q.choices,
-          answer: q.answer.text || '',
-        } as Question));
+        const all: Question[] = apiQuestions.map(q => {
+          // Parse answer: if it contains pipes, it's a multiple-choice answer
+          let answer: string | string[] = q.answer.text || '';
+          if (typeof answer === 'string' && answer.includes('|')) {
+            answer = answer.split('|').map(a => a.trim()).filter(Boolean);
+          }
+
+          return {
+            id: String(q.id),
+            type: q.type === 'VraiFaux' ? 'Vrai/Faux' : q.type,
+            question: q.label,
+            theme: q.meta.theme || '',
+            referenceCours: q.meta.courseRef || '',
+            motClePDF: q.meta.pdfKeyword || undefined,
+            lesson: q.meta.lesson || undefined,
+            pagePDF: q.meta.pdfPage || undefined,
+            pdfSearchText: q.meta.pdfSearchText || undefined,
+            choices: q.choices,
+            answer,
+          } as Question;
+        });
 
         const seed = seedFromProfile(profile, Date.now());
         const shuffled = shuffle(all, seed).slice(0, 10);
@@ -91,7 +100,13 @@ export default function Quiz() {
 
     if (index + 1 >= questions.length) {
       const score = newAnswers.filter(a => a.correct).length;
-      saveSession({ profile, date: Date.now(), score });
+      // Find profile ID by name
+      fetchStudents().then(students => {
+        const student = students.find(s => s.name === profile);
+        if (student) {
+          saveSessionAPI(student.id, Date.now(), score).catch(console.error);
+        }
+      });
       navigate('/resultats', { state: { answers: newAnswers, profile } });
     } else {
       setIndex(i => i + 1);
@@ -102,7 +117,13 @@ export default function Quiz() {
     setShowFeedback(false);
     if (index + 1 >= questions.length) {
       const score = answers.filter(a => a.correct).length;
-      saveSession({ profile, date: Date.now(), score });
+      // Find profile ID by name
+      fetchStudents().then(students => {
+        const student = students.find(s => s.name === profile);
+        if (student) {
+          saveSessionAPI(student.id, Date.now(), score).catch(console.error);
+        }
+      });
       navigate('/resultats', { state: { answers, profile } });
     } else {
       setIndex(i => i + 1);
@@ -189,9 +210,9 @@ export default function Quiz() {
               <div className="rounded-3xl bg-gray-800/80 p-6 shadow-inner" aria-live="polite">
                 <p className="text-lg font-semibold text-red-400">Mauvaise réponse</p>
                 <p className="mt-2 text-slate-200">Bonne réponse : <Answer question={q} /></p>
-                {q.pagePDF && (
+                {(q.lesson || q.pagePDF || q.pdfSearchText) && (
                   <div className="mt-3">
-                    <PDFLink page={q.pagePDF} motCle={q.motClePDF} />
+                    <PDFLink lesson={q.lesson} page={q.pagePDF} motCle={q.motClePDF} searchText={q.pdfSearchText} />
                   </div>
                 )}
                 <button
@@ -204,9 +225,9 @@ export default function Quiz() {
               </div>
             )}
           </div>
-          {q.pagePDF && (
+          {(q.lesson || q.pagePDF || q.pdfSearchText) && (
             <div className="mt-6">
-              <PDFLink page={q.pagePDF} motCle={q.motClePDF} />
+              <PDFLink lesson={q.lesson} page={q.pagePDF} motCle={q.motClePDF} searchText={q.pdfSearchText} />
             </div>
           )}
         </main>

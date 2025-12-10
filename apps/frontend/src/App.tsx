@@ -5,6 +5,7 @@ import Results from './routes/Results';
 import Scoreboard from './routes/Scoreboard';
 import Admin from './routes/Admin';
 import Enrollment from './routes/Enrollment';
+import About from './routes/About';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/scores" element={<Scoreboard />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/inscription" element={<Enrollment />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 }

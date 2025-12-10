@@ -9,7 +9,9 @@ export type CsvQuestionRow = {
   Thème?: string;
   RéférenceCours?: string;
   MotCléRecherchePDF?: string;
+  Leçon?: string;
   PagePDF?: string | number;
+  TexteRecherchePDF?: string;
 };
 
 // Charge un File et parse en objets (en-têtes du CSV conservées)
@@ -45,7 +47,9 @@ function normalizeRow(r: CsvQuestionRow): CsvQuestionRow {
     Thème: clean(r.Thème),
     RéférenceCours: clean(r.RéférenceCours),
     MotCléRecherchePDF: clean(r.MotCléRecherchePDF),
+    Leçon: clean(r.Leçon),
     PagePDF: clean(String(r.PagePDF ?? '')),
+    TexteRecherchePDF: clean(r.TexteRecherchePDF),
   };
 }
 
@@ -60,7 +64,7 @@ export function validateCsvRows(rows: CsvQuestionRow[]): { rows: CsvQuestionRow[
     if (!q.Question || q.Question.length < 3) warnings.push(`Ligne ${rowNum}: Question vide ou trop courte.`);
     if (!q.Type) {
       // Heuristique : si Réponse ∈ {Vrai,Faux} et Choix vide → VraiFaux
-      if (!q.Choix && ['vrai','faux'].includes((q.Réponse || '').toLowerCase())) {
+      if (!q.Choix && ['vrai', 'faux'].includes((q.Réponse || '').toLowerCase())) {
         q.Type = 'VraiFaux';
       } else {
         q.Type = 'QCM';

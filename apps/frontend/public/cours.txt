@@ -1,0 +1,1376 @@
+COURS INITIATION
+INFORMATIQUE
+Formateur :
+Richard Szuszkiewicz
+ÉLÈVE  : RENATA MOKRZYCKI
+PRÉAMBULE
+Ce cours est purement pédagogique, réalisé entièrement en immersion avec Renata Mokrzycki qui va découvrir l’informatique pour son usage personnel et professionnel.
+Ce support est prévu pour que Renata puisse réviser et s’exercer sur ce qui c’est dit en présentiel en tête à tête avec moi ! C’est une forma­tion sur mesure. 
+Il y aura deux axes dans ce cours.
+LE PREMIER AXE 
+Sera de créer une copie de ce qui c’est dit en présentiel pour que Renata puisse ap­prendre en révisant.
+LE DEUXIÈME AXE 
+Ce sera des exercices que Renata devra réaliser à son domicile entre deux rendez-vous pour valider ces acquis.
+PREMIÈRE PARTIE
+Ton ordinateur a été installé et configuré par mes soins avec ma sélection de logiciels 
+Voici les principales caractéristiques de ton ordinateur portable   
+Nom de l’appareil RENATA-1
+Processeur AMD Ryzen 9 6900HX with Radeon Graphics 3.30 GHz
+Mémoire RAM installée 16,0 Go (13,7 Go utilisable)
+ID de périphérique 306F8A84-B275-46F4-BDAD-569FDEE48D46
+ID de produit 00330-80000-00000-AA526
+Type du système d’exploitation 64 bits, processeur x64
+Windows 11 Professionnel Version : 24H2 
+Leçon 001 ton PC se compose de trois sessions Windows
+Ø 
+La première Session, c’est la session Administrateur
+Ø 
+La deuxième Session, c’est la session Renata
+Ø 
+La troisième Session, c’est la session Famille
+La session administrateur est a utiliser pour installer ou dépanner ton ordinateur !
+La session Renata c’est ta session par défaut pour travailler
+La session Famille c’est la session pour les autres utilisateurs
+Leçon 002 tu peux te connecter à une session de deux façons
+Ø 
+La première façon avec un mot de passe
+Ø 
+La deuxième façon avec un code PIN ou « Hello » c’est le terme Microsoft
+LES MESURES DE SÉCURITÉ À ADOPTER
+01 
+Ton PC est équipé d’un Anti-virus Malwarebite, tu peux le voir dans la barre des tâches à droite à côté de l’horloge. Il se met à jour automatiquement. Il te protège des infections virales qui proviennent des «téléchargements» des sites internet, du partage de fichiers entre amis, clé USB, pièces jointes, y compris les fichiers PDF. Tu le verras quand tu devras ouvrir un fichier PDF, le fichier sera analysé en arrière-plan avant son ouverture. Il se passera un délai ! Et ce délai d’ouverture est tout à fait normal. C’est le délai dont l’antivirus a besoin pour analyser ton fichier. Oui, même dans les fichiers PDF, ce cache parfois des virus ou des malwares selon la terminologie employée.
+02 
+En règle générale, l’entrée des virus se fait par les échanges de clés USB, par les pièces jointes reçues dans WhatsApp et les E-mails. Attention ! Les photos sont aussi concernées, elles peuvent cacher un virus. Tous les liens sont aussi concer­nés, tous les types de liens, les liens des messageries, des E-mails, des SMS, etc. Pour se prémunir des attaques virales, on ne clique pas sur un lien d’une personne inconnue, juste par curiosité ! Les pirates connaissent parfaitement nos points faibles. La curiosité en fait partie.
+03 
+Maintenant, il ne faut pas devenir « paranoïaque ! » et voir le mal partout ! Il suffit d’être prudent et intelligent.
+04 
+Quelles sont les conséquences d’une attaque virale ?
+ 04 1. 
+Les premiers symptômes, c’est un ralentissement du PC, des navigateurs comme Chrome, Firefox qui ne fonctionnent plus comme avant. La souris qui ne fonctionne plus qui ce bloc, l’explorateur de fichiers qui ce bloque.
+ 04 2. 
+Le plus grave, c’est le PC qui redémarre sans arrêt ou qui refuse de démar­rer !
+ 04 3. 
+ Pas de panique ! Ton PC dispose de plusieurs sauvegardes en lieux sûrs.
+ 04 4. 
+La première sauvegarde se trouve sur ta clé USB Patriot
+ 04 5. 
+La deuxième sauvegarde se trouve chez moi en lieu sûr
+ 04 6. 
+La troisième sauvegarde se trouvera sur Google Drive quand tu auras pris un abonnement annuel parce qu’aujourd’hui tu ne disposes que de 30 Go d’es­pace gratuit à peine suffisant pour sauvegarder tous tes fichiers personnels.
+ 04 7. 
+Puisque l’on parle d’espace dans Google Drive, je voudrais aussi parler des espaces de stockage sur ton PC !
+ 04 8. 
+Le premier espace de stockage, ce sera le chemin par défaut que te pro­posera Windows C :\Users\Richard\Documents, Images, Musique, etc. Ce chemin est à éviter. Pourquoi ? En cas d’attaque virale et de réinstallation de ton PC, tu perdras tous tes fichiers parce qu’ils seront répartis sur les trois Sessions Administrateur, Renata et Famille.
+ 04 9. 
+Le deuxième espace de stockage, c’est la bonne pratique, c’est celle que je te recommande, c’est d’utiliser ton espace Google Drive par défaut et, évidemment, je te suggère de prendre un abonnement annuel chez Goo­gle, le forfait Premium Workspace de 2 To à 99,99 €/an avec la facturation annuelle tu économises 16 %. Les avantages et les fonctionnalités Premium de Google Workspace : Appels vidéo améliorés dans Meet, profiter d’appels vidéo de groupe plus longs, de la suppression du bruit et de la possibilité d’enregistrer vos appels, diffusion en direct sur YouTube, permettre à d’autres personnes de regarder ton appel vidéo Meet sans y participer, planification des rendez-vous améliorée dans Agenda, créer plusieurs pages de réserva­tion pour différents types de rendez-vous, configurez des rappels automa­tiques par e-mail et associez plusieurs agendas pour éviter les conflits. 
+Ça va te permettre d’utiliser ton espace de stockage pour Google Photos, Drive et Gmail et stocker de façon sécurisée tes photos, tes fichiers, tes e-mails, tes sauvegardes et autres dans le cloud ou (les nuages). C’est la meilleure façon de protéger tous tes fichiers qui seront à l’abri de tous les regards et que tu pourras partager avec tout le monde, tes amis, ton travail en créant des liens que tu pourras partager avec WhatsApp, les réseaux sociaux ou dans tes e-mails.
+ 04 10. 
+Le troisième espace de stockage, c’est One Drive chez Microsoft tu dis­poses de 15 Go gratuits, ce n’est pas énorme, mais ça peut dépanner tempo­rairement au cas où ! C’est le concurrent ou l’équivalent de Google, mais moi j’ai une préférence pour Google :)
+ 04 11. 
+Le quatrième espace de stockage c’est ta clé USB Patriot de 1 Téraoctet c’est égale à 1000 Go pour du stockage occasionnel et la sauvegarde de ton PC avec Macrium Reflect. Avec cette clé USB, tu peux partager les fichiers que tu veux avec ta famille qui utilisera ton PC. Surtout, il ne faudra pas partager les fichiers sensibles avec, par exemple, tes mots de passe ? Ces fichiers-là, il faudra les laisser sur Google Drive à l’abri des regards !
+LA CONFIGURATION WINDOWS DE TON PC
+05 
+Pour ton information personnel, Windows 11 Pro­fessionnel est installé sur un SSD de type MVME de 512 Go sur ton PC portable. C’est le seul disque disponible en interne que tu disposes actuelle­ment.
+06 
+Tous les logiciels qui sont installés sur ton PC te permettent de pratiquement tout faire et de réali­ser toutes les tâches, faire du traitement de texte avec Word ou Google Docs, utiliser un tableur pour faire tes comptes avec Excel ou Google Sheets, retoucher tes photos avec DXO-Photolab, faire du montage ou de la re­touche photos avec Photoshop, du montage vidéo, du graphisme avec Illustra­tor, de la mise en page de magazines avec Indesign, créer des dessins d’art avec CorelDraw, créer les plans de ta nouvelle cuisine ou de ta nouvelle maison avec SketchUp, organiser des soirées musicales avec VirtualDJ ou écouter ta playliste préférée avec Foobar2000, faire de la programmation, tu pourras aussi, consulter, utiliser pour ton travail ou pour ton usage personnel toutes les IA qui sont dispo­nibles actuellement et bien plus ! Ça, ce sont les avantages, mais l’inconvénient dans tout ça ! C’est que ton disque principal maintenant est bien rempli et que tout c’est logiciels installés sur ton PC ne te permettent plus de sauvegarder tes fichiers personnels sur ton PC par manque de place. Donc, je te conseille de prendre un abonnement Google Drive et d’utiliser Google Drive par défaut pour sauvegarder tout ton travail journalier.
+PRÉSENTATION DE TON PC
+Présentation du côté gauche du PC
+Présentation du côté droit du PC
+Présentation du clavier
+Présentation de la touche FN du clavier
+Présentation de la souris
+Présentation de la clé USB Patriot de 1 To
+DEUXIÈME PARTIE
+FORMATION DE BASE WINDOWS 11
+Leçon 003 présentation de la barre des tâches Windows
+01 
+La barre des tâches principales
+02 
+La barre des tâches côté de l’horloge
+03 
+Le menu Windows 
+Leçon 004 présentation de l’icône du Wifi et de la connexion Internet
+01 
+Avec le premier, clic on active ou l’on désactive le Wifi, en cliquant sur la flèche, on accède à la partie connexion. Pour se reconnecter ou pour une nouvelle connexion.
+02 
+Avec le premier, clic on active l’on désactive le Bluetooth, en cliquant sur la flèche, on accède à la partie connexion. Pour se reconnecter ou pour une nouvelle connexion avec un nouvel appareil.
+03 
+On active le mode avion
+04 
+Réglage de la luminosité
+05 
+Réglage du son
+06 
+contrôle visuel de la charge batterie
+01 
+Quand on clique sur la flèche, on ouvre la seconde fenêtre du Wifi
+02 
+Cliquer pour activer ou désactiver le Wifi
+03 
+Pour se connecter ou se reconnecter au réseau Wifi
+Leçon 005 présentation du menu Windows
+01 
+Clic gauche sur le menu Windows, ouverture des logiciels favoris
+02 
+Clic droit sur le menu Windows pour ouvrir le menu contextuel, pour créer des tâches, quitter la session en cours ou quitter Windows.
+Leçon 006 présentation de l’explorateur Windows
+01 
+Ouverture de l’explorateur Windows Raccourcie touche « Windows+E »
+Leçon 007 comment positionner la fenêtre de l’explorateur de fichiers
+02 
+Positionnement de la fenêtre de l’explorateur à gauche avec la souris ou avec le clavier en maintenant la touche              enfoncée +  
+03 
+Une fois que les deux fenêtres de l’explorateur sont positionnées côte à côte, la fenêtre active de droite possède un liseré rouge ! Maintenant, vous pouvez copier ou coller des fichiers d’un répertoire à un autre facilement.
+04 
+Une fois, les deux fenêtres positionnées côte à côté {1, 2}, vous pouvez sélectionner un répertoire de votre choix « de la clé USB Patriot » {3} ou sélectionner le ré­pertoire de votre choix « One Drive » qui ce nomme « Renata personnel » en {4} ou sélectionner le répertoire de votre choix dans la deuxième fenêtre de « Goo­gle Drive » en {5}. Dans la figure, les rectangles « vert » montrent le contenu des répertoires sélectionnés.
+Leçon 008 copier, déplacer des fichiers ou des répertoires
+01 
+Pour copier un fichier, un répertoire ou plusieurs fichiers ou répertoires, il suffit de sélectionner les éléments et de les glisser de la fenêtre 1 vers la fenêtre 2 en maintenant le clic gauche de la souris enfoncée Attention ! Vérifier que la mention « Copier » est bien présente et non pas « Déplacer » ! 
+Si la mention déplacée est présente, il suffit de cliquer sur la touche « Shift » ou majuscule pour basculer de copier vers déplacer ou déplacer vers copier. C’est une bascule, soit l’un soit l’autre vous avez le choix. Quelle est la différence entre copier et déplacer ?
+Copier « Ctrl+C » dupliquera la sélection source alors, que déplacer « Ctrl + X » supprimera la sélection source ! Et pour coller, il faut faire « Ctrl+V ».
+02 
+Dans cet exemple, je déplace la sélection ! Raccourci « Ctrl + X »
+Leçon 009 créée des répertoires ou des fichiers
+01 
+Méthode 1 : 
+J’ouvre l‘explorateur de fichier avec la touche de raccourci « Windows+E » pour créer un nouveau répertoire, ou un nouveau document je fais un clique sur « + de nouveau » ensuite, j’ai le choix du type de document que je veux créer ! Soit un nouveau répertoire ! Ou en {2} un nouveau document !
+Note : Tous les documents des logiciels qui sont installés sur ce PC ne sont pas forcément présents dans cette liste. Seuls les principaux documents sont présents. Comme Word, Excel, WinZip, WinRar, Google Docs, Photoshop, etc. Par contre, Indesign n’est pas présent dans cette liste ! Pour créer un document Indesign, il faudra ouvrir Indesign et créer un nouveau document.
+02 
+Méthode 2 :
+J’ouvre l‘explorateur de fichier avec la touche de raccourci « Windows+E » 
+J’utilise le menu contextuel de la souris « Clique droit » dans la fenêtre de l’explo­rateur Windows pour créer un nouveau répertoire, ou un nouveau document je fais un clique sur « + de nouveau » ensuite, j’ai le choix du type de document que je veux créer ! Soit un nouveau répertoire ! Ou en {2} un nouveau document !
+Note : Tous les documents des logiciels qui sont installés sur ce PC ne sont pas forcément présents dans cette liste. Seuls les principaux documents sont présents. Comme Word, Excel, WinZip, WinRar, Google Docs, Photoshop, etc. Par contre, Indesign n’est pas présent dans cette liste ! Pour créer un document Indesign, il faudra ouvrir Indesign et créer un nouveau document. 
+Leçon 010 les différentes méthodes de sélection
+Pour sélectionner des répertoires ou des fichiers, nous allons voir trois méthodes qui sont importantes dans l’explorateur de fichiers !
+01 
+Méthode 1
+« Shift+Clique gauche » je sélectionne le premier en haut tout en maintenant la touche « Shift » enfoncée, je clique sur le dernier de la liste et je relâche le « Clic », voilà, toute la liste est sélectionnée. 
+02 
+Méthode 2
+« Ctrl+Clic gauche » je sélectionne un part un tout en maintenant la touche « Ctrl » enfoncé, je relâche le « Clic », voilà c’est sélectionné.
+03 
+Méthode 3
+« Clic gauche » je maintiens le clic tout en glissant la fenêtre de sélection, je re­lâche le « Clic », voilà, la liste est sélectionnée.
+04 
+Méthode 4 (c’est la méthode universelle sous Windows)
+«Ctrl + A» je sélectionne tous les fichiers dans le répertoire ou le dossier sélec­tionné. Cette méthode, on la retrouve dans tous les logiciels sous Windows Word, Excel, PhotoShop, IndeSign, LibreOffice et
+Leçon 011 exemple d’organisation des dossiers Windows
+01 
+Pour nommer les répertoires ou dossiers, utiliser les « majuscules » pour les diffé­rencier des fichiers. Ne pas utiliser d’espaces dans les noms de dossier.
+Leçon 012 exemple de nommage des fichiers Windows
+01 
+Par convention, on ne nomme pas les fichiers avec un espace. La raison, quand on doit rechercher des fichiers avec l’explorateur de fichiers, on ne les trouve pas s’ils ont des espaces !
+02 
+Les extensions sont liées aux types de documents : (voici quelques exemples d’extensions) il en existe des milliers ! Chaque logiciel possède sa propre exten­sion. 
+Leçon 013 toutes les extensions des logiciels sur ton PC
+Leçon 014 liste des caractères interdits
+Voici les interdictions dans les noms de fichiers et de dossiers sous Windows 11
+< (inférieur)
+ > (supérieur)
+: (deux-points)
+« (guillemets doubles)
+/(barre oblique)
+\(barre oblique inversée)
+| (barre verticale)
+? (point d’interrogation)
+* (astérisque ou l’étoile)
+   (un espace vide)
+. (un point)
+De préférence, éviter de mettre les accents dans les noms de dossiers et les noms de fichiers. Pour­quoi ? Certains sites n’acceptent pas les fichiers avec des accents. Si vous devez télécharger vos fichiers sur internet, certains serveurs refuseront vos fichiers, vous aurez un message d’erreur sans explication et vous ne saurez pas pourquoi vos fichiers sont refusés !
+Exemples interdits :
+école-de-la-marinière.txt (les accents)
+école de la marinière.docx (les espaces et les accents) 
+Les bonnes pratiques
+Leçon 015 exemple de noms de dossiers ou répertoires 
+PERSONNEL 
+RENATA
+DAVID
+TRAVAIL
+Leçon 016 exemple de noms de fichiers
+Fiche-Paye-Renata-(14.05.25).pdf
+Remboursement-Veterinaire-Oxmo.pdf
+Justificatif-Securite-Sociale.docx
+Notes-Frais-Deplacements.xls
+Retouche-Photo-David-(02.04.25).psd
+Renata-(01).jpg, Renata-(02).jpg, Renata-(03).jpg ou Renata-[04].jpg
+Leçon 017 exemple de nom trop long
+Un-exemple-a-ne-pas-suivre-de-nom-trop-long.txt
+Note : Attention ! utilisez une longueur de nom raisonnable ! Sur internet, certains serveurs refuseront les noms trop longs. Évitez aussi tous les articles, le, la, les, un, dans, etc.
+Leçon 018 la recherche dans l’explorateur de fichiers 
+Leçon 019 comment rechercher un dossier ou un fichier dans Windows 11
+Exemple je dois rechercher ces fichiers :
+Remboursement-Veterinaire-Oxmo-(18.03.24).pdf
+Renata-(01).jpg
+Renata-(02).jpg
+Renata-(03).jpg
+Renata-(04).jpg
+Leçon 020 les différentes méthodes de recherche
+Utilisez les filtres, les mots-clés ou les caractères génériques : 
+* (L’étoile remplace n’importe quels caractères) 
+? (Remplace 1 caractère Exemp. Renata-(??).jpg [je vais trouver Renata-(01), (02), (03)]
+! (Exclut 1 caractère Exemp. : [R!char! Exclut le i et le d]
+remb*
+Renata-(??).jpg
+[Ren!t!-(0?).jpg]
+remb*.pdf
+*veteri*oxmo
+NOT *.jpg 		(Exclut les fichiers JPG ou Exclure un terme)
+.docx OR .pdf	(Rechercher l’un ou l’autre)
+*25			(Toutes les dates finissant par 25)
+*2025			(Tous les fichiers de 2025)
+*03			(Tous les fichiers finissant par 03)
+*03*			(Tous les fichiers contenant le chiffre 03)
+date : 2025		(Toutes les dates de 2025)
+>01/01/2024	(Toutes les dates après le 1er janvier 2024)
+<01/01/2024	(Toutes les dates avant cette date)
+size : >1		(rechercher les fichiers plus grands que 1 Mo)
+author:Renata 	(recherche les documents créés par l’auteur Renata Exemple : Word)
+Note : Il faut respecter, size, type, author il faut utiliser ces termes en anglais. Pourquoi ? Parce que Windows est Américain d’origine et il reste encore des termes dans Windows qui ne sont pas traduits dans les autres langues.
+Leçon 021 utiliser l’utilitaire Everything
+01 
+Saisir les « critères de recherche » avec les filtres ou les caractères génériques
+02 
+Faire un « clic droit » sur la sélection
+03 
+Vous pouvez « l’ouvrir»  dans l’explorateur de fichiers
+04 
+Ou « l’ouvrir dans Acrobat » directement
+Si vous ne trouvez pas votre fichier, utilisez l’utilitaire « Everything » plus rapide et plus efficace que l’explorateur de fichiers Windows. Il faut aller dans la barre des tâches pour l’exécuter et utiliser les caractères génériques ou les filtres.
+Utilisez les filtres, les mots-clés ou les caractères génériques : 
+* (L’étoile remplace n’importe quels caractères) 
+? (Remplace 1 caractère Exemp. Renata-(??).jpg [je vais trouver Renata-(01), (02), (03)]
+! (Exclut 1 caractère Exemp. : [R!char! Exclut le i et le d]
+remb*
+Renata-(??).jpg
+[Ren!t!-(0?).jpg]
+remb*.pdf
+*veteri*oxmo
+NOT *.jpg 		(Exclut les fichiers JPG ou Exclure un terme)
+.docx OR .pdf	(Rechercher l’un ou l’autre)
+*25			(Toutes les dates finissant par 25)
+*2025			(Tous les fichiers de 2025)
+*03			(Tous les fichiers finissant par 03)
+*03*			(Tous les fichiers contenant le chiffre 03)
+date : 2025		(Toutes les dates de 2025)
+>01/01/2024	(Toutes les dates après le 1er janvier 2024)
+<01/01/2024	(Toutes les dates avant cette date)
+size : >1		(rechercher les fichiers plus grands que 1 Mo)
+author:Renata 	(recherche les documents créés par l’auteur Renata Exemple : Word)
+Leçon 022 comment créer un nouveau document avec Word ou Excel
+01 
+Cliquer sur le menu Windows
+02 
+Dans la barre de recherche, saisir le nom du logiciel à ouvrir « Word »
+03 
+Cliquer sur « Ouvrir Word »
+04 
+Ou ouvrir les derniers fichiers ouverts
+01 
+Ouvrir un « document vierge »
+02 
+Ou ouvrir un « modèle » dans la liste des modèles Word
+03 
+Ou ouvrir un document récent
+Dans cet exemple, nous allons ouvrir un « document vierge » [1]
+01 
+Une fois que vous avez saisi votre texte dans Word, vous allez en haut à gauche dans le menu « Fichiers » vous cliquer sur « Enregistrer Sous »
+02 
+Vous cliquez sur « parcourir »
+03 
+Vous choisissez « l’emplacement » ou vous voulez enregistrer votre document
+04 
+Vous lui donnez un « Nom » en respectant les règles de nommage
+05 
+Et vous « enregistrez » votre document Word
+Note : La procédure est la même pour tous les logiciels qui sont installés sur votre ordinateur. Vous chercher votre logiciel dans la zone de recherche une fois qu’il s’affiche, vous cliquez dessus pour l’ouvrir.
+Leçon 023 comment créer un nouveau document avec Google Drive
+01 
+Ouvrir le navigateur « Google Chrome » ou un autre navigateur
+02 
+Cliquer sur le menu « Hamburger de Windows »
+03 
+Chercher « Google Drive » se connecter avec votre compte Gmail et l’ouvrir
+01 
+Cliquer sur « Nouveau dossier »
+02 
+Choisir « Google Docs »
+03 
+Choisir « Document vierge » et l’ouvrir
+01 
+Il faut vérifier que vous êtes sur le « bon compte Gmail » (tu as 2 comptes Gmail)
+02 
+Le premier onglet correspond à « Google Drive »
+03 
+Le deuxième onglet correspond au document « Google Docs »
+04 
+À l’ouverture d’un nouveau document vierge « ce champ est vide », il faut cliquer sur ce champ pour donner un « nom » à votre document
+05 
+Cliquer sur « l’étoile » pour sélectionner ce document en « favoris »
+06 
+« L’onglet » dans Google Docs correspond aux « chapitres » dans Word
+07 
+Ici c’est « le corps du texte » qui est équivalent au corps du texte dans Word
+« Les menus » dans Google Docs sont pratiquement identiques à Microsoft Word. Si vous savez utiliser Word, vous saurez utiliser Google Docs.
+Note : Dans «Google Drive», vous n’avez pas besoin d’enregistrer votre document, il s’enregistre auto­matiquement même en cas de coupure de courant. Votre document est sauvegardé en continu
+Leçon 024 comment utiliser les logiciels portables ?
+Quelle différence il y a entre un logiciel standard dans Windows et un logiciel portable Open Sources ?
+01 
+Les logiciels standards dans Windows s’installent et sont propriétaire ! Exemple : Microsoft Office avec Word, Excel, Powerpoint, etc. Adobe avec PhotoShop, Illus­trator, Indesign, etc. Google avec Google Docs, Sheets, etc.
+02 
+Les logiciels portables se transportent sur une clé USB ou autre est sont «Open Sources» ! Exemple : Notepad++, FSViewer, Foxit-PDF, LibreOffice, etc.
+Quelle différence il y a entre les logiciels installables et les logiciels portables Open sources ?
+01 
+Les logiciels installables sont à 90 % payants et propriétaires. Ils sont développés en interne par des équipes d’ingénieurs, sont utilisables sous licence, leur code est fermé et non modifiable. Ça veut dire qu’ils ne nous appartiennent pas. On ne peut pas les adapter ou les modifier. On doit les utiliser telles quelles !
+02 
+Alors que les logiciels Open Sources sont développés par une communauté inter­nationale souvent, ce sont des ingénieurs bénévoles qui travaillent en dehors de leur temps de travail, mais ceux-là sont adaptables et modifiables selon la licence. On appelle ça du code ouvert, il existe, bien évidemment, plusieurs types de li­cences !
+Leçon 025 où je peux trouver les logiciels portables sur mon PC ?
+01 
+Les logiciels portables sont dans le «C:\RENATA-01»
+02 
+Ils portent le nom : «USB-PORTABLE-(APPS)»
+03 
+Une foi sélectionnée, en retrouvent FoxitReaderPortable et LibreOfficePortable
+04 
+Pour exécuter le logiciel «PortableApps.com», il faut cliquer sur «Start.exe»
+01 
+Une foi que le logiciel «PortableApps.com» est ouvert
+02 
+On retrouve nos deux favoris FoxitReaderPortable et LibreOfficePortable
+03 
+Pour rechercher un logiciel portable, il suffit d’aller dans la barre de «recherche»
+04 
+Dans cet exemple, on a cherché et trouvé «Foxit PDF Reader»
+Leçon 026 comment créer un nouveau document portable LibreOffice ?
+01 
+Une fois que LibreOffice est ouvert, on peut choisir plusieurs types de documents ! Document Writer (Traitement de texte), Classeur Calc (équivalent Excel), Présen­tation Impress (équivalent Powerpoint), Dessins Draw (équivalent Paint Microsoft)
+02 
+Dans cet exemple, nous allons créer un «Document Writer» qui est l’équivalent du traitement de texte de Microsoft «Word» ou de «Google Docs» !
+03 
+Le «Document Writer» est ouvert
+01 
+Pour enregistrer le document Writer, on va dans «Fichiers» «Enregistrer/sous»
+02 
+On choisit la clé USB «128GORENATA»
+03 
+On choisit le répertoire ou le dossier de «destination» au choix !
+04 
+On lui donne un «nom» en respectant les règles de nommage ! L’extension «.odt» c’est l’extension par défaut de «Document Writer».
+05 
+Mais, on peut pour des raisons de compatibilité avec Word lui donner une exten­sion «.docx» avec une version de Word de 2010 ou 2007 selon la version que votre client ou la personne de destination possède sur son ordinateur. Ou alors «exporter» votre fichier, allez dans Fichiers, exporter «vers le format .pdf»
+06 
+comment je peux ajouter des logiciels portables dans mon répertoire C : \USB-(PORTABLE-APPS) ? Il faut aller sur le site : portableapps.com. 
+Leçon 027 les principaux raccourcis clavier de Windows 11
+TROISIÈME PARTIE
+Ø 
+Nous allons voir comment est agencé ce PC ?
+Ø 
+Quels sont les logiciels qui sont installés sur ce PC ?
+Ø 
+Qu’est-ce que l’on peut faire avec ce PC ?
+Ø 
+Quelles sont les principales règles de sécurité, pour que ce PC fonctionne au mieux sans ralentissement pendant de nombreuses années ?
+Ø 
+Comment installer un logiciel dans la session Renata ?
+Ø 
+Comment désinstaller un logiciel dans la session Renata ?
+Ø 
+À quoi sert la session Administrateur ?
+Ø 
+Comment utiliser Glary Utilities Pro ?
+Ø 
+Comment je peux ajouter des logiciels portables ? 
+Dans mon répertoire : C : \USB-(PORTABLE-APPS) ou sur ma clé USB 128 Go ?
+Ø 
+Comment utiliser un traitement de texte ?
+Ø 
+Comment utiliser un tableur ?
+Ø 
+Voir les bases de PhotoShop ?
+Ø 
+Comment utiliser «Jan» l’intelligence artificielle avec ChatGPT ?
+Ø 
+Comment utiliser Google Keep ?
+Ø 
+Comment utiliser un coffre-fort comme Proton Pass ?
+Ø 
+Comment créer un mot de passe introuvable ?
+Ø 
+Ce qu’il ne faut jamais faire sur les réseaux sociaux avec vos données ?
+Ø 
+Comment utiliser Macrium Reflect pour sauvegarder mon ordinateur ?
+Ø 
+Voir les principaux logiciels du PC ?
+Nous le ferons uniquement en présentiel ou à distance ! Nous ferons un tour pour voir, les principaux logiciels qui sont installés sur ce PC.
+Ø 
+Comment utiliser un ordinateur qui est différent du mien sous Windows 10 ?
+Leçon 028 comment est agencé mon nouveau PC ?
+01 
+Ton PC a un disque dur de 512 Go avec Windows 11 d’installé. Windows te permet de gérer, manipuler tes logiciels et tes fichiers. On appelle ça un logiciel d’exploi­tation. C’est lui qui gère tout ton PC. Sur le marché, il existe plusieurs environne­ments de travail, comme Windows ou Apple avec IOS et Linux avec ces multiples distributions, comme Ubuntu, Debian, Fedora, openSUSE, Kaly, etc. Ton PC pos­sède trois distributions Linux d’installées, Ubuntu, Debian et Kaly. Tu peux aller les voir dans l’explorateur de fichiers (tout en bas à gauche.).
+02 
+Pour travailler, tu as besoin d’utiliser des logiciels comme par exemple : Word, Ex­cel, Photoshop, etc. Pour réaliser ces tâches :
+Créer un courrier, un tableau de tes dépenses, gérer ton épargne, gérer tes pho­tos, les retoucher, les modifier, dessiner des dessins d’arts, créer les plans de ta nouvelle maison, agencer ta nouvelle cuisine, créer un roman ou un Flyer ou créer une publication avec un montage photos pour Facebook ou Instagram, interroger les intelligences artificielles génératives ou multimédias, photos, vidéos. J’arrête là, parce que les exemples sont infinis !
+ 02 1. 
+Pour ça, il existe deux catégories de logiciels sous Windows :
+ 02 2. 
+Les logiciels installables généralement, ils portent le nom générique : setup.exe et ont besoin des droits administrateur pour être installé sur ton PC
+ 02 3. 
+Les logiciels portables, ces logiciels, peuvent être transportés sur une clé USB et portent l’extension .exe exemple : Notepad++Portable.exe
+03 
+Il existe aussi plusieurs types de logiciels sous Windows :
+ 03 1. 
+Les logiciels de la suite Office, Word, Excel, etc.
+ 03 2. 
+Les logiciels de la suite graphique Adobe, PhotoShop, Illustrator, etc.
+ 03 3. 
+Les logiciels de loisir, comme les jeux Minecraft, Diabolo IV, Doom Eternal, etc.
+ 03 4. 
+Il y a aussi, les logiciels qui s’exécutent dans les navigateurs avec Google Chrome ou un autre navigateur, Mozilla Firefox, Microsoft Edge, etc., il existe, plusieurs univers. L’univers numéro un, selon moi, c’est Google avec Google Drive, Google Docs, Google Sheets, etc., l’univers numéro deux c’est Micro­soft avec Onedrive et la suite Office 365, Word, Excel, Powerpoint, etc. Ils disposent tous les deux d’un abonnement payant ou gratuit. Google c’est le plus généreux avec 15 Go d’espace gratuit et Microsoft avec ces 5 Go gra­tuits.
+ 03 5. 
+Il existe bien évidemment d’autres univers...
+04 
+Tous les logiciels de ton PC sont installés dans le C : \sur ton disque de 512 Go qui couvrent la plupart des besoins.
+ 04 1. 
+Microsoft la suite Office professionnelle Plus 2024, la suite graphique Adobe, Corel Draw, SketchUp 2024, Snagit 2024, VirtualDJ, WinRar, AOMEI Parti­tion,DXO PhotoLab, Glary Utilities Pro, Macrium Reflect, OBS Studio, Oracle VirtualBox, Python, RustDest, Jan, Malwarebytes, Google Chrome, Mozilla Firefox, Microsoft Edge, Proton Pass. Je ne cite, ici, que les principaux.
+05 
+On a aussi un logiciel qui se nomme « Jan » c’est un logiciel «Open Source» un peu particulier, qui utilise la plupart des intelligences artificielles en «mode local», soit gratuitement ou payantes par abonnement. (On l’abordera dans cette forma­tion un peu plus loin.) 
+ 05 1. 
+«Les logiciels portables» sont à deux endroits, sur ton disque C : \USB-(PORTABLE-APPS)\PortableApps et aussi sur ta «clé USB» d’exer­cices «128GORENATA» dans le répertoire ou le dossier : USB-(PORTABLE-APPS)\PortableApps. Ces logiciels portables, ce sont des utilitaires et des applications. 
+ 05 2. 
+Pour finir, «ton PC» a été sauvegardé à «trois endroits différents» 
+ 05 3. 
+Sur ta clé USB Patriot D : \SAUVEGARDE-MACRIUM-(RENATA-1)
+ 05 4. 
+Chez moi, sur un disque SSD
+ 05 5. 
+Sur ton compte Google (quand tu auras pris un abonnement payant)
+06 
+Actuellement, «ton PC» est «protégé» par un «Anti-Virus Malwarebytes», mais ce n’est pas parce qu’il est protégé que tu dois faire n’importe quoi ! Ce PC est sous ta responsabilité ! C’est à toi de gérer les personnes qui pourraient l’utiliser.
+Leçon 029 quelles sont les principales règles de sécurité ?
+Les principales règles de sécurité à suivre, pour que ce PC fonctionne au mieux sans ralentissement pendant de nombreuses années.
+01 
+«Les pirates le savent», la plupart des «infections» viennent des «clés USB» qui sont partagées et des «pièces jointes» dans les Mails, WhatsApp des «té­léchargements» sur internet et autres. Les bonnes pratiques c’est de savoir qui vous donne ces fichiers. Est-ce que ces personnes sont sûres ? Est-ce que je l’ai connais ? Ça élimine 80 % des virus.
+02 
+On n’installe pas n’importe quoi «sur son PC avec lequel on travaille», même si je l’utilise occasionnellement pour des loisirs ! (on le verra dans cette formation)
+03 
+Une fois par moi j’utilise l’utilitaire «Glary Utilities Pro» pour nettoyer tout le PC (on le verra dans cette formation)
+04 
+Si j’ai installé un logiciel que je ne me sers plus, je n’oublie pas de le «désinstal­ler» (on le verra dans cette formation)
+05 
+Dans l’explorateur de fichiers, je nettoie régulièrement le répertoire «Télécharge­ments» dans les trois sessions, Administrateur, Renata, Famille pour éviter l’accu­mulation de fichiers qui pourraient être potentiellement dangereux à la longue.
+06 
+Dans la session Famille, je surveille ce que font les autres membres de ma famille ou mes amis à qui je prête mon PC.
+07 
+Tous les trois mois, je fais une sauvegarde de mon PC avec «Macrium Reflect» sur le cloud (dans les nuages) chez Google dans «Google Drive» ou sur la clé «USB Patriot» (on le verra dans cette formation)
+Leçon 030 comment installer un logiciel dans la session Rena­ta ?
+Dans cet exemple, nous allons installer pour les besoins du cours «PhotoFiltre 11» est un logiciel distribué en libre essai (shareware) limité à 30 jours d’évaluation.
+Voici le lien de téléchargement : Cliquez ici ou aller sur le site ici
+Attention règle importante ! Il existe deux catégories de logiciels sous Windows, les logi­ciels «64 bits» et les logiciels «32 bits». Sur un ordinateur 32 bits, on ne peut pas installer un logiciel 64 bits, mais, sur un ordinateur 64 bit, on peut installer un logiciel 32 bits !
+01 
+Une foi que vous avez téléchargé le logiciel, vous allez le récupérer dans l’explora­teur de fichiers dans : «Téléchargements»
+02 
+allez dans l’explorateur de fichiers dans «Téléchargements», si dans télécharge­ment vous avez tout une liste d’anciens fichiers, pour retrouver le fichier que vous venez de télécharger allez dans «Rechercher» et saisir les premières lettres du nom du logiciel avec le caractère générique étoile «photo*» et validez par «En­trée».
+03 
+Double cliquez sur le fichier : «photofiltre11.6.1-fr-setup.exe» vous remarquerez que le nom générique «setup.exe» fait partie du nom du fichier cela veut dire que vous êtes en présence d’un fichier d’installation !
+04 
+Comme vous n’êtes pas dans une «session administrateur», mais, dans une «session utilisateur» Windows va vous demander le «mot de passe administra­teur» pour s’installer ! (c’est une mesure de sécurité) il n’y a que celui qui dispose du mot de passe administrateur qui peut installer un logiciel sur ton PC !
+Ø 
+À la fin de l’installation, une icône est enregistrée sur le bureau et PhotoFiltre c’est ouvert parce que la case à cocher «exécuter PhotoFiltre» à la fin de l’ins­tallation était coché.
+Leçon 031 comment désinstaller un logiciel dans la session Renata ?
+01 
+On fait un «clic droit» sur le menu «Windows» 
+02 
+On va dans «Applications installées»
+03 
+À l’ouverture de la fenêtre «Applications installées», on va dans le champ «Recher­cher» on saisie les premières lettres avec le caractère générique étoile «photo*» la liste s’affiche, on sélectionne «PhotoFiltre» on va sur la droite et l’on clique sur les trois petits points sur «Désinstaller» une fenêtre s’ouvre pour demander le «mot de passe administrateur» c’est normal, il n’y a que le propriétaire et l’administra­teur du PC qui peuvent désinstaller un logiciel sur ce PC ! J’ai une autre fenêtre qui s’affiche qui me demande une confirmation de ma désinstallation.
+04 
+Important ! Ne désinstalle pas n’importe quoi !
+Il faut que le nom du logiciel soit identique. Exemple : Si je veux désinstaller «Pho­toFiltre», je ne désinstalle pas «PhotoShop» ! Je vérifie «plusieurs fois» avant de désinstaller un logiciel !
+Leçon 032 à quoi sert la session Administrateur ?
+On a vu au début du cours qu’il y avait «trois sessions» qui ont été créées ! Pour des raisons de «sécurité», pour éviter qu’une «infection virale» se «propage» dans tout l’ordinateur, on n’a volontairement «séparé ou cloisonné» les «trois sessions», mais, aussi pour des raisons de «confidentialités». Si je suis dans ma session connectée à mon compte «Gmail» je n’ai pas envie qu’une personne mal intentionnée me modifie les paramètres de mon compte «Gmail» exemple : «me modifie mon mot de passe» même si je suis protégé par la «double authentification» c’est-à-dire que je vais rece­voir un code «SMS» sur mon téléphone portable pour savoir, si c’est bien moi qui uti­lise ce compte ? On n’est jamais suffisamment prudent !
+01 
+On «cloisonne» les sessions volontairement contre la «propagation virale»
+02 
+Pour des besoins de «maintenance du PC» ou un «dépannage» ou une «instal­lation» ou une «désinstallation» d’un logiciel, je vais demander «l’autorisation» de «l’administrateur»  !
+03 
+Pour «modifier» la «configuration» de tout le PC
+Leçon 033 comment utiliser Glary Utilities Pro ?
+01 
+Qu’est ce que c’est que «Glary Utilities Pro» ? À quoi sert-il ? Où le trouver ? Com­ment l’utiliser ?
+ 01 1. 
+C’est un utilitaire de «nettoyage» ou de «maintenance du PC» exemple : une fois par mois, je vais faire le nettoyage de mon PC (c’est un peu comme à la maison quand je nettoie et que je range ma chambre, ma cuisine ou ma voiture !) tout ça pour garder mon PC en bonne santé. Pour éviter qu’il ne ralentisse. Vous connaissez tous les problèmes numéro un, des PCs qui mettent un temps fou à démarrer ? Ou alors quand on exécute le navigateur Google Chrome, qui met un temps fou à s’ouvrir ? Eh ! bien oui, un PC c’est un peu comme une voiture, il faut faire la vidange une fois par an, changer les filtres à air, d’habitacle, remplacer les plaquettes de frein, etc. Vous l’aurez bien compris c’est un mal nécessaire pour la santé de votre ordinateur.
+ 01 2. 
+«Où le trouver» ? Il se trouve à «deux endroits différents», le «premier endroit» sur ton PC, fait un «clic gauche» sur le menu «Windows» va dans le champ «rechercher» saisie «glary» en dessous clic sur «exécuter en tant qu’administrateur» «saisie le mot de passe administrateur» pour l’ouvrir.
+ 01 3. 
+«Le deuxième endroit» pour ça, rendez-vous dans les applications portables sur ta clé USB d’exercices «128GORENATA» dans : USB-(PORTABLE-APPS)\PortableApps et exécute «Start.exe» pour ouvrir la version portable de Glary fait une recherche dans le champ de recherche «glary» et fait un simple clic sur «Glary Utilities Pro» pour l’ouvrir.
+ 01 4. 
+Pour quoi j’ai deux versions de «Glary Utilities Pro» ? La première est payante est installé sur ton ordinateur. La deuxième version est portable, tu peux l’utiliser par exemple sur les ordinateurs à la maison qui ne sont pas équipés d’un utilitaire de nettoyage ! C’est un cadeau !
+ 01 5. 
+«Comment l’utiliser» ?
+ 01 6. 
+Une fois que tu as ouvert «Glary»
+ 01 7. 
+Je clique sur «Maintenant 1-clic»
+ 01 8. 
+Je sélectionne «toutes les options»
+ 01 9. 
+Je clique sur «Analyser» 
+ 01 10. 
+Une autre fenêtre s’ouvre je coche la case «Automatically repair» 
+ 01 11. 
+Si une fenêtre vous demande de fermer un «navigateur», cliquer sur «Oui» et attendre la fin de l’analyse !
+ 01 12. 
+À la fin de l’analyse, si j’ai «une erreur disque», il faut «m’appeler» !
+ 01 13. 
+Ou sinon si tout c’est passé sans erreurs ? Alors, on ferme «Glary» et, en­suite, on «redémarre l’ordinateur».
+Note :  «Glary Utilities Pro» est très puissant on peut faire beaucoup plus de maintenance, mais, pour ça, il faut être un expert en informatique. À ne pas mettre en toutes les mains. Il peut détruire certaines données qui sont vitales pour «WINDOWS» et «l’empêcher de fonctionner» !
+Leçon 034 comment je peux ajouter des logiciels portables ?
+Dans mon répertoire C : \USB-(PORTABLE-APPS) ou sur ma clé USB 128 Go ?
+01 
+On a vu plus haut dans le cours où trouver les logiciels portables et comment les utiliser !
+02 
+Maintenant, on va aborder, comment fonctionnent les logiciels portables ? Il faut aller sur le site : portableapps.com qui est en anglais, mais, avec Google Chrome, ce n’est pas un problème, je traduis la page en faisant un «clic droit» «traduire en français» ou le plus simple je clique sur «Français» pour traduire tout le site !
+ 02 1. 
+Il existe une centaine de logiciels portable ! Qui couvrent la plupart des be­soins personnels sur un ordinateur à la maison et, en plus, Important ! Ils sont gratuits. Ils fonctionnent sous forme de dons ils font appel à votre géné­rosité.
+ 02 2. 
+Il existe plusieurs marques de logiciels portables. À titre personnel, après avoir testé plusieurs marques, j’ai retenu «portableapps.com» qui me semble la mieux adaptée à mon usage personnel !
+ 02 3. 
+Dans le répertoire des logiciels portables, nous avons :
+Documents (dans ce cours, nous n’utiliserons pas ce répertoire)
+PortableApps (Tous les logiciels portables sont dans ce répertoire !)
+Autorun.inf (Est un fichier système, il ne faut pas l’utiliser !)
+Start.exe (sers à exécuter ou ouvrir les logiciels portables)
+ 02 4. 
+Comment fonctionnent les logiciels portables ?
+On peut comparer le répertoire ou le dossier qui contient tous les logiciels portables à une boite qui contiendrait des logiciels portables. Quand j’exé­cute Start.exe, j’ouvre la boite avec tous les logiciels portables !
+ 02 5. 
+Si, sur le site «portableapps.com», je ne trouve pas mon bonheur ! Je peux pour mon usage personnel ajouter un logiciel portable ou transportable ! Exemple : Dans le répertoire, il existe :
+Glary.PRO.v5.200.0.229
+HDClone-6.0.5-Enterprise
+C’est deux logiciels ne font pas partie de la solution «portableapps.com», ce sont des «hacks» dans le jargon informatique, ça veut dire que c’est fabri­qué par des développeurs indépendants pas toujours très légales... Bien sûr qu’il ne faut pas partager avec vos amis ! Ils sont confidentiels.
+03 
+Je vais maintenant «ajouter» «LibreOfficePortable» dans mon répertoire qui contient tous mes logiciels portables !
+ 03 1. 
+Il faut aller sur le site : portableapps.com qui est en anglais, mais, avec Goo­gle Chrome, ce n’est pas un problème, je traduis la page en faisant un «clic droit» «traduire en français» ou le plus simple je clique sur «Français» pour traduire tout le site !
+Je clique sur (1) Français pour passer le site en français !
+01 
+Une fois que j’ai passé le site en français, je clique sur «Applications» 
+02 
+Ou dans le champ «Recherche» et je saisis «libreoffice»
+03 
+Ou dans le champ «Recherche» et je saisis «libreoffice»
+04 
+Je clique sur «LibreOffice Portable» pour le «télécharger» 
+05 
+Je choisis la bonne version ! Je clique pour la télécharger si ça ne fonctionne pas avec Google Chrome ? J’utilise Mozilla Firefox ou Edge (C’est un blocage de sécu­rité dans le navigateur Chrome il a détecté un fichier .exe il refuse de le téléchar­ger ! )
+06 
+Je copie le chemin de la barre d’adresse de Google Chrome et je le colle dans Fire­fox ou Edge.
+07 
+Une foi le fichier téléchargé avec Firefox ou Edge, j’ouvre le gestionnaire de fichiers 
+08 
+Et je vais dans «Téléchargements» pour faire un «double clic» sur le fichier que je viens de télécharger.
+09 
+Je clique sur «OK» pour l’installer
+10 
+Je fais «Suivant»
+11 
+Je «coche la case» et je fais «Suivant»
+12 
+Je clique sur «Parcourir»
+13 
+Je sélectionne la destination pour installer «LibreOffice Portable»
+Je peux le faire à deux endroits sur mon ordinateur (Renata)
+ 13 1. 
+Dans C : \USB-(PORTABLE-APPS)\PortableApps
+ 13 2. 
+Ou dans ma clé USB : J : \USB-(PORTABLE-APPS)\PortableApps
+Attention ! Dans mon exemple j’ai la lettre J sur votre ordinateur, vous aurez probablement une autre lettre ? C’est normal, Windows attribue les lettres des lecteurs automatiquement.
+Leçon 035 comment utiliser un traitement de texte ?
+01 
+Sur ton nouveau PC avec «Windows 11» tu as plusieurs possibilités soit, tu utilises Microsoft Office avec «Word» qui installé sur ton PC, «LibreOffice» qui est un lo­giciel portable ou transportable qui ce trouve dans C : \USB-(PORTABLE-APPS)\PortableApps ou sur ta clé : USB-(PORTABLE-APPS)\PortableApps ou Google Drive avec «Google Docs». Pour utiliser Google Docs, il faut ouvrir un naviga­teur soit, Google Chrome, Mozilla Firefox ou Microsoft Edge ! Ensuite, tu dois te connecter à ton compte Gmail, attention ! Tu as deux comptes Gmail il faut utili­ser ton compte «principal» le deuxième compte est un compte de secours ou un compte que tu vas utiliser pour t’inscrire sur un site de E-commerce ou un site qui n’est pas important. La deuxième adresse Gmail c’est pour éviter que tu reçoives des spams ! Sur ton adresse principale.
+02 
+Une foi que tu es «connecté» sur ton compte Gmail, tu vas en haut à droite et tu cliques sur le menu «hamburger» avec les petits points et tu cherches «Google Drive».
+03 
+Une foi connectée dans «Google Drive», tu cliques sur «Mon Drive»
+04 
+Maintenant, tu es à la «racine» de ton Drive (c’est quoi la racine du drive ?) c’est le début exemple : avec plusieurs «répertoires, dossiers plus un fichier» :
+/RICHARD/RENATA/DAVID/Formation-Conseils.gdoc
+ 04 1. 
+/(ce slash au début représente la racine, c’est le début du chemin)
+ 04 2. 
+/RICHARD (représente la racine)
+ 04 3. 
+RENATA (représente le premier niveau)
+ 04 4. 
+DAVID (Représente le deuxième niveau, etc.)
+ 04 5. 
+Et dans DAVID (c’est le troisième niveau avec le fichier : 
+Formation-Conseils.gdoc)
+On ne voit pas dans «Google Drive» les extensions ! .gdoc (c’est normal)
+Pour voir les extensions .gdoc, je vais dans l’explorateur de fichiers sur mon PC dans le répertoire «Google Drive». (Important ! Il faut que drive soit ins­tallé sur le PC) pour voir le répertoire «Google Drive».
+ 
+05 
+Si je ne vois pas l’icône de Google Drive ! C’est que Google drive n’est pas installé sur mon PC.
+06 
+Sur un nouveau PC ou un PC ancien, il faut aller sur le site de Microsoft et télé­
+charger Google drive pour Windows pour l’installer dans chaque session de votre PC. Les conditions ? Avoir créé un compte Gmail gratuit ou payant.
+07 
+Pour utiliser Microsoft Office «Word», il faut aller sur cette page.
+08 
+Pour utiliser «LibreOffice» et créer un «Document Writer», allez sur cette page. 
+09 
+Si vous savez utiliser Word, vous saurez utiliser Document Writer et Google Docs !
+10 
+Dans cette formation, nous n’allons pas détailler l’utilisation d’un traitement de texte. Pour utiliser correctement un traitement de texte, il faut faire une formation spécifique aux traitements texte en général. Voici une formation de base sur You­Tube pour apprendre les bases du traitement de texte : Word en 35 minutes. (Cette vidéo a deux ans, si vous avez aimé cette vidéo, n’oublie pas de cliquer sur le pouce bleu pour récompenser l’auteur !).
+Leçon 036 comment utiliser un tableur ?
+01 
+C’est la même démarche qu’avec Google Docs, mais, quand je fais un «clic droit» dans la fenêtre dans «Google Drive», une foi que j’ai sélectionné le bon réper­toire, je choisis «Google Sheets» + «Feuille de calcul vierge». 
+02 
+Avec Microsoft Office «Excel» C’est exactement la même chose qu’avec «Word», je clique sur le «Menu Windows» je recherche «Excel» ensuite, j’ouvre «Excel» je saisis mes données et je termine par «Enregistrer sous» je sélectionne le che­min de destination pour enregistrer mon fichier. Voici une formation spécifique au tableur Excel pour débutants : apprendre Excel pour débutants - les bases d’Excel en 20 minutes.
+03 
+Avec «libreOffice» et le «Classeur Calc», voici, la procédure en image.
+04 
+Vous l’aurez compris, il n’y a rien de sorcier pour utiliser un tableur ! Il suffit juste de connaître les bases d’un tableur comme Excel qui est une référence en entre­prise. Si vous suivez la formation pour débutants avec Excel, vous saurez utiliser le «Classeur Calc» de LibreOffice qui a l’avantage d’être gratuit et transportable sur n’importe quel PC sous Windows. Il faut savoir aussi qu’ils sont tous compa­tibles avec le tableur Excel. Si vous avez créé un tableau dans Excel, vous pourrez «l’importer» dans le «Classeur Calc» ou «Google Sheets». Utiliser n’importe quel tableur ou un traitement de texte, ça repose sur des règles logiques qu’il faut acquérir au fil du temps en suivant des tutoriels pour débutants sur YouTube !
+Leçon 037 voir les bases de PhotoShop ?
+01 
+C’est quoi PhotoShop et à quoi il sert ? 
+02 
+PhotoShop comme Illustrator, CorelDraw et Paint dans Windows, pour ne citer que ceux-là, ce sont des logiciels très puissants que les infographistes utilisent pour créer des publicités sur vos magazines préférés ou sur les sites internet ou pour faire des retouches et des montages photos ! Ils ont besoin d’une courbe d’ap­prentissage assez longue. C’est comme les autres logiciels que j’ai déjà cité dans ce cours, on peut les trouver sur YouTube dans différentes catégories, pour les débutants ou les experts. Il y en a pour tous les goûts !
+03 
+Dans ce cours, on va juste effleurer PhotoShop ! On va apprendre à créer une pu­blication pour Facebook le strict minimum. On va promouvoir ce cours d’initiation informatique. Si vous voulez aller plus loin, je vous invite à suivre une petite forma­tion de base sur YouTube.
+01 
+PhotoShop, Illustrator, CorelDraw, ce sont des logiciels installables et payants. On peut aussi les trouver sur internet, ce sont généralement des versions anciennes et gratuites ou, si le cœur vous on dit, vous pouvez tester des versions d’évalua­tions d’un mois d’un logiciel particulier avant de l’acheter. 
+01 
+Comment «ouvrir» «PhotoShop» ?
+ 01 1. 
+Avant de créer un fichier avec «Photoshop», je vais sur ma clé USB de 128 Go et je crée un répertoire «DEMO-PUBLICATION-FACEBOOK» dans le répertoire «EXERCICES-GAUCHE».
+ 01 2. 
+Si PhotoShop est installé sur votre ordinateur, je clique sur le «menu» «Win­dows» et je recherche «PhotoShop» ?
+ 01 3. 
+Je clique sur «Ouvrir» «PhotoShop»
+ 01 4. 
+La première boite de dialogue est très importante ! Ce sont les paramètres de la publication pour Facebook que nous allons créer pour cette démonstra­tion. Bien évidemment, on pourra toujours modifier ces paramètres après.
+ 01 5. 
+Important ! Avant de créer une publication, je fais des croquis à main levée sur une feuille de papier pour savoir ce que je veux réaliser.
+ 01 6. 
+Dans «Bien venu dans PhotoShop», je clique sur «Nouveau fichier»
+ 01 7. 
+Je respecte les paramètres de ce visuel je laisse tout par «Défaut» et je clique sur «Créer»
+ 01 8. 
+Par défaut, «PhotoShop» crée les nouveaux fichiers «Sans Titre-1 @» avant de commencer la publication, je donne un nom à mon fichier ! Je vais dans «Fichier» je fais «Enregistrer sous» je choisis la destination sur ma clé USB 128 Go dans le répertoire que je viens de créer.
+ 01 9. 
+Je suis mon dessin que j’ai créé précédemment pas à pas.
+ 01 10. 
+Une fois que j’ai terminé ma publication, je clique sur «Ctrl + S» pour enre­gistrer les dernières modifications.
+ 01 11. 
+Je retrouve mon fichier «Publication-Facebook.psd» sur ma clé USB 128 Go dans «EXERCICES-GAUCHE» dans «DEMO-PUBLICATION-FACEBOOK».
+ 01 12. 
+Le chemin complet : «J:\EXERCICES-GAUCHE\DEMO-PUBLICA­TION-FACEBOOK\Ma-Publication.psd»
+ 01 13. 
+Voici une formation spécifique à PhotoShop : 59 MINUTES pour connaître TOUTES LES BASES ( Photoshop 2024)
+Comment retrouver le chemin de mon fichier dans l’explorateur de fichiers ?
+Je vais sur ma clé USB 128 Go, je me positionne sur le nom du fichier «Publica­tion-Facebook.psd» j’appuie sur la touche «Shift» ou «Maj» et je fais un «clic droit» sur le fichier et je clique sur «Copier en tant que chemin d’accès» ensuite je fais un «Ctrl + V» pour coller le chemin où je veux. Par exemple, dans le Bloc-Notes, Note­Pad++, Keep, Word ou l’explorateur de fichiers. Ou je peux aussi utiliser un autre rac­courci «Ctrl + Shift + C».
+«J:\EXERCICES-GAUCHE\DEMO-PUBLICATION-FACEBOOK\Ma-Publication.psd»
+Attention ! Si je dois utiliser le chemin dans l’explorateur de fichiers, je ne copie pas les guillemets « » je colle le chemin sans les guillemets : J:\EXERCICES-GAUCHE\DE­MO-PUBLICATION-FACEBOOK\Ma-Publication.psd
+Leçon 038 comment utiliser «Jan» l’intelligence artificielle, ChatGPT ou les autres ?
+01 
+On va voir maintenant comment utiliser une intelligence artificielle ou une IA avec «jan», «copilot» de Microsoft ou «Perplexity.ai» ?
+02 
+Quelle différence y a-t-il entre «jan», «copilot», «Perplexity.ai» ou les autres ?
+ 02 1. 
+«jan» est une intelligence artificielle, une IA qui est installée sur ton ordinateur alors, que copilot, Perplexity.ai, ChatGPT ou toutes les autres sont consul­tables une fois connecté avec un «compte Gmail» sur un navigateur comme Google Chrome, Edge ou Firefox ! 
+«jan» te permet de garder une certaine confidentialité de tes données, puisqu’elle ne partage pas tes données sur internet. Tes données ne sont pas connectées à internet ! C’est la grosse différence avec les autres IA !
+Ø 
+C’est quoi une intelligence artificielle générative ?
+C’est comme un programme informatique qui stockerait des données. Je vais prendre un exemple simple : imagine une écrivaine ou une écrivaine de romans qui a une collection de 300 romans ! Et qu’une IA lise et mémorise les 300 ro­mans. Une fois que l’IA a mémorisé les 300 romans, tu peux lui demander ce que tu veux, elle te répondra précisément, parce qu’elle a mémorisé l’ensemble des romans et qu’elle est capable de raisonner comme le ferait un être humain. Elle est capable d’analyser tout le texte et d’en faire un résumé sur le style de l’auteur, sa façon d’écrire, de le comparer à d’autres auteurs, etc. Elle pourrait faire aussi une synthèse sur la vision des auteurs. Aujourd’hui, une IA est ca­pable de raisonner, c’est ce qui fait ça force. Mais sa faiblesse, c’est qu’elle peut inventer des choses qui n’existent pas ! On appelle ça de l’hallucination. Com­ment éviter ce piège ? On va le voir plus loin, «comment rédiger un Prompt pour une IA»; pour éviter ce piège, c’est en rédigeant correctement le «Prompt». On n’interroge pas une IA en langage naturel ! «Comme l’on parlerait à un hu­main» ! Il faut rédiger un «Prompt» «correctement».
+Ø 
+Pourquoi les IA sont elles si efficaces ? On leur a fait ingurgiter (avalé) plus de mille milliards de page internet, de documents, d’études scientifiques d’auteurs reconnus comme les grands mathématiciens et les résultats des chercheurs de notre siècle. Grâce à des algorithmes sophistiqués ! C’est du très haut niveau. 
+ 02 2. 
+Est-ce que les intelligences artificielles sont gratuites ?
+ 02 3. 
+Oui et non les premières questions sont gratuites, une fois que tu auras épui­sé tes tokens gratuits, elle te demandera de prendre un abonnement men­suel ou annuel.
+ 02 4. 
+Est-ce que je dois prendre un abonnement ?
+ 02 5. 
+Non, pour un particulier, ce n’est pas nécessaire ! il faut compter en moyenne 20 € par mois multiplié par 12 = 240 € pour une année. Le prix varie en fonc­tion de l’intelligence artificielle ou L’IA, mais, globalement, on reste dans cette proportion-là.
+ 02 6. 
+C’est valable pour une entreprise ou un influenceur sur YouTube qui gagne de l’argent, mais, pour un particulier, il existe une autre solution ! C’est d’acheter un forfait de 20 € ou plus en fonction de tes besoins, qui durera pour 20 € environ 1 an. On paye selon sa consommation. Évidemment, plus je vais utiliser mon intelligence artificielle et plus ça me coûtera cher à la fin de l’année ! Une fois connecté avec un compte Gmail, je peux vérifier ce qu’il me reste sur mon forfait.  20 € représentent plusieurs millions de «Tokens».
+ 02 7. 
+Quand je vais poser une question exemple :
+Tu es un expert et un cinéphile, or paire, je voudrais que tu me donnes la date de sorties de l’odyssée 2001 de Stanley Kubrick et je voudrais savoir si ce film existe en version polonaise. Si oui, sur quelle plateforme je peux le louer et à quel prix ?
+ 02 8. 
+Voici sa réponse :
+Here’s how I’ll respond:
+</think>
+Bien sûr ! La date de sortie initiale de 2001, l’Odyssée de l’espace de Stanley Kubrick est le 3 avril 1968.
+Concernant la version polonaise, oui, le film existe en version doublée et sous-titrée en polonais.
+Pour la location, je te conseille de vérifier les plateformes de VOD populaires en Pologne, comme iTunes, Google Play Films, Rakuten TV, ou les services de streaming locaux. Malheureusement, je n’ai pas accès aux informations en temps réel sur la disponibilité et les prix sur ces plateformes. Les prix varient généralement entre quelques euros pour une location et un peu plus pour l’achat digital. Bonne recherche ! 
+ 02 9. 
+Cette question m’a coûté combien de Tokens ? Environ une centaine de Tokens pour la question et une centaine de tokens pour la réponse. Autant dire pas grand-chose par rapport aux millions de Tokens que j’ai acheté !
+ 02 10. 
+Par contre, si je lui demande d’écrire un livre de 300 pages sur les natures mortes, par exemple, là, je risque d’épuiser mon forfait plus rapidement.
+ 02 11. 
+Voici la réponse avec «copilot» !
+2001, l’Odyssée de l’espace de Stanley Kubrick est sortie en 1968. Il est considéré comme un chef-d’œuvre du cinéma de science-fiction.
+Concernant la version polonaise, je n’ai pas trouvé d’information précise sur son existence. Cependant, le film est disponible en VOD sur plusieurs plateformes, notamment UniversCiné, VIVA, PremiereMax, ARTE Boutique, LaCinetek, Pathé Home, Orange, FILMO et Canal VOD. Les prix de location varient entre 2,99 € et 3,99 €, tandis que l’achat définitif coûte entre 7,99 € et 9,99 €. Si tu cherches une version spécifique, je te conseille de vérifier direc­tement sur ces plateformes pour voir quelles langues sont disponibles. Tu veux que je t’aide à trouver une autre source ?
+ 02 12. 
+On a ici une réponse qui est un peu plus fournie et plus précise, parce que l’IA a accès à internet.
+ 02 13. 
+Voici la réponse avec «Perplexity.ai»
+## Date de sortie de «2001, l’Odyssée de l’espace»
+Le film «2001, l’Odyssée de l’espace» (2001 : A Space Odyssey*) de Stanley Kubrick est sorti en 1968, d’abord aux États-Unis, puis dans d’autres pays, dont la France la même année[1].
+## Existence d’une version polonaise
+Le film a bien été distribué en Pologne, comme l’atteste la création d’une affiche polonaise officielle en 1973 par l’artiste Wiktor Gorka, spécifiquement pour la sortie du film dans ce pays[3]. Cela indique que «2001, l’Odyssée de l’espace» a bénéficié d’une exploitation officielle en Pologne, et il est courant que les films sortis à cette époque aient été doublés ou sous-titrés en polo­nais pour le public local.
+## Disponibilité en location en Pologne
+Bien que les résultats fournis ne mentionnent pas explicitement les plate­formes de location actuelles ni les prix précis pour la version polonaise, il est très probable que le film soit disponible sur les principales plateformes de vidéo à la demande (VOD) accessibles en Pologne, telles que :
+- Apple TV / iTunes
+- Google Play Movies
+- Amazon Prime Video
+- Rakuten TV
+Sur ces plateformes, les films classiques comme «2001, l’Odyssée de l’es­pace» sont généralement proposés à la location pour un prix variant entre 10 et 15 PLN (environ 2,5 à 3,5 €), selon la qualité (SD/HD) et la politique tari­faire de la plateforme.
+Pour garantir la disponibilité en version polonaise (doublage ou sous-titres), il est conseillé de vérifier directement sur la plateforme choisie, car la plupart proposent le choix de la langue audio ou des sous-titres adaptés au marché polonais.
+## Résumé
+- Date de sortie originale : 1968
+- Sortie polonaise : Oui, avec une distribution officielle et une affiche polo­naise en 1973
+- Location en Pologne : Très probablement disponible sur les plateformes VOD majeures (Apple TV, Google Play, Amazon Prime Video, Rakuten TV), pour un prix autour de 10-15 PLN (2,5-3,5 €). Vérifier la disponibilité de la ver­sion polonaise (audio/sous-titres) sur la plateforme choisie.
+ 02 14. 
+C’est encore plus précis avec «Perplexity.ai» !
+ 02 15. 
+Tu auras compris que les réponses varient en fonction de l’IA que tu vas utiliser !
+ 02 16. 
+Pourquoi j’ai choisi ce film en particulier ? Parce que Stanley Kubrick a été un visionnaire sur notre société. Il avait imaginé à l’époque un film de science-fiction qui devient une réalité aujourd’hui. Avec la grande question, est-ce que l’intelligence artificielle nous dominera un jour ? Il semblerait que oui. C’est même inquiétant pour l’avenir de notre société. Est-ce qu’il faut en avoir peur ? Aujourd’hui, je dis non, mais, je te conseille de l’apprivoiser plu­tôt que dans avoir peur !
+03 
+Dans cette partie, on va découvrir comment rédiger un Prompt pour une IA ?
+ 03 1. 
+LES BASES D’UN PROMPT ENGINEERING
+Ø 
+Lui attribuer [un rôle]
+Ø 
+Lui attribuer [une tâche]
+Ø 
+Lui attribuer [un contexte]
+EXEMPLE :
+[un rôle]
+Tu es un expert en linguistique et en rédaction de contenu. 
+(Le rôle pourrait être un métier, par exemple : Linguiste, avocat, expert, traducteur, etc.)
+[une tâche]
+Je voudrais que tu me corriges le texte que je vais te proposer dans un langage courant accessible à tous.
+[un contexte]
+Que tu gardes l’idée de base sans la dénaturer, que tu reformules ce texte en l’améliorant et en utilisant un style standard. Utilise le format Markdown pour la mise en page et adopte une présentation soignée.
+Es-tu près ? 
+ 03 2. 
+Où trouver les IA génératives ?
+ 03 3. 
+Exemple : dans rechercher dans les différents navigateurs !
+ 03 4. 
+Dans les favoris des navigateurs Chrome, Firefox ou Edge
+ 03 5. 
+Sur ton bureau
+ 03 6. 
+Une fois que «jan» est ouvert, je sélectionne une «IA». 
+ 03 7. 
+Je crée mon «Prompt» dans «Notepad++» ensuite, je retourne dans «jan» je copie/colle mon «Prompt» et je l’envoie à «gemini».
+ 03 8. 
+Voici la réponse de «gemini»
+1. À cet endroit, tu as la copie de ton Prompt
+2. Elle te dit qu’elle est prête à recevoir ton texte !
+3. Elle résume ta demande (c’est là que tu dois être attentive et que tu dois te poser la question «est-ce que gemini ont compris ma demande ?»)
+4. Elle attend ton texte ou ta demande à générer 
+5. Tu peux à partir de la gauche 
+	a) Régénérer ta demande 
+	b) Copier tout le texte de gemini 
+	c) Supprimer cette demande et recommencer.
+ 03 9. 
+1. Exemple avec ChatGPT dans Chrome
+2. Je suis connecté avec mon compte Gmail (Renata deuxième Cpt Gmail)
+3. Je suis sur un nouveau chat
+4. Je copie/colle mon Prompt ici
+5. Si je suis avec mon Smartphone (je peux lui demander vocalement)
+6. À cet endroit, j’ai l’historique de mes chats
+7. Dans ce cours d’initiation, nous ne verrons pas les outils (Niveau 1-2-3)
+8. C’est là que je peux m’abonner à ChatGPT
+Évidemment, dans la version gratuite, je ne pourrai faire que quelques de­mandes avec ces fameux «Tokens» ! 
+Ensuite, elle me proposera de m’abonner.
+Une astuce : C’est d’utiliser une autre IA pour continuer si j’en ai besoin !
+ 03 10. 
+Voilà, nous avons fait le tour des IA génératives, elles fonctionnent toutes de la même façon ! Dans ce cours d’initiation, j’ai volontairement ignoré certains paramètres. Trop compliqué pour l’instant ! Nous les verrons dans les ni­veaux suivant N1, N2 et N3.
+Leçon 039 comment utiliser Gmail niveau débutant ?
+01 
+Ce «connecter» sur le bon compte Gmail (Tu as deux comptes Gmail !)
+02 
+Dans le champ «De», tu vérifies que c’est le bon compte Gmail !
+03 
+Dans le champ «A», il faut saisir «le» ou «les» destinataires ou si, dans ton carnet d’adresses Google, la personne est présente, il suffit de saisir le début du nom de la personne exemple : «richa» et «renat» pour les ajouter.
+Important ! Si tu dois envoyer souvent un e-mail à quelqu’un, pense à le rajouter dans ton carnet d’adresses Google !
+04 
+Dans le champ «Objet», ce champ est important ! il va te permettre de rechercher, plus tard, un e-mail que tu auras envoyé à une personne ! Exemple : Veuillez rece­voir ma lettre de motivation et mon CV si, je dois rechercher plus tard cet e-mail, ce sera plus facile de le trouver. Dans «rechercher», je vais utiliser les mot-clé «cv» ou «lettre de motivation».
+05 
+Dans le champ «corps de texte», on doit rédiger un texte «cours» avec une for­mule de politesse à la fin que l’on va adapter en fonction de la situation ! Par dé­faut, tu as «Cordialement» que l’on utilisera pour des personnes standard, mais, pour un employeur ou un avocat, on remplacera cette formule, par exemple : Veuillez croire maître à mes sincères salutations ou voulez agréer à mes saluta­tions distinguées, etc. Si tu es à court d’idées pour la formule de politesse, utilise «perplexity.ai», «jan» ou «ChatGpt» ! Qui n’ont plus de secrets pour toi mainte­nant.
+06 
+La barre d’outils des pièces jointes, de «gauche à droite»
+ 06 1. 
+Le bouton «Envoyer» (a un délai de quelques secondes pour annuler l’envoi)
+ 06 2. 
+Le bouton pour «activer» la barre de formatage du texte
+ 06 3. 
+Le bouton pour «joindre une pièce jointe» en forme de trombone
+ 06 4. 
+Le bouton pour «joindre un lien»
+ 06 5. 
+Le bouton des «Emoji»
+ 06 6. 
+Le bouton pour «insérer une photo» dans le «corps du texte»
+ 06 7. 
+Le bouton d’activation du «mode confidentiel»
+C’est quoi le mode confidentiel ? Il a plusieurs options.
+1. Il sert à ajouter un délai d’expiration, c’est-à-dire j’envoie l’e-mail et au bout d’une semaine, cet e-mail ce supprimera automatiquement.
+2. J’exige l’envoi d’un code secret du destinataire par e-mail ou par SMS.
+ 06 8. 
+Le bouton «autres options», on le verra plus tard dans N1 !
+07 
+Ce bouton dans Gmail te permet de rédiger avec «gemini» un e-mail si, tu es à court d’inspiration, d’idée ou si tu dois envoyer un e-mail de bonne qualité à une société ou une administration. Rappel, toi, si tu veux utiliser une «IA», tu devras utiliser «Notepad++» pour rédiger ton «prompt» avant de «cliquer sur ce bou­ton». Évidemment, tu peux essayer «gemini» pour tester «l’IA de Google», mais, ensuite, ce sera payant ou, si tu prends un abonnement comme je te l’ai conseillé à Google drive, tu bénéficieras de «l’IA» gratuite dans Gmail. 
+Leçon 040 comment utiliser Google Keep ?
+01 
+C’est quoi Google Keep ?
+ 01 1. 
+«Google Keep» est un «bloc notes» évolué. On peut prendre des notes avec des photos, créer des listes de courses, faire des dessins, importer des images, prendre des notes audio.
+ 01 2. 
+«Google Keep» tu peux le consulter depuis ton smartphone, ta tablette ou ton ordinateur. Toutes les notes sont dans les nuages chez Google. Donc accessible partout !
+ 01 3. 
+Exemples d’utilisation : Tu vas dans un restaurant que tu trouves sympa ! Tu prends la carte en photo et tu la partages avec tes amies.
+Tu vas sur internet et tu fais une copie d’écran d’une table de salon qui te plaît, tu crées une note avec le lien du site et tu peux même rajouter des commentaires.
+Tu vas sur YouTube tu trouves un tutoriel sur un logiciel que tu trouves inté­ressant tu copies le lien dans une note. Les notes te suivent partout !
+02 
+Quelle différence avec WhatsApp ou Messenger pour ne citer que ces deux-là ?
+ 02 1. 
+Tu as essayé de retrouver quelque chose dans WhatsApp, Messenger ou Facebook ? C’est une vraie galère !
+ 02 2. 
+Alors que dans «Keep» ce n’est que du bonheur ! Tu retrouves tout «instan­tanément». Moteur de recherche Google oblige !
+ 02 3. 
+Tu peux même «épingler» une note ! Lui donner une «couleur», «regrou­per» des notes d’un voyage, etc.
+03 
+Ou tu peux trouver «Keep» ?
+ 03 1. 
+Il faut que tu vérifies le compte Gmail sur lequel tu es connecté !
+ 03 2. 
+Dans Google Chrome, Firefox ou Edge dans les favoris.
+ 03 3. 
+Dans le menu hamburger de Google.
+ 03 4. 
+Sur ton smartphone ou ta tablette cherche l’application Keep ou installe là !
+04 
+Comment utiliser «Keep» ?
+ 04 1. 
+Vérifie sur quel compte tu es connecté.
+ 04 2. 
+Paramètres de Keep.
+ 04 3. 
+Créer une note
+ 04 4. 
+Créer une nouvelle liste.
+ 04 5. 
+Créer un dessin.
+ 04 6. 
+Insérer une image.
+ 04 7. 
+Créer un libellé (pour regrouper des notes d’un voyage, par exemple !)
+ 04 8. 
+Créer une note de rappel (Sur ton téléphone pour ne pas oublier un ren­dez-vous !)
+ 04 9. 
+Rechercher une note.
+Leçon 041 comment utiliser le coffre-fort Proton Pass ?
+Ø 
+Quel est l’intérêt d’utiliser un coffre-fort numérique ?
+Ø 
+Pourquoi je dois utiliser plutôt un coffre-fort qu’un mot de passe ?
+Ø 
+Quelles sont les principales méthodes de connexion aux sites internet ?
+Ø 
+Présentation de «Proton Pass» et de la configuration.
+Ø 
+Comment utiliser «Proton Pass» ?
+01 
+Quel est l’intérêt d’utiliser un «coffre-fort numérique» et pourquoi j’ai choisi «Pro­ton Pass» ?
+ 01 1. 
+Proton Pass est situé en Suisse ils essayent de concurrencer les «GAFAM» ou «GAMAM» c’est quoi les GAFAM ou GAMAM ? C’est l’acronyme des géants du Web — Google (Alphabet), Apple, Facebook (Meta), Amazon et Micro­soft — qui sont les cinq grandes firmes américaines (fondées entre le dernier quart du XXe siècle et le début du XXIe siècle) qui dominent le marché du numérique. 
+ 01 2. 
+Pourquoi utiliser «Proton Pass» plutôt que «Google» ou les autres ? C’est que les Suisse ne plaisantent pas avec la sécurité des données ! C’est le cœur de leur métier. Vous avez dû certainement entendre parler, de la ré­putation des banques suisse ! Quelle est la différence alors, avec les GA­FAM ? Les GAFAM collectent vos données avec votre consentement dans les «conditions générales» qu’ils vous demandent d’accepter ! Et que per­sonne ne s’amuse à lire leur centaine de pages de conditions. Ensuite, ils les revendent aux plus offrants. C’est pour ça que vous allez recevoir de la pub dans votre navigateur sur les voyages en Pologne quand vous avez acheté un billet pour vos vacances en Pologne. (Ils ont revendu vos données per­sonnelles !).
+ 01 3. 
+Déjà, c’est un gage de sécurité d’utiliser «Proton Pass». J’ai eu l’occasion d’essayer plusieurs coffres-forts numériques et je dois doit dire que celui-là est bien conçu et pratique, que ce soit sur ordinateur ou sur smartphone.
+02 
+Pourquoi je dois utiliser plutôt un coffre-fort qu’un mot de passe ? On ne va pas se mentir, toutes les personnes que je connais, pour mémoriser leur mot de passe, utilisent leur de date de naissance ou leur prénom et souvent le même mot de passe pour plusieurs sites !
+ 02 1. 
+Les pirates le savent bien et il est très facile de trouver les mots de passe aussi simples. Il faut comptez environ, entre 1 min et 5 min pour trouver ce genre de mot de passe pour un pirate débutant !
+ 02 2. 
+Dès l’instant que votre mot de passe ce trouve dans un dictionnaire ou que vous ayez remplie vos profils dans Facebook ou sur les réseaux sociaux, il n’y a rien de plus facile pour un pirate de trouver votre mot de passe.
+ 02 3. 
+Quelles sont les conséquences quand un pirate trouve votre mot de passe ? Pour les sociétés, ils vont exiger une rançon et ça peut aussi toucher les particuliers. Le plus grave, c’est qu’ils peuvent tout faire et aller jusqu’à effa­cer vous données ou crypter vos données. Ils peuvent aussi détourner votre argent payer en ligne avec les comptes en banque, faire des virements, etc., je pense que maintenant, vous aurez compris l’intérêt des coffres-forts numé­riques !
+03 
+Quelles sont les principales méthodes de connexion aux sites internet ?
+ 03 1. 
+Le «mot de passe» est à déconseiller !
+ 03 2. 
+On vient de voir le «coffre-fort numérique».
+ 03 3. 
+La «connexion à doubles facteurs», c’est le code que vous allez recevoir et devoir renseigner dans votre SMS ou valider une fenêtre avec un code comme avec Google.
+ 03 4. 
+Le «passkeys» c’est quoi un passkeys ? Voici un lien pour comprendre com­
+ment utiliser le passkeys sur Amazon ! Ce mode d’identification permet à l’utilisateur de s’affranchir des mots de passe individuels en regroupant les informations de connexion dans un seul outil.
+Accédez à la page «Compte Amazon» et cliquez sur «Connexion et Sécurité» dans le menu. Étape 2. Faites défiler vers le bas pour trouver la section «Pass­keys» et cliquez sur «Configurer» à côté de l’option Passkeys. Suivez ensuite les instructions à l’écran pour créer votre Passkeys.
+04 
+Présentation de «Proton Pass» et «configuration» : Voici le lien de télécharge­
+ment pour Windows.
+ 04 1. 
+«Proton Pass» peut s’installer de plusieurs façons !
+ 04 2. 
+Dans «Windows 10 ou 11» et sur toutes les autres plateformes IOS, Linux.
+ 04 3. 
+Dans les navigateurs «Google Chrome», «Firefox», «Edge» et certains autres navigateurs. Il suffit de se rendre dans les paramètres des navigateurs et d’aller cliquer sur installer une extension et d’indiquer «Proton Pass». En même temps après la validation, vous allez passer automatiquement à la configuration de Proton Pass, pour ça, je vous conseille avant d’aller sur le site de Proton Pass et de créer un compte gratuit «choisissez un mot de passe minimum de (15 caractères) avec majuscules, minuscules, chiffres et caractères spéciaux».
+Une fois le compte créé, il suffit de suivre pas à pas les instructions de confi­guration à l’écran.
+ 04 4. 
+Important ! Que ce soit dans Windows ou dans le navigateur, il ne faut pas oublier de configurer un code PIN.
+Ou sinon, toutes les personnes qui ont accès à votre session dans Windows auront accès à votre coffre-fort ! (C’est plutôt gênant !).
+ 04 5. 
+N’oubliez pas de choisir un «mot de passe fort minimum de 15 caractères»
+ 04 6. 
+Ou de «déverrouiller» votre compte avec le code PIN s’il est déjà installé.
+ 04 7. 
+Faire suivant, choisir le thème de l’interface.
+ 04 8. 
+Sélectionner, choisir le code PIN pour déverrouiller Proton Pass.
+ 04 9. 
+Par mesure de sécurité, il vous demande de confirmer votre mot de passe !
+ 04 10. 
+Maintenant, il vous demande de créer un code PIN et de le confirmer.
+ 04 11. 
+La configuration dans les navigateurs, les smartphones ou les tablettes est identique ! Proton Pass vous suit partout sur vos différents médias.
+ 04 12. 
+Dans le navigateur pour configurer le code PIN, clic sur le menu hamburger.
+ 04 13. 
+Saisir le code PIN et le confirmer.
+05 
+Comment utiliser «Proton Pass» ?
+ 05 1. 
+Où tu peux trouver «Proton Pass» ? À quatre endroits :
+ 05 2. 
+Dans la barre des tâches sur ton ordinateur.
+ 05 3. 
+Dans les trois navigateurs sur ton PC avec l’extension installée dans, Chrome, Firefox et Edge.
+ 05 4. 
+Et sur le smartphone de Renata.
+ 05 5. 
+Première utilisation, créez un mot de passe fort aléatoire pour une appli !
+1 - 2. Je sélectionne «mot de passe aléatoire» de 15 caractères et j’active les caractères spéciaux.
+3. Je copie le mot de passe et je ferme le générateur de mot de passe.
+4. Si je veux, je peux régénérer un nouveau mot de passe.
+Dans cet exemple, ce mot de passe, je vais l’utiliser pour une application que j’ai installée sur mon téléphone. (Ou quand j’ai besoin d’un mot de passe !).
+ 05 6. 
+Deuxième utilisation, je veux m’inscrire sur le site «https://www.lightinthe­box.com/fr/» et enregistrer ce site dans mon coffre-fort !
+1. Je lance une recherche avec Google «lightinthebox.com».
+2. Je déverrouille «Proton Pass» avant !
+3. Une fois sur le site, je clique sur «connexion», «inscription».
+1. Une fois que Proton Pass est «déverrouillé», j’ai le «symbole de Proton Pass» qui s’affiche automatiquement dans le champ «mot de passe». 
+2. Je remplis «mon adresse e-mail» et je clique dans le champ «mot de passe» pour générer un mot de passe aléatoire. Ensuite, je clique sur la «fe­nêtre noire» pour coller le mot de passe.
+1. Quand j’ai cliqué sur la «fenêtre noire», une 2° fenêtre sur la droite Proton Pass me propose «d’enregistrer mon site» dans le coffre-fort !
+2. Je «vérifie les informations» avant d’ajouter le site.
+3. Je finalise d’un clic sur «Ajouter» pour ajouter le site dans mon coffre-fort.
+1. Je vois sur l’icône «un petit 1» qui s’est ajouté à côté de l’icône.
+2-3. J’ouvre Proton Pass et je lance une «recherche» pour vérifier que mon site est bien enregistré, je vérifie les informations avant de fermer !
+Leçon 042 comment créer un mot de passe introuvable ?
+01 
+Premier cas : Nous venons de voir comment utiliser un coffre-fort ! Mais si je dois utiliser un mot de passe pour un site ordinaire qui n’a pas d’intérêts particuliers, un site banal ou qui n’est pas important. Alors, dans ce cas-là, je peux continuer à utiliser un mot de passe standard sans intérêt.
+02 
+Deuxième cas : Je veux créer un mot de passe fort introuvable et réutilisable !
+ 02 1. 
+La meilleure méthode est d’utiliser une paraphrase !
+ 02 2. 
+Comment trouver une paraphrase ?
+ 02 3. 
+Je vais dans chrome sur Google et je cherche une «citation» ou un «pro­verbes» Exemple : Site Internet.
+ 02 4. 
+Les conventions à respecter pour tous les mots de passe sont d’utiliser à chaque fois : des majuscules, des minuscules, des chiffres et des caractères spéciaux. (Minimum 15 caractères pour qu’il soit fort).
+ 02 5. 
+Dans mon exemple, je vais prendre cette citation :
+La vie, c’est comme une bicyclette, il faut avancer pour ne pas perdre l’équi­libre. (Albert Einstein).
+Je vais prendre les premiers caractères de chaque mot ou article, le «pre­mier caractère» du premier article, je le mets «toujours», en «majuscule», le reste des caractères, je les mets en «minuscules». Je rajoute ensuite, un «chiffre» que je connais par exemple : le numéro de mon domicile «08» et pour finir, j’ajoute 1 ou 2 caractères spéciaux :, !, ?, %, $, +, @.
+ 02 6. 
+Voilà mon mot de passe : Lvccubifapnppll08 ::
+ 02 7. 
+Que je peux «réutiliser» pour m’en «souvenir» par exemple pour «mon coffre fort» pour une «banque» pour mon compte «gmail» ou pour mes «comptes personnels» importants ! 
+Certains sites demandent de modifier régulièrement le mot de passe. Dans ce cas-là, je peux incrémenter ce numéro «08», 09, 10, 11, etc. 
+ 02 8. 
+Pour trouver ce mot de passe, les pirates devront faire tourner leur ordinateur pendant un siècle jour et nuit... Certains coffres-forts vous donnent la durée de découverte du mot de passe que vous avez choisi !
+Dans Proton Pass, il vous dit simplement, si votre mot de passe est «faible» ou «fort» !
+ 02 9. 
+Les bonnes habitudes se prennent dès le début, parce que ça devient compliqué quand il faut changer tous ces mots de passe. Surtout, sur les «réseaux sociaux» que la plupart des gens négligent et que les pirates se régalent. Résultats, comptes et identités usurpées, vol de données, modi­fication des paramètres des comptes ou tout simplement suppression des comptes. 
+Leçon 043 ce qu’il ne faut jamais faire sur les réseaux sociaux et sur internet ?
+01 
+On vient de voir les différentes méthodes de connexions, les coffres-forts et les mots de passe. Maintenant, il est temps de parler des réseaux sociaux et de ce qu’il ne faut jamais faire sur internet !
+ 01 1. 
+Comme les sites des réseaux sociaux sont mal protégés en matière de sé­curité concernant la protection de vos données personnelles et qu’ils vous demandent d’accepter les conditions générales pour pouvoir vous en servir, si vous lisez leurs conditions, vous remarquerez qu’ils vous disent clairement qu’ils sont susceptibles d’utiliser vos données et vos images pour amélio­rer leur contenu. Ce qu’ils ne vous disent pas, c’est qu’ils vous suivent à la trace, qu’ils analysent vos faits et gestes et qu’ils revendent vos habitudes de navigations. En clair, ils vous espionnent avec votre consentement. Rappe­lez-vous, c’est ce que vous avez accepté !
+ 01 2. 
+Première règle : Ne jamais remplir «parfaitement vos profils» ! Mettez juste le strict minimum votre nom, prénom, éventuellement votre date de nais­sance, votre âge pour le bon fonctionnement du réseau.
+Pour quoi ? La première chose que les piratent, voleurs, usurpateurs font, ils consultent tous vos profils sur les réseaux. Comme la plupart des gens ne soupçonnent pas l’impact des réseaux sociaux sur leur vie privée, ces personnes mal intentionnées retrouvent tout sur internet. Comme vous éta­lez votre vie privée, ils savent quand vous partez en vacances les dates de début et de fin, ils ont votre adresse E-mail, votre adresse postale, votre nu­méro de portable, etc. Avec toutes ces données qui traînent sur internet, ils peuvent vous cambrioler, usurper votre identité, trouver votre mot de passe puisqu’ils ont tout sur vous «nom, prénom, date de naissance» c’est ex­cellent pour trouver un mot de passe.
+ 01 3. 
+Deuxième règle : Créer de faux profils avec votre véritable prénom, pour vous y retrouver et de faux nom, âge et date de naissance.
+ 01 4. 
+Troisième règle : Sur les sites de «E-Commerce» utiliser votre coffre-fort pour vous connecter, une double authentification quand elle est proposée ou un passkeys. De plus en plus de sites le proposent. 
+Pour les moyens de paiement, préférer utiliser PayPal, le QR-code c’est la nouvelle tendance, la carte bancaire virtuelle (la plupart des banques la pro­posent) ou le virement immédiat.
+Ou utiliser un portefeuille électronique ? Comme PayPal, Apple Pay ou Goo­gle Pay, ils centralisent vos cartes bancaires sur une application. Ils facilitent les transactions en ligne : plus besoin de saisir vos informations bancaires à chaque achat. La sécurité repose sur l’authentification biométrique et la tokenisation. Celle-ci remplace les données sensibles par un jeton unique.
+Le paiement par mobile (Attention au vol ! Choisir l’empreinte digitale).
+Conseils de sécurité ! Pour renforcer votre sécurité, vous pouvez utiliser l’authentification à deux facteurs. Il faut aussi penser à utiliser des mots de passe complexes pour accéder à vos comptes sur les sites d’E-commerce.
+ 01 5. 
+Il est courant de voir dans les news, que certains sites connus se sont fait pirater leur base de données. Dernièrement, c’est un des principaux opéra­teurs téléphoniques, Free, qui s’est fait pirater son site ! Résultats, les noms, prénoms, adresses, e-mails téléphonent, IRBAN a été revendu sur internet par les pirates. Heureusement, ils se sont aperçus suffisamment tôt du vol et ils ont bloqué le site. Mais des milliers de personnes sur les trois millions de clients se sont retrouvés sur internet. (On n’est jamais suffisamment pru­dent !).
+Leçon 044 comment utiliser Macrium Reflect pour sauvegar­der mon ordinateur ?
+01 
+C’est quoi «Macrium Reflect» ?
+ 01 1. 
+Macrium Reflect est un logiciel complexe et payant de sauvegarde évolué !
+02 
+Est ce que je vais pouvoir utiliser facilement Macrium Reflect ?
+ 02 1. 
+«Oui», en utilisant la méthode que je vais vous apprendre dans ce cours !
+03 
+Qu’elle est l’intérêt d’utiliser un logiciel de sauvegarde ?
+ 03 1. 
+Un logiciel de sauvegarde va te permettre de retrouver instantanément ton ordinateur en cas de sinistre !
+ 03 2. 
+C’est quoi un sinistre ?
+ 03 3. 
+Ton ordinateur peux ralentir comme une tortue, tomber en panne, ce faire vérolé ou attraper un virus et ne plus fonctionner. Pire ! tous tes logiciels ins­tallés sur ton PC supprimés par des Malwares.
+ 03 4. 
+Dans ce cas la solution, est de «restaurer» entièrement ton ordinateur à son état d’origine de bon fonctionnement.
+04 
+Qu’elle est la stratégie à adopter pour sauvegarder mon ordinateur ?
+ 04 1. 
+Ton ordinateur doit être sauvegardé à plusieurs endroits différents.
+ 04 2. 
+C’est «la méthode 1.2.3»
+ 04 3. 
+La méthode «1», je sauvegarde mon PC sur une «clé USB» ou un «disque externe» suffisamment grand pour accepter Windows 10 ou 11. La taille mini­mum est de 1 To qui est égal à 1 téraoctet ou mille gigaoctets ou 1000 Go.
+ 04 4. 
+La méthode «2», je sauvegarde mon PC dans un endroit différent chez un «ami».
+ 04 5. 
+La méthode «3», je sauvegarde mon PC dans les nuages «Google Drive».
+ 04 6. 
+Existe-t-il une autre méthode de sauvegarde sur Windows 10 ou 11 ?
+ 04 7. 
+Oui, en créant une «Image système»
+Configuration
+Accès : Panneau de configuration > Système et sécurité > Sauvegarder et restaurer (Windows 7) > «Créer une image système»
+Prérequis : Disque externe avec suffisamment d’espace (généralement 50 Go minimum)
+Fonctionnement
+Crée une copie exacte bit par bit du disque système
+Inclus Windows, tous les programmes, pilotes, paramètres et fichiers
+Processus long (plusieurs heures selon la taille du disque)
+Peut être planifié, mais consomme beaucoup d’espace
+Restauration
+Nécessite un support de récupération Windows (clé USB/DVD)
+Démarrage sur le support de récupération
+Sélection «Dépannage > Options avancées > Récupération de l’image système»
+Restauration complète du système à l’état de la sauvegarde
+Avantages
+Récupération complète en cas de panne majeure
+Restaure exactement l’état du système au moment de la sauvegarde
+Idéal avant des modifications importantes du système
+Inconvénients
+Très consommateur d’espace disque
+Restauration «tout ou rien» (pas de fichiers individuels)
+Processus long tant pour la création que la restauration
+Recommandation : Utiliser l’Historique des fichiers pour les sauvegardes quotidiennes et l’image système avant des changements majeurs ou pério­diquement (mensuellement par exemple).
+ 04 8. 
+Vous l’aurez compris, le système sous Windows, il a le mérite d’exister, mais, pas très accessible à monsieur et madame tout le monde !
+ 04 9. 
+Maintenant, je vais vous montrer comment faire avec ma méthode, mais elle exige l’achat d’un logiciel de sauvegarde !
+05 
+On va ouvrir «Macrium Reflect».
+ 05 1. 
+On va dans la barre des tâches dans «rechercher» ou je fais un «clic droit» sur le menu «Windows» et je saisis le début du nom : macrium et j’exécute macrium important ! en tant qu’administrateur !
+ 05 2. 
+Une fois ouvert, on clique sur «Créer une image de la ou des partitions...» 
+ 05 3. 
+Je clique sur «l’icône» du répertoire pour sélectionner l’emplacement de ma sauvegarde.
+ 05 4. 
+Avant de créer ma sauvegarde, je vais dans ma clé USB «Patriot», je vais dans le répertoire «Macrium» et je crée un dossier avec la date du jour par exemple : «25.06.2025». Je retourne dans «Macrium» et je «sélectionne» le chemin que je viens de créer dans ma clé USB «Patriot».
+ 05 5. 
+Je lui donne un nom : sauvegarde-complete-26.06.25
+ 05 6. 
+Je clique sur «Options avancées», je sélectionne «Vérification auto de l’image», je «coche» la case vérifier l’image ou la sauvegarde et je valide par «OK».
+ 05 7. 
+Dans cette fenêtre, je ne change «rien» et je clique sur «Suivant».
+ 05 8. 
+Dans cette fenêtre, je ne change «rien» et je clique sur «Terminer».
+ 05 9. 
+Dans cette fenêtre, je «décoche» Enregistrer comme un fichier... Et je valide ma sauvegarde par «OK».
+ 05 10. 
+Ma sauvegarde «démarre», j’attends la fin de la sauvegarde et de la vérifi­cation et je vais vérifier à la fin si, ma sauvegarde est bien sur ma clé USB !
+Leçon 045 comment partager un document qui se trouve sur le cloud ?
+01 
+On la vue plus haut dans ce cours d’initiation qu’il existait «plusieurs univers» !
+ 01 1. 
+L’univers «par défaut» de ce cours est «Google Drive» avec 15 Go de don­nées gratuites. C’est pour cette raison qu’il est important ! de prendre un abonnement annuel pour protéger tous vos fichiers personnels que je qua­lifie d’importants ! Vos documents de traitement de texte, tableur, retouche photos, vos albums photos et vidéos etc.
+ 01 2. 
+L’univers de «Microsoft» avec «OneDrive» et 5 Go de données gratuites. Pourquoi je n’ai pas choisie Onedrive ?
+Pour démarrer ce cours, il me fallait un espace suffisant pour créer les docu­ments du cours et les exercices. Donc, c’est un choix arbitraire !
+ 01 3. 
+L’univers «DropBox» basique gratuit avec 2 Go voici le site. Très populaire le forfait standard 12 € pour trois utilisateurs d’une famille avec 5 To d’espace de stockage pour l’équipe.
+ 01 4. 
+L’univers professionnel «Infomaniak» est l’équivalent de Google Drive mais, situé en suisse comme Proton Pass avec le respect de la vie privée. Vos don­nées de navigation et autres, ne sont pas revendues voici le site. Il n’y a pas d’espace gratuit, le forfait «Ksuite» Solo est à 4.99 € pour 3 To de stockage pour un utilisateur.
+ 01 5. 
+Voilà les quatre univers que j’utilise quotidiennement ! Il y a bien entendu d’autres univers au moins une dizaine sinon plus ! Ils ce crée régulièrement de nouveaux univers plus ou moins abordables en sachant que les princi­paux ce trouvent aux USA. Malheureusement, Ils ne sont pas garant de la vie privée et de la protections de vos données personnels. Depuis peu, il y a aussi des univers Européens garant de la vie privée mais, sont plus chères.
+02 
+Pourquoi utiliser le «Cloud» plutôt qu’une clé USB un disque externe et surtout pas Windows ?
+ 02 1. 
+On la vue un peu plus haut avec la stratégie de sauvegarde «1-2-3». vos don­nées personnelles sont précieuses imaginez 20 ans de photos et vidéos de toutes votre famille plus tous vos documents personnels. Ça na pas de prix ! La méthode 1-2-3 c’est : 
+1. Une sauvegarde en local sur une clé USB ou un disque externe.
+2. A un endroit différent. Chez un amie.
+3. Sur le Cloud (Dans les nuages)
+Et surtout pas dans Windows 10 ou 11 pourquoi ? Si votre ordinateur est in­fecté par des virus ou malwares, ce sera impossible de récupérer toutes vos données qui seront dispersées dans les différentes sessions au milieu du système Windows. Rappelez-vous c’est important ! On ne mets pas tous les œufs dans le même paniers.
+ 02 2. 
+Quel est l’avantage du Cloud ?
+Le Cloud vous permets de transporter tous vos documents avec vous ou que vous soyez ! En France comme à l’étranger, ils vous suivent partout. La seule condition est d’avoir une connexion internet, avec une 5 G ou le Wifi, sur votre ordinateur portable, sur votre smartphone ou sur votre tablette.
+ 02 3. 
+Le grand avantage du cloud, c’est que vous pouvez partager vos documents à plusieurs, on appelle ça, le cloud collaboratif. C’est le télétravail tant à la mode en ce moment. Vous pouvez même travailler sur le même document à plusieurs ou, si vous avez besoin d’un dépannage vous pouvez demander à un ami de vous dépanner avec la prise à distance de votre ordinateur.
+03 
+Voilà j’ai fait le tour ou un résumé du Cloud ! Pour que vous puissiez comparer et comprendre les différentes méthodes qui existent.
+04 
+Maintenant passons aux choses sérieuses ! Comment partager un document avec Google Drive ? La méthode et la logique sera presque identique avec tous les autres univers avec quelques petites différences !
+ 04 1. 
+Dans «Google Drive»
+ 04 2. 
+Nous avons «Mon Drive» avec Google Docs, Sheets, Slides, Forms etc. 
+ 04 3. 
+Pour partager un document «Google Docs» ou les autres, nous avons plu­sieurs méthodes.
+ 04 4. 
+Dans notre exemple, nous allons partager avec «Richard» le document «Mes dix meilleurs Prompts perso» que j’ai créée pour l’ia.
+ 04 5. 
+Le chemin de «Mon drive» du compte Gmail de Richard : 
+Mon Drive\RICHARD\L’INTELLIGENCE ARTIFICIELLE\ PROMPTS IA AUTO­MATION\ MES PROMPTS PERSO\ Mes 10 meilleurs prompts perso
+Première méthode :
+ 04 6. 
+Je vérifie que je suis bien sur «le bon compte Gmail».
+ 04 7. 
+C’est l’arborescence du «chemin» dans mon Drive.
+ 04 8. 
+Je sélectionne le fichier que je veux partager.
+ 04 9. 
+Je clique sur «les trois petits points» pour ouvrir le menu.
+ 04 10. 
+Je clique sur partager.
+ 04 11. 
+Copier le lien
+Le lien que je viens de copier, je vais le partager avec WhatsApp ou Gmail !
+Dans cet exemple je vais le partager avec Gmail.
+Une fois que j’ai cliqué sur le lien de partage dans Gmail, je suis redirigé vers le fichier partagé sur mon PC dans mon Gmail.
+Deuxième méthode :
+ 04 12. 
+Je clique sur les trois petits points pour ouvrir le menu.
+ 04 13. 
+Je clique sur partager.
+ 04 14. 
+Je saisie le nom de la personne ou des personnes avec qui je veux partager.
+ 04 15. 
+Je clique sur le menu Limité. 
+ 04 16. 
+Pour limiter mon partage à une personne. 
+ 04 17. 
+Ou avec toutes les personnes qui possèdent le lien.
+ 04 18. 
+Je valide mon choix en cliquant sur OK ou si je clique sur tous les utilisa­teurs qui ont le lien, j’ai cette boite de dialogue qui s’affiche.
+Pour afficher «trois méthodes de partage !»
+Lecteur (Je partage le fichier mais, les personnes qui ont le lien, ne pourront pas le modifier).
+Commentateur (Les personnes pourront ajouter des commentaires pour cor­riger le document s’il est partagé avec plusieurs personnes. Seul le proprié­taire pourra modifier le document en fonction des commentaires).
+Editeurs (Toutes les personnes qui ont le lien pourront modifier le document)
+Important ! On n’est toujours propriétaire des documents que l’on partage ! Et c’est à nous de décider comment l’ont partage nos documents !
+Troisième méthode :
+ 04 19. 
+Si la ou les personnes sont dans mon carnet d’adresses je peux les ajouter ou je peux aussi ajouter des nouvelles adresses E-mail à cet endroit là. 
+ 04 20. 
+Toutes les personnes qui recevront cet E-mail recevront une notification.
+ 04 21. 
+Je peux ajouter un commentaire aux personnes qui recevront cet E-mail.
+ 04 22. 
+A cet endroit, je peux aussi récupérer le lien de partage.
+ 04 23. 
+Je peux choisir la méthode que je veux utiliser pour mon partage.
+Voilà la notification de partage que les personnes ont reçu !
+ 04 24. 
+Si vous cliquez sur le lien de la notification, vous ouvrez le document parta­gé.
+ 04 25. 
+Vous savez qui partage le document avec vous.
+ 04 26. 
+Vous pouvez voir un extrait du document partagé.
+ 04 27. 
+Vous pouvez ouvrir ce document et comme vous êtes «Éditeur» vous pou­vez modifier le document dans votre Google Drive.
+Richard maintenant peut «consulter ou modifier» le document partagé !
+Comment retrouver un documents partagé dans mon Drive ?
+ 04 28. 
+Je vais dans mon Drive.
+ 04 29. 
+Dans partager avec moi.
+ 04 30. 
+Je clique sur le document de partage pour «l’ouvrir» et je sais qui a par­tager le document avec moi. Dans cet exemple, c’est «sb.looga Szus...» à 15.55 h qui a partager ce fichier.
+Important ! La personne qui a partagé le document avec vous est toujours propriétaire de ce document et elle peut décider à tout moment de supprimer ce partage ! A partir du moment ou la personne a supprimé son partage, vous n’aurez plus d’accès à ce document ! Sauf, si vous avez créé une copie du document partagé.
+SOMMAIRE
+PRÉAMBULE.....................................................................................................................................................................1
+Le premier axe ...........................................................................................................................................................................1
+Le deuxième axe .......................................................................................................................................................................1
+PREMIÈRE PARTIE...................................................................................................................................................................1
+Leçon 001 ton PC se compose de trois sessions Windows.......................................................................4
+Leçon 002 tu peux te connecter à une session de deux façons............................................................4
+LES MESURES DE SÉCURITÉ À ADOPTER.........................................................................................................4
+LA CONFIGURATION WINDOWS DE TON PC................................................................................................6
+PRÉSENTATION DE TON PC...........................................................................................................................................6
+Présentation du côté gauche du PC.............................................................................................................................7
+Présentation du côté droit du PC....................................................................................................................................7
+Présentation du clavier.............................................................................................................................................................8
+Présentation de la touche FN du clavier...................................................................................................................8
+Présentation de la souris........................................................................................................................................................9
+Présentation de la clé USB Patriot de 1 To...............................................................................................................9 
+DEUXIEME PARTIE..................................................................................................................................................................10
+FORMATION DE BASE WINDOWS 11..........................................................................................................................10
+Leçon 003 présentation de la barre des tâches Windows.........................................................................10
+Leçon 004 présentation de l’icône du Wifi et de la connexion Internet..........................................11
+Leçon 005 présentation du menu Windows..........................................................................................................12
+Leçon 006 présentation de l’explorateur Windows..........................................................................................13
+Leçon 007 comment positionner la fenêtre de l’explorateur de fichiers.........................................13
+Leçon 008 copier, déplacer des fichiers ou des répertoires......................................................................15
+Leçon 009 créée des répertoires ou des fichiers................................................................................................16
+Leçon 010 les différentes méthodes de sélection...............................................................................................18
+Leçon 011 exemple d’organisation des dossiers Windows..........................................................................21
+Leçon 012 exemple de nommage des fichiers Windows.............................................................................22
+Leçon 013 toutes les extensions des logiciels sur ton PC............................................................................23
+Leçon 014 liste des caractères interdits......................................................................................................................24
+Leçon 015 exemple de noms de dossiers ou répertoires ............................................................................24
+Leçon 016 exemple de noms de fichiers....................................................................................................................24
+Leçon 017 exemple de nom trop long..........................................................................................................................25
+Leçon 018 la recherche dans l’explorateur de fichiers ..................................................................................25
+Leçon 019 comment rechercher un dossier ou un fichier dans Windows 11................................25
+Leçon 020 les différentes méthodes de recherche...........................................................................................25
+Leçon 021 utiliser l’utilitaire Everything.......................................................................................................................26
+Leçon 022 comment créer un nouveau document avec Word ou Excel........................................28
+Leçon 023 comment créer un nouveau document avec Google Drive...........................................30
+Leçon 024 comment utiliser les logiciels portables ?......................................................................................32
+Leçon 025 où je peux trouver les logiciels portables sur mon PC ?....................................................32
+Leçon 026 comment créer un nouveau document portable LibreOffice ?....................................33
+Leçon 027 les principaux raccourcis clavier de Windows 11......................................................................35
+TROISIÈME PARTIE.................................................................................................................................................................36
+Leçon 028 comment est agencé mon nouveau PC ?.....................................................................................36
+Leçon 029 quelles sont les principales règles de sécurité ?......................................................................38
+Leçon 030 comment installer un logiciel dans la session Renata ?....................................................38
+Leçon 031 comment désinstaller un logiciel dans la session Renata ?............................................40
+Leçon 032 à quoi sert la session Administrateur ?............................................................................................41
+Leçon 033 comment utiliser Glary Utilities Pro ?................................................................................................42
+Leçon 034 comment je peux ajouter des logiciels portables ?................................................................43
+Leçon 035 comment utiliser un traitement de texte ?.....................................................................................47
+Leçon 036 comment utiliser un tableur ?..................................................................................................................49
+Leçon 037 voir les bases de PhotoShop ?................................................................................................................50
+Leçon 038 comment utiliser «Jan» l’intelligence artificielle, ChatGPT ou les autres ?.........53
+Leçon 039 comment utiliser Gmail niveau débutant ?...................................................................................59
+Leçon 040 comment utiliser Google Keep ?...........................................................................................................61
+Leçon 041 comment utiliser le coffre-fort Proton Pass ?...............................................................................63
+Leçon 042 comment créer un mot de passe introuvable ?........................................................................70
+Leçon 043 ce qu’il ne faut jamais faire sur les réseaux sociaux et sur internet ?.....................71
+Leçon 044 comment utiliser Macrium Reflect pour sauvegarder mon ordinateur ?.............72
+Leçon 045 comment partager un document qui se trouve sur le cloud ?.....................................76
+Les fichiers Word de traitement de texte Microsoft
+ .docx / .doc
+ 
+Les fichiers Excel du tableur Microsoft
+ .xls / .xl
+ 
+Les fichiers Bloque Note Prise de note rapide
+ .txt
+ 
+Les fichiers Web pages web dans les navigateurs
+ .html / .htm
+ 
+Les fichiers Musique des lecteurs multimédias
+ .wawe / .mp3 / .avi
+ 
+Les fichiers Compressés standard
+ .zip / .rar / .7z
+ 
+Les fichiers CorelDraw logiciel de dessins d’art
+ .cdr
+ 
+Les fichiers d’Illustrator logiciel de dessins Adobe
+ .ai
+ 
+Les fichiers d’Indesign logiciel de mise en page Adobe
+ .indd / .idml
+ 
+Les fichiers de retouche photo PhotoShop Adobe
+ .psd
+ 
+Les fichiers de montage vidéo Première Pro Adobe
+ .mp4 / .mov
+ 
+Les fichiers de création de plan de cuisine Sketchup
+ .skp
+ 
+Les fichiers de dessins Technique Visio Pro Microsoft
+ .vsdx
+ 
+Les fichiers de montage vidéo Davinci Resolve 
+ .mp4 / .mov
+ 
+Les fichiers Windows Média Player / VLC
+ .wawe / .mp3 / .avi
+ 
+Les fichiers Adobe Reader / Acrobat
+ .pdf
+ 
+Les fichiers Photos Microsoft / FSViewer-Portable
+ .jpg / .jpeg / .png
+ 
+Ouvrir l’Explorateur de fichiers
+ Windows + E
+ 
+Afficher/masquer le Bureau
+ Windows + D
+ 
+Ouvrir les Paramètres (Wi-Fi, Bluetooth, volume) 
+ Windows + A
+ 
+Ouvrir l’historique du presse-papiers
+ Windows + V
+ 
+Verrouiller la session
+ Windows + L
+ 
+Réduire toutes les fenêtres
+ Windows + M
+ 
+Restaurer toutes les fenêtres réduites
+ Windows + Maj + M
+ 
+Ouvrir le panneau d’émojis, GIFs, caractères spéciaux
+ Windows + ;
+ 
+Basculer d’une fenêtre ouverte à une autre
+ Alt + Tab
+ 
+Fermer la fenêtre ou l’application active
+ Alt + F4
+ 
+Ouvrir le Gestionnaire des tâches
+ Ctrl + Shift + Échap
+ 
+Copier / Couper / Coller / Annuler / Tout sélectionner
+ Ctrl + C / X / V / Z / A
+ 
+Nouvelle fenêtre / Nouvel onglet / Fermer onglet
+ Ctrl + N / T / W
+ 
+Actualiser la page ou la fenêtre active
+ F5
+ 
+Renommer le fichier ou dossier sélectionné
+ F2
+ 
+Afficher les propriétés de l’élément sélectionné
+ Alt + Entrée
+ 
+Créer un nouveau dossier
+ Ctrl + Maj + N
+ 
