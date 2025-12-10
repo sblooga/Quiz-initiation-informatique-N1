@@ -20,7 +20,9 @@
     "dev:indexeddb": "VITE_STORAGE=indexeddb npm run dev",
     "test:e2e:indexeddb": "VITE_STORAGE=indexeddb npm run test:e2e",
     "noco": "powershell -ExecutionPolicy Bypass -File ./noco/start-nocodb.ps1",
-    "noco:unix": "bash ./noco/start-nocodb.sh"
+    "noco:unix": "bash ./noco/start-nocodb.sh",
+    "build": "npm run build:frontend && npm run build:backend",
+    "start:prod": "npm --workspace apps/backend run start"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

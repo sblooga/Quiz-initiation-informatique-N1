@@ -52,3 +52,23 @@ app.listen(port, () => {
 // --- Gestion des Erreurs Globales ---
 process.on('unhandledRejection', (e) => console.error('[unhandledRejection]', e));
 process.on('uncaughtException', (e) => console.error('[uncaughtException]', e));
+
+// --- Servir le Frontend (Production) ---
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Le dossier dist du frontend est au niveau de apps/frontend/dist
+// Depuis apps/backend/dist/index.js, c'est ../../frontend/dist
+const frontendDist = path.join(__dirname, '../../frontend/dist');
+
+app.use(express.static(frontendDist));
+
+// Pour toutes les autres routes (SPA), renvoyer index.html
+app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(frontendDist, 'index.html'));
+    }
+});
