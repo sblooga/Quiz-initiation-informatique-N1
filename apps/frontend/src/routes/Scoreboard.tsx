@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useProfiles } from '../lib/profiles';
 import { fetchSessions, Session } from '../services/quizApiService';
 
@@ -7,7 +7,7 @@ interface ChartDatum {
   profile: string;
   average: number;
   best: number;
-  sessions: Array<{ date: number; score: number }>;
+  sessions: Array<{ date: number; score: number; sessionId: number }>;
   color: string;
 }
 
@@ -17,6 +17,7 @@ function formatScore(score: number) {
 
 export default function Scoreboard() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { profiles } = useProfiles();
   const [sessions, setSessions] = useState<Session[]>([]);
   const [selectedProfile, setSelectedProfile] = useState<string>('');
@@ -34,7 +35,7 @@ export default function Scoreboard() {
   }, [location.search]);
 
   const chartData = useMemo<ChartDatum[]>(() => {
-    const groups = new Map<string, Array<{ date: number; score: number }>>();
+    const groups = new Map<string, Array<{ date: number; score: number; sessionId: number }>>();
 
     // Map sessions by profile name
     sessions.forEach(session => {
@@ -44,7 +45,7 @@ export default function Scoreboard() {
       if (!groups.has(profile.name)) {
         groups.set(profile.name, []);
       }
-      groups.get(profile.name)!.push({ date: session.date, score: session.score });
+      groups.get(profile.name)!.push({ date: session.date, score: session.score, sessionId: session.id });
     });
 
     return Array.from(groups.entries())
@@ -124,14 +125,19 @@ export default function Scoreboard() {
         {active && (
           <section className="rounded-3xl bg-gray-800/70 p-4 sm:p-6 shadow-lg">
             <h2 className="text-lg sm:text-xl font-semibold text-slate-100">Historique de {active.profile}</h2>
-            <p className="text-xs sm:text-sm text-slate-300">Les points représentent les scores obtenus. Passez la souris pour voir la date.</p>
+            <p className="text-xs sm:text-sm text-slate-300">Les points représentent les scores obtenus. Cliquez pour revoir vos erreurs.</p>
             <div className="mt-4 sm:mt-6 overflow-hidden rounded-3xl bg-gradient-to-b from-gray-900 to-gray-800 p-4 sm:p-6 shadow-inner">
               <div className="overflow-x-auto pb-2">
                 <div className="flex gap-4 min-w-max">
                   {active.sessions.map(session => {
                     const height = Math.max(12, (session.score / 10) * 100);
                     return (
-                      <div key={session.date} className="flex flex-col items-center gap-2">
+                      <button
+                        key={session.date}
+                        onClick={() => navigate(`/resultats?sessionId=${session.sessionId}`)}
+                        className="flex flex-col items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+                        type="button"
+                      >
                         <div className="relative flex h-24 sm:h-32 w-8 sm:w-12 items-end justify-center rounded-full bg-gray-800">
                           <div
                             className="w-6 sm:w-8 rounded-t-full"
@@ -140,7 +146,7 @@ export default function Scoreboard() {
                           />
                         </div>
                         <span className="text-[10px] sm:text-xs font-semibold text-slate-300">{session.score}/10</span>
-                      </div>
+                      </button>
                     );
                   })}
                 </div>

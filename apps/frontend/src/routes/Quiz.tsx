@@ -104,7 +104,7 @@ export default function Quiz() {
       fetchStudents().then(students => {
         const student = students.find(s => s.name === profile);
         if (student) {
-          saveSessionAPI(student.id, Date.now(), score).catch(console.error);
+          saveSessionAPI(student.id, Date.now(), score, newAnswers).catch(console.error);
         }
       });
       navigate('/resultats', { state: { answers: newAnswers, profile } });
@@ -121,7 +121,7 @@ export default function Quiz() {
       fetchStudents().then(students => {
         const student = students.find(s => s.name === profile);
         if (student) {
-          saveSessionAPI(student.id, Date.now(), score).catch(console.error);
+          saveSessionAPI(student.id, Date.now(), score, answers).catch(console.error);
         }
       });
       navigate('/resultats', { state: { answers, profile } });

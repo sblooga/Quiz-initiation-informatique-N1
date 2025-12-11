@@ -18,31 +18,20 @@ export default function PDFViewer({ file, initialPage = 1, searchText, onClose }
     const [scale, setScale] = useState(1.2);
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Gestion de l'historique du navigateur pour le bouton "Retour"
+    // Gérer la touche Escape pour fermer le viewer
     useEffect(() => {
-        // Ajouter un état à l'historique quand le viewer s'ouvre
-        window.history.pushState({ pdfViewerOpen: true }, '');
-
-        // Gérer le bouton "Retour" du navigateur
-        const handlePopState = (event: PopStateEvent) => {
-            if (event.state?.pdfViewerOpen) {
-                // Si on revient sur l'état du viewer, on le ferme
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
                 onClose();
             }
         };
 
-        window.addEventListener('popstate', handlePopState);
+        window.addEventListener('keydown', handleKeyDown);
 
         return () => {
-            window.removeEventListener('popstate', handlePopState);
+            window.removeEventListener('keydown', handleKeyDown);
         };
     }, [onClose]);
-
-    const handleClose = () => {
-        // Retourner en arrière dans l'historique pour nettoyer
-        window.history.back();
-        // onClose sera appelé par le gestionnaire popstate
-    };
 
     async function onDocumentLoadSuccess(pdf: any) {
         setNumPages(pdf.numPages);
@@ -115,7 +104,7 @@ export default function PDFViewer({ file, initialPage = 1, searchText, onClose }
                 </div>
                 <button
                     type="button"
-                    onClick={handleClose}
+                    onClick={onClose}
                     className="rounded-full bg-red-600 px-4 py-2 font-bold text-white hover:bg-red-700"
                 >
                     Fermer

@@ -1,6 +1,9 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import ScoreCard from '../components/ScoreCard';
 import PDFLink from '../components/PDFLink';
+import { getSessionById } from '../services/quizApiService';
+import { useProfiles } from '../lib/profiles';
 
 interface AnswerRecord {
   question: any;
@@ -15,7 +18,51 @@ interface LocationState {
 
 export default function Results() {
   const { state } = useLocation();
-  const { answers, profile } = (state as LocationState) || { answers: [], profile: 'Anonyme' };
+  const [searchParams] = useSearchParams();
+  const { profiles } = useProfiles();
+  const [answers, setAnswers] = useState<AnswerRecord[]>([]);
+  const [profile, setProfile] = useState<string>('Anonyme');
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const sessionId = searchParams.get('sessionId');
+    if (sessionId) {
+      // Load session from API
+      setLoading(true);
+      getSessionById(Number(sessionId))
+        .then(session => {
+          if (session.answers) {
+            setAnswers(session.answers);
+          }
+          // Find profile name from profileId
+          const profileData = profiles.find(p => p.id === String(session.profileId));
+          if (profileData) {
+            setProfile(profileData.name);
+          }
+          setLoading(false);
+        })
+        .catch(err => {
+          console.error('Error loading session:', err);
+          setLoading(false);
+        });
+    } else if (state) {
+      // Load from navigation state (just completed quiz)
+      const { answers: stateAnswers, profile: stateProfile } = state as LocationState;
+      setAnswers(stateAnswers || []);
+      setProfile(stateProfile || 'Anonyme');
+    }
+  }, [searchParams, state, profiles]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black px-6 py-10 text-slate-100">
+        <div className="mx-auto max-w-5xl space-y-8 rounded-[2.75rem] surface-dark p-8 shadow-2xl">
+          <p className="text-center text-xl">Chargement des résultats...</p>
+        </div>
+      </div>
+    );
+  }
+
   const score = answers.filter(a => a.correct).length;
   const mistakes = answers.filter(a => !a.correct);
 

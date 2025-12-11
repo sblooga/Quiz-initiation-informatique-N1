@@ -10,5 +10,6 @@ CREATE TABLE IF NOT EXISTS sessions (
   profileId INTEGER NOT NULL,
   date INTEGER NOT NULL,
   score INTEGER NOT NULL,
+  answers TEXT,
   FOREIGN KEY(profileId) REFERENCES profiles(id) ON DELETE CASCADE
 );

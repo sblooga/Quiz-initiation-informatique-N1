@@ -34,6 +34,7 @@ export interface Session {
     profileId: number;
     date: number;
     score: number;
+    answers?: any[];
 }
 
 const api = axios.create({
@@ -101,12 +102,22 @@ export const fetchSessions = async (): Promise<Session[]> => {
     }
 };
 
-export const saveSession = async (profileId: number, date: number, score: number): Promise<Session> => {
+export const saveSession = async (profileId: number, date: number, score: number, answers?: any[]): Promise<Session> => {
     try {
-        const response = await api.post('/api/sessions', { profileId, date, score });
+        const response = await api.post('/api/sessions', { profileId, date, score, answers });
         return response.data;
     } catch (error) {
         console.error('Error saving session:', error);
+        throw error;
+    }
+};
+
+export const getSessionById = async (sessionId: number): Promise<Session> => {
+    try {
+        const response = await api.get(`/api/sessions/id/${sessionId}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching session:', error);
         throw error;
     }
 };
@@ -119,4 +130,5 @@ export default {
     fetchQuestions,
     fetchSessions,
     saveSession,
+    getSessionById,
 };

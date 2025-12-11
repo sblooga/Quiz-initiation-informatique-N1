@@ -85,6 +85,7 @@ if (isPostgres) {
                     "profileId" INTEGER NOT NULL,
                     date BIGINT NOT NULL,
                     score INTEGER NOT NULL,
+                    answers JSONB,
                     FOREIGN KEY("profileId") REFERENCES profiles(id) ON DELETE CASCADE
                 );
             `);

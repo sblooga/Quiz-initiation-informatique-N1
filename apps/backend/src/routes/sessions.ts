@@ -14,6 +14,24 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET /api/sessions/id/:sessionId - Get a specific session by ID
+router.get('/id/:sessionId', async (req, res) => {
+  try {
+    const session = await db.get('SELECT * FROM sessions WHERE id = ?', [req.params.sessionId]);
+    if (!session) {
+      return res.status(404).json({ error: 'Session not found' });
+    }
+    // Parse answers JSON if it exists
+    if (session.answers) {
+      session.answers = JSON.parse(session.answers);
+    }
+    res.json(session);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Failed to fetch session' });
+  }
+});
+
 // GET /api/sessions/:profileId - Get sessions for a specific profile
 router.get('/:profileId', async (req, res) => {
   try {
@@ -28,14 +46,15 @@ router.get('/:profileId', async (req, res) => {
 // POST /api/sessions - Create a new session
 router.post('/', async (req, res) => {
   try {
-    const { profileId, date, score } = req.body;
+    const { profileId, date, score, answers } = req.body;
 
     if (!profileId || !date || score === undefined) {
       return res.status(400).json({ error: 'Missing required fields: profileId, date, score' });
     }
 
-    const result = await db.run('INSERT INTO sessions("profileId", date, score) VALUES(?,?,?)', [profileId, date, score]);
-    res.json({ id: result.id, profileId, date, score });
+    const answersJson = answers ? JSON.stringify(answers) : null;
+    const result = await db.run('INSERT INTO sessions("profileId", date, score, answers) VALUES(?,?,?,?)', [profileId, date, score, answersJson]);
+    res.json({ id: result.id, profileId, date, score, answers });
   } catch (e) {
     console.error(e);
     res.status(500).json({ error: 'Failed to create session' });
