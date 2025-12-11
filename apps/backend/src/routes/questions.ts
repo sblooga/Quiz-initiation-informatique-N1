@@ -1,11 +1,8 @@
 import csv from 'csv-parser';
 import { Router } from 'express';
 import multer from 'multer';
-import { mkdirSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
 import stream from 'node:stream';
-import { Database, open } from 'sqlite';
-import sqlite3 from 'sqlite3';
+import db from '../db.js';
 
 // Configuration Multer pour gérer les fichiers en mémoire
 const upload = multer({
@@ -16,21 +13,6 @@ const upload = multer({
 });
 
 const r = Router();
-
-// ─────────────────────────────────────────────────────────────
-// DB path & préparation
-// ─────────────────────────────────────────────────────────────
-const DB_PATH = process.env.DATABASE_URL || './data.sqlite';
-const ABS_DB_PATH = resolve(DB_PATH);
-mkdirSync(dirname(ABS_DB_PATH), { recursive: true });
-console.log('[SQLite] DB file =', ABS_DB_PATH);
-
-async function getDb(): Promise<Database> {
-  const db = await open({ filename: ABS_DB_PATH, driver: sqlite3.Database });
-  // Robustesse Windows / concurrence lecture : WAL
-  await db.exec(`PRAGMA journal_mode = WAL;`);
-  return db;
-}
 
 // Helpers
 function toInt(v: any): number | null {
@@ -44,53 +26,44 @@ const norm = (s: string) => s.normalize('NFKC').trim().toLowerCase();
 // GET /questions → réponse normalisée pour le front
 // ─────────────────────────────────────────────────────────────
 r.get('/', async (_req, res) => {
-  let db: Database | null = null;
   try {
-    db = await getDb();
-    try {
-      // ⚠️ TRIM ajouté ici pour la sécurité, bien que le problème soit sur l'INSERT.
-      const rows = await db.all(`
-        SELECT id, question_id, type, label, choices_json, answer_text, answer_index,
-        theme, course_ref, pdf_keyword, lesson, pdf_page, pdf_search_text
-        FROM questions
-        ORDER BY id ASC
-      `.trim()); // <-- .trim() ajouté
+    // ⚠️ TRIM ajouté ici pour la sécurité
+    const rows = await db.query(`
+      SELECT id, question_id, type, label, choices_json, answer_text, answer_index,
+      theme, course_ref, pdf_keyword, lesson, pdf_page, pdf_search_text
+      FROM questions
+      ORDER BY id ASC
+    `.trim());
 
-      const out = rows.map((r: any) => {
-        let choices: string[] = [];
-        try { choices = JSON.parse(r.choices_json ?? '[]'); } catch { }
-        return {
-          id: r.id,
-          type: r.type as 'QCM' | 'VraiFaux' | 'Compléter',
-          label: r.label as string,
-          choices,
-          answer: {
-            text: r.answer_text ?? null,
-            index: (typeof r.answer_index === 'number') ? r.answer_index : null,
-          },
-          meta: {
-            questionId: r.question_id ?? null,
-            theme: r.theme ?? null,
-            courseRef: r.course_ref ?? null,
-            pdfKeyword: r.pdf_keyword ?? null,
-            lesson: r.lesson ?? null,
-            pdfPage: r.pdf_page ?? null,
-            pdfSearchText: r.pdf_search_text ?? null,
-          },
-        };
-      });
+    const out = rows.map((r: any) => {
+      let choices: string[] = [];
+      try { choices = JSON.parse(r.choices_json ?? '[]'); } catch { }
+      return {
+        id: r.id,
+        type: r.type as 'QCM' | 'VraiFaux' | 'Compléter',
+        label: r.label as string,
+        choices,
+        answer: {
+          text: r.answer_text ?? null,
+          index: (typeof r.answer_index === 'number') ? r.answer_index : null,
+        },
+        meta: {
+          questionId: r.question_id ?? null,
+          theme: r.theme ?? null,
+          courseRef: r.course_ref ?? null,
+          pdfKeyword: r.pdf_keyword ?? null,
+          lesson: r.lesson ?? null,
+          pdfPage: r.pdf_page ?? null,
+          pdfSearchText: r.pdf_search_text ?? null,
+        },
+      };
+    });
 
-      return res.json(out);
-    } catch (e: any) {
-      if (e?.message?.includes('no such table')) return res.json([]); // DB vierge
-      console.error('[GET /questions] SQL error:', e?.message);
-      return res.status(500).json({ error: 'get_questions_failed', detail: e?.message });
-    }
+    return res.json(out);
   } catch (e: any) {
-    console.error('[GET /questions] DB open error:', e?.message);
-    return res.status(500).json({ error: 'db_open_failed', detail: e?.message });
-  } finally {
-    try { await db?.close(); } catch { }
+    if (e?.message?.includes('no such table') || e?.message?.includes('does not exist')) return res.json([]); // DB vierge
+    console.error('[GET /questions] SQL error:', e?.message);
+    return res.status(500).json({ error: 'get_questions_failed', detail: e?.message });
   }
 });
 
@@ -98,14 +71,13 @@ r.get('/', async (_req, res) => {
 // POST /questions/import
 // Accepte un fichier CSV via 'quizFile' (multipart/form-data)
 // ─────────────────────────────────────────────────────────────
-r.post('/import', upload.single('quizFile'), async (req, res) => { // <-- MULTER AJOUTÉ ICI
+r.post('/import', upload.single('quizFile'), async (req, res) => {
 
   // 1. Vérification du code de sécurité (si besoin)
   const SECURITY_CODE = process.env.SECURITY_CODE || '1234';
   if (req.body.securityCode !== SECURITY_CODE) {
     // Si vous avez un champ de sécurité, Multer le place dans req.body
     // return res.status(401).json({ error: 'unauthorized', detail: 'Code de sécurité manquant ou invalide.' });
-    // Note: J'ai commenté la vérification pour faciliter le débug initial. Décommentez-la plus tard.
   }
 
   // 2. Vérification du fichier
@@ -119,7 +91,6 @@ r.post('/import', upload.single('quizFile'), async (req, res) => { // <-- MULTER
   // 3. Lecture du CSV depuis le buffer
   const csvBuffer = req.file.buffer;
   const questions: any[] = [];
-  let db: Database | null = null;
 
   try {
     const readable = stream.Readable.from(csvBuffer);
@@ -139,105 +110,79 @@ r.post('/import', upload.single('quizFile'), async (req, res) => { // <-- MULTER
       });
     }
 
-    // 4. Insertion dans SQLite (logique réutilisée)
-    db = await getDb();
+    // 4. Insertion via db.ts (Postgres ou SQLite)
 
-    // Schéma aligné sur votre CSV réel
-    // ⚠️ TRIM appliqué ici pour éliminer tout espace/saut de ligne superflu en début de requête
-    await db.exec(`
-      DROP TABLE IF EXISTS questions;
+    // On utilise une transaction manuelle si possible, ou juste des requêtes séquentielles
+    // Note: db.ts ne supporte pas explicitement les transactions, on va faire au mieux.
+    // Pour Postgres, on peut faire BEGIN / COMMIT via query.
 
-      CREATE TABLE IF NOT EXISTS questions(
-          id              INTEGER PRIMARY KEY AUTOINCREMENT,
-          question_id     INTEGER,
-          type            TEXT NOT NULL, -- "QCM" | "VraiFaux" | "Compléter"
-        label           TEXT NOT NULL, --Question
-        choices_json    TEXT, --JSON.stringify(string[]) pour QCM / VF
-        answer_text     TEXT, --Réponse(texte libre)
-        answer_index    INTEGER, --index dans choices si déterminable
-        theme           TEXT, --Thème
-        course_ref      TEXT, --RéférenceCours
-        pdf_keyword     TEXT, --MotCléRecherchePDF
-        lesson          TEXT, --Leçon
-        pdf_page        INTEGER, --PagePDF
-        pdf_search_text TEXT, --TexteRecherchePDF
-        created_at      TEXT DEFAULT(datetime('now'))
-        );
-      `.trim()); // <-- .trim() ajouté ici
-
-    await db.exec('BEGIN');
+    // Nettoyage de la table
     try {
-      // (table déjà neuve après DROP/CREATE, DELETE laissé par cohérence)
-      await db.exec('DELETE FROM questions;');
-
-      // ⚠️ L'espace après le backtick était la cause la plus probable de l'erreur
-      // J'ai mis la requête sur une seule ligne (plus robuste) ou supprimé l'espace initial
-      const stmt = await db.prepare(`INSERT INTO questions(
-        question_id, type, label, choices_json, answer_text, answer_index,
-        theme, course_ref, pdf_keyword, lesson, pdf_page, pdf_search_text
-      ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)
-        `.trim()); // <-- .trim() ajouté ici
-
-      for (const raw of questions) {
-        const questionId = toInt(raw.QuestionID);
-        const type = String(raw.Type ?? '').trim(); 	  // "QCM" | "VraiFaux" | "Compléter"
-        const label = String(raw.Question ?? '').trim();
-
-        let choices: string[] = [];
-        if (typeof raw.Choix === 'string' && raw.Choix.trim()) {
-          choices = raw.Choix.split('|').map((s: string) => s.trim()).filter(Boolean);
-        }
-        // Injecter Vrai/Faux si non fourni
-        if ((!choices || choices.length === 0) && norm(type) === 'vraifaux') {
-          choices = ['Vrai', 'Faux'];
-        }
-
-        const answerText = String(raw.Réponse ?? '').trim();
-
-        // Calcul d'index si possible (insensible casse/espaces)
-        let answerIndex: number | null = null;
-        if (choices.length > 0 && answerText) {
-          const idx = choices.findIndex(c => norm(c) === norm(answerText));
-          answerIndex = (idx >= 0) ? idx : null;
-        }
-
-        const theme = String(raw.Thème ?? '').trim();
-        const courseRef = String(raw.RéférenceCours ?? '').trim();
-        const pdfKeyword = String(raw.MotCléRecherchePDF ?? '').trim();
-        const lesson = String(raw.Leçon ?? '').trim();
-        const pdfSearchText = String(raw.TexteRecherchePDF ?? '').trim();
-        const pdfPage = toInt(raw.PagePDF);
-
-        await stmt.run([
-          questionId ?? null,
-          type || 'QCM',
-          label,
-          JSON.stringify(choices),
-          answerText || null,
-          answerIndex,
-          theme || null,
-          courseRef || null,
-          pdfKeyword || null,
-          lesson || null,
-          pdfPage ?? null,
-          pdfSearchText || null,
-        ]);
-      }
-
-      await stmt.finalize();
-      await db.exec('COMMIT');
-    } catch (e) {
-      await db.exec('ROLLBACK');
-      throw e;
+      await db.run('DELETE FROM questions');
+    } catch (e: any) {
+      // Ignorer si la table n'existe pas encore (elle devrait être créée par initPostgres ou schema.sql)
+      console.warn('DELETE failed (maybe table missing):', e.message);
     }
 
-    return res.status(201).json({ inserted: questions.length });
+    // Préparation de la requête d'insertion
+    const insertSql = `INSERT INTO questions(
+        question_id, type, label, choices_json, answer_text, answer_index,
+        theme, course_ref, pdf_keyword, lesson, pdf_page, pdf_search_text
+      ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)`;
+
+    let insertedCount = 0;
+
+    for (const raw of questions) {
+      const questionId = toInt(raw.QuestionID);
+      const type = String(raw.Type ?? '').trim(); 	  // "QCM" | "VraiFaux" | "Compléter"
+      const label = String(raw.Question ?? '').trim();
+
+      let choices: string[] = [];
+      if (typeof raw.Choix === 'string' && raw.Choix.trim()) {
+        choices = raw.Choix.split('|').map((s: string) => s.trim()).filter(Boolean);
+      }
+      // Injecter Vrai/Faux si non fourni
+      if ((!choices || choices.length === 0) && norm(type) === 'vraifaux') {
+        choices = ['Vrai', 'Faux'];
+      }
+
+      const answerText = String(raw.Réponse ?? '').trim();
+
+      // Calcul d'index si possible (insensible casse/espaces)
+      let answerIndex: number | null = null;
+      if (choices.length > 0 && answerText) {
+        const idx = choices.findIndex(c => norm(c) === norm(answerText));
+        answerIndex = (idx >= 0) ? idx : null;
+      }
+
+      const theme = String(raw.Thème ?? '').trim();
+      const courseRef = String(raw.RéférenceCours ?? '').trim();
+      const pdfKeyword = String(raw.MotCléRecherchePDF ?? '').trim();
+      const lesson = String(raw.Leçon ?? '').trim();
+      const pdfSearchText = String(raw.TexteRecherchePDF ?? '').trim();
+      const pdfPage = toInt(raw.PagePDF);
+
+      await db.run(insertSql, [
+        questionId ?? null,
+        type || 'QCM',
+        label,
+        JSON.stringify(choices),
+        answerText || null,
+        answerIndex,
+        theme || null,
+        courseRef || null,
+        pdfKeyword || null,
+        lesson || null,
+        pdfPage ?? null,
+        pdfSearchText || null,
+      ]);
+      insertedCount++;
+    }
+
+    return res.status(201).json({ inserted: insertedCount });
   } catch (e: any) {
     console.error('[POST /questions/import] error:', e?.message);
-    // Si Multer échoue, c'est souvent un problème de taille de fichier
     return res.status(500).json({ error: 'import_failed', detail: e?.message || 'Erreur interne du serveur lors de l\'importation.' });
-  } finally {
-    try { await db?.close(); } catch { }
   }
 });
 

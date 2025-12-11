@@ -88,6 +88,24 @@ if (isPostgres) {
                     FOREIGN KEY("profileId") REFERENCES profiles(id) ON DELETE CASCADE
                 );
             `);
+            await pool.query(`
+                CREATE TABLE IF NOT EXISTS questions (
+                    id SERIAL PRIMARY KEY,
+                    question_id INTEGER,
+                    type TEXT NOT NULL,
+                    label TEXT NOT NULL,
+                    choices_json TEXT,
+                    answer_text TEXT,
+                    answer_index INTEGER,
+                    theme TEXT,
+                    course_ref TEXT,
+                    pdf_keyword TEXT,
+                    lesson TEXT,
+                    pdf_page INTEGER,
+                    pdf_search_text TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            `);
             console.log('✅ PostgreSQL Schema initialized');
         } catch (err) {
             console.error('❌ Error initializing PostgreSQL schema:', err);
