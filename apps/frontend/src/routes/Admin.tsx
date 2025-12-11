@@ -34,7 +34,7 @@ export default function Admin() {
         setReport(errors.length ? errors : ['Import réussi dans IndexedDB !']);
       } else {
         // Appel backend → import en base (SQLite/NocoDB selon votre implémentation)
-        const api = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+        const api = import.meta.env.PROD ? '' : (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000');
 
         const formData = new FormData();
         formData.append('quizFile', file);
