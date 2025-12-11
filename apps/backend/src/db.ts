@@ -41,9 +41,15 @@ if (isPostgres) {
             return res.rows;
         },
         run: async (sql, params = []) => {
-            const res = await pool.query(convertSql(sql), params);
-            // Pour les INSERT, on essaiera de retourner l'ID si possible (via RETURNING id dans la requête ou autre)
-            // Mais pour l'instant on retourne un objet vide ou l'id si dispo
+            let finalSql = convertSql(sql);
+            // Si c'est un INSERT et qu'il n'y a pas déjà de RETURNING, on l'ajoute
+            if (/^\s*INSERT\s+/i.test(finalSql) && !/RETURNING\s+id/i.test(finalSql)) {
+                finalSql += ' RETURNING id';
+            }
+
+            const res = await pool.query(finalSql, params);
+
+            // Si on a un retour avec id (cas du INSERT RETURNING id)
             if (res.rows.length > 0 && res.rows[0].id) {
                 return { id: res.rows[0].id };
             }
