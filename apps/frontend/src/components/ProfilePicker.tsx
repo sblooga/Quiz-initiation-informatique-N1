@@ -78,14 +78,14 @@ export default function ProfilePicker() {
           className="flex transition-transform duration-500 ease-in-out"
           style={{
             transform: `translateX(-${currentIndex * 100}%)`,
-            width: `${totalPages * 100}%`
+            width: '100%'
           }}
         >
           {/* On groupe les profils par "pages" pour simplifier le layout flex */}
           {Array.from({ length: totalPages }).map((_, pageIndex) => {
             const pageProfiles = profiles.slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage);
             return (
-              <div key={pageIndex} className="flex w-full justify-center gap-4 px-1" style={{ width: '100%' }}>
+              <div key={pageIndex} className="flex w-full justify-center gap-4 px-1" style={{ minWidth: '100%' }}>
                 {pageProfiles.map(profile => (
                   <Link
                     key={profile.id}
