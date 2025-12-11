@@ -18,6 +18,32 @@ export default function PDFViewer({ file, initialPage = 1, searchText, onClose }
     const [scale, setScale] = useState(1.2);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    // Gestion de l'historique du navigateur pour le bouton "Retour"
+    useEffect(() => {
+        // Ajouter un état à l'historique quand le viewer s'ouvre
+        window.history.pushState({ pdfViewerOpen: true }, '');
+
+        // Gérer le bouton "Retour" du navigateur
+        const handlePopState = (event: PopStateEvent) => {
+            if (event.state?.pdfViewerOpen) {
+                // Si on revient sur l'état du viewer, on le ferme
+                onClose();
+            }
+        };
+
+        window.addEventListener('popstate', handlePopState);
+
+        return () => {
+            window.removeEventListener('popstate', handlePopState);
+        };
+    }, [onClose]);
+
+    const handleClose = () => {
+        // Retourner en arrière dans l'historique pour nettoyer
+        window.history.back();
+        // onClose sera appelé par le gestionnaire popstate
+    };
+
     async function onDocumentLoadSuccess(pdf: any) {
         setNumPages(pdf.numPages);
 
@@ -71,6 +97,7 @@ export default function PDFViewer({ file, initialPage = 1, searchText, onClose }
                     <h2 className="text-xl font-bold text-white">Support de cours</h2>
                     <div className="flex items-center gap-2 rounded-lg bg-gray-800 px-3 py-1">
                         <button
+                            type="button"
                             onClick={() => setScale(s => Math.max(0.5, s - 0.1))}
                             className="text-white hover:text-red-400"
                         >
@@ -78,6 +105,7 @@ export default function PDFViewer({ file, initialPage = 1, searchText, onClose }
                         </button>
                         <span className="text-sm text-slate-300">{Math.round(scale * 100)}%</span>
                         <button
+                            type="button"
                             onClick={() => setScale(s => Math.min(2.5, s + 0.1))}
                             className="text-white hover:text-red-400"
                         >
@@ -86,7 +114,8 @@ export default function PDFViewer({ file, initialPage = 1, searchText, onClose }
                     </div>
                 </div>
                 <button
-                    onClick={onClose}
+                    type="button"
+                    onClick={handleClose}
                     className="rounded-full bg-red-600 px-4 py-2 font-bold text-white hover:bg-red-700"
                 >
                     Fermer

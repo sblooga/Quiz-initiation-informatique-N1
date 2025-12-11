@@ -80,6 +80,11 @@ export default function Results() {
             <p>Toutes les réponses sont correctes. Excellent travail !</p>
           </section>
         )}
+
+        {/* Bouton retour à l'accueil */}
+        <div className="flex justify-center">
+          <Link to="/" className="btn-red px-8 py-3">Retour à l'accueil</Link>
+        </div>
       </div>
     </div>
   );
