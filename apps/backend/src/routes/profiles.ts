@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
     const result = await db.run('INSERT INTO profiles(name, photo, color) VALUES(?, ?, ?)', [name, photo || '', color || '']);
     res.json({ id: result.id, name, photo: photo || '', color: color || '' });
   } catch (e) {
-    res.status(400).json({ error: 'Impossible d\'ajouter' });
+    console.error('❌ Error creating profile:', e);
+    res.status(400).json({ error: 'Impossible d\'ajouter', details: e instanceof Error ? e.message : String(e) });
   }
 });
 

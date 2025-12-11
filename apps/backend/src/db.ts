@@ -47,13 +47,19 @@ if (isPostgres) {
                 finalSql += ' RETURNING id';
             }
 
-            const res = await pool.query(finalSql, params);
+            console.log('⚡ Executing SQL:', finalSql, params);
+            try {
+                const res = await pool.query(finalSql, params);
 
-            // Si on a un retour avec id (cas du INSERT RETURNING id)
-            if (res.rows.length > 0 && res.rows[0].id) {
-                return { id: res.rows[0].id };
+                // Si on a un retour avec id (cas du INSERT RETURNING id)
+                if (res.rows.length > 0 && res.rows[0].id) {
+                    return { id: res.rows[0].id };
+                }
+                return {};
+            } catch (err) {
+                console.error('❌ SQL Error:', err);
+                throw err;
             }
-            return {};
         },
         get: async (sql, params = []) => {
             const res = await pool.query(convertSql(sql), params);
