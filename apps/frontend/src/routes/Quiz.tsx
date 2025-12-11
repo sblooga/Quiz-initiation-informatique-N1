@@ -182,26 +182,26 @@ export default function Quiz() {
 
   return (
     <div className={wrapperClass} aria-live="polite">
-      <div className="mx-auto flex max-w-5xl flex-col gap-8">
-        <header className="rounded-[2.75rem] surface-dark px-8 py-8 shadow-2xl">
+      <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:gap-8">
+        <header className="rounded-[2rem] sm:rounded-[2.75rem] surface-dark px-4 py-4 sm:px-8 sm:py-8 shadow-2xl">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:gap-6">
               <div>
-                <p className="text-sm uppercase tracking-[0.5em] text-slate-400">Séance en cours</p>
-                <h1 className="text-3xl font-extrabold text-white">Question {index + 1} / {questions.length}</h1>
+                <p className="text-xs sm:text-sm uppercase tracking-[0.3em] sm:tracking-[0.5em] text-slate-400">Séance en cours</p>
+                <h1 className="text-xl sm:text-3xl font-extrabold text-white">Question {index + 1} / {questions.length}</h1>
               </div>
-              <div className="rounded-3xl bg-gray-800/80 px-5 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-slate-200 shadow">
+              <div className="rounded-3xl bg-gray-800/80 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.4em] text-slate-200 shadow">
                 Profil : {profile}
               </div>
             </div>
-            <Link to="/" className="btn-red px-4 py-2 text-sm">
+            <Link to="/" className="btn-red px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm">
               ← Quitter
             </Link>
           </div>
         </header>
 
-        <main className="rounded-[2.75rem] surface-dark p-8 text-lg leading-relaxed text-slate-100 shadow-2xl">
-          <h2 className="text-2xl font-bold text-white">{q.question}</h2>
+        <main className="rounded-[2rem] sm:rounded-[2.75rem] surface-dark p-4 sm:p-8 text-base sm:text-lg leading-relaxed text-slate-100 shadow-2xl">
+          <h2 className="text-lg sm:text-2xl font-bold text-white">{q.question}</h2>
           <p className="mt-2 text-base text-slate-300">Répondez en prenant votre temps. Chaque bouton et champ est volontairement large pour votre confort.</p>
           <div className="mt-6">
             {!showFeedback ? (

@@ -23,15 +23,15 @@ export default function ChoiceList({ choices, onSelect }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 sm:gap-6">
+      <div className="flex flex-col gap-2 sm:gap-3">
         {choices.map(choice => {
           const isSelected = selected.includes(choice);
           return (
             <button
               key={choice}
               onClick={() => toggleSelection(choice)}
-              className={`text-left text-base transition-all duration-200 flex items-center gap-3 ${isSelected
+              className={`text-left text-sm sm:text-base transition-all duration-200 flex items-center gap-3 ${isSelected
                 ? 'btn-red ring-4 ring-white/30 scale-[1.02]'
                 : 'btn-red opacity-90 hover:opacity-100'
                 }`}
@@ -56,7 +56,7 @@ export default function ChoiceList({ choices, onSelect }: Props) {
         <button
           onClick={handleValidate}
           disabled={selected.length === 0}
-          className="btn-red px-8 py-3 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-red px-6 py-2 sm:px-8 sm:py-3 text-base sm:text-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Valider ma réponse
         </button>

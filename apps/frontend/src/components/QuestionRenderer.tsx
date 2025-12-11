@@ -94,7 +94,7 @@ export default function QuestionRenderer({ question, onAnswer }: Props) {
             <input
               value={input}
               onChange={event => setInput(event.target.value)}
-              className="w-full rounded-2xl px-4 py-3 text-lg shadow-inner border-2"
+              className="w-full rounded-2xl px-4 py-3 text-base sm:text-lg shadow-inner border-2"
               style={{
                 color: '#ffffff',
                 backgroundColor: '#1e293b',
