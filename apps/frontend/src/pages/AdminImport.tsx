@@ -4,7 +4,9 @@ import axios from 'axios';
 import React, { useCallback, useMemo, useState } from 'react';
 
 // Mettez à jour ceci si l'URL de votre backend est différente
-const API_URL = 'http://localhost:3002/questions/import';
+// Mettez à jour ceci si l'URL de votre backend est différente
+const API_BASE = import.meta.env.PROD ? '/api' : (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api');
+const API_URL = `${API_BASE}/questions/import`;
 
 const SECURITY_CODE_EXPECTED = '00000'; // <-- REMPLACEZ PAR VOTRE VRAI CODE
 
