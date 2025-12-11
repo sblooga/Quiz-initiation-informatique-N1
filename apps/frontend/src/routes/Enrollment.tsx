@@ -86,46 +86,46 @@ export default function Enrollment() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black px-6 py-10 text-slate-100">
-      <div className="mx-auto max-w-5xl space-y-10 rounded-[2.75rem] surface-dark p-8 shadow-2xl">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black px-4 py-6 sm:px-6 sm:py-10 text-slate-100">
+      <div className="mx-auto max-w-5xl space-y-6 sm:space-y-10 rounded-[2rem] sm:rounded-[2.75rem] surface-dark p-4 sm:p-8 shadow-2xl">
         <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.5em] text-slate-400">Espace formateur</p>
-            <h1 className="text-3xl font-extrabold text-white md:text-4xl">Gestion des profils élèves</h1>
+            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] sm:tracking-[0.5em] text-slate-400">Espace formateur</p>
+            <h1 className="text-xl sm:text-3xl font-extrabold text-white md:text-4xl">Gestion des profils élèves</h1>
           </div>
-          <Link to="/" className="btn-red">Retour à l'accueil</Link>
+          <Link to="/" className="btn-red text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 text-center">Retour à l'accueil</Link>
         </header>
 
-        <section className="grid gap-8 lg:grid-cols-[2fr,3fr]">
-          <form onSubmit={editingId ? saveEdit : handleSubmit} className="rounded-3xl bg-gray-800/70 p-6 shadow-lg">
-            <h2 className="text-xl font-semibold text-slate-100">{editingId ? 'Modifier un profil' : 'Inscrire un nouvel élève'}</h2>
-            <div className="mt-6 space-y-6">
-              <label className="block text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
+        <section className="grid gap-6 sm:gap-8 lg:grid-cols-[2fr,3fr]">
+          <form onSubmit={editingId ? saveEdit : handleSubmit} className="rounded-3xl bg-gray-800/70 p-4 sm:p-6 shadow-lg">
+            <h2 className="text-lg sm:text-xl font-semibold text-slate-100">{editingId ? 'Modifier un profil' : 'Inscrire un nouvel élève'}</h2>
+            <div className="mt-4 sm:mt-6 space-y-4 sm:space-y-6">
+              <label className="block text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
                 Prénom
                 <input
                   value={draft.name}
                   onChange={event => setDraft(prev => ({ ...prev, name: event.target.value }))}
-                  className="input-dark mt-2 w-full rounded-2xl px-4 py-3 text-lg shadow-inner"
+                  className="input-dark mt-2 w-full rounded-2xl px-4 py-3 text-base sm:text-lg shadow-inner"
                   placeholder="Ex : Marie"
                   aria-label="Prénom de l'élève"
                 />
               </label>
 
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Photo du profil</p>
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Photo du profil</p>
                 <div className="mt-3 flex items-center gap-4">
-                  <div className="grid h-20 w-20 place-items-center rounded-full border-4 border-gray-700 bg-gray-900 text-white shadow-inner">
+                  <div className="grid h-16 w-16 sm:h-20 sm:w-20 place-items-center rounded-full border-4 border-gray-700 bg-gray-900 text-white shadow-inner shrink-0">
                     {draft.photo ? (
                       <img src={draft.photo} alt="Aperçu" className="h-full w-full rounded-full object-cover" />
                     ) : (
-                      <span className="text-xl font-bold">{draft.name?.[0]?.toUpperCase() || '?'}</span>
+                      <span className="text-lg sm:text-xl font-bold">{draft.name?.[0]?.toUpperCase() || '?'}</span>
                     )}
                   </div>
                   <div className="flex-1 space-y-2">
                     <input
                       type="url"
                       placeholder="Collez l'URL d'une photo (facultatif)"
-                      className="input-dark w-full rounded-2xl px-4 py-3 text-sm"
+                      className="input-dark w-full rounded-2xl px-4 py-3 text-xs sm:text-sm"
                       value={draft.photo}
                       onChange={event => setDraft(prev => ({ ...prev, photo: event.target.value }))}
                     />
@@ -143,7 +143,7 @@ export default function Enrollment() {
                             reader.readAsDataURL(file);
                           }
                         }}
-                        className="w-full rounded-2xl border border-dashed border-gray-600 bg-gray-900/70 px-4 py-2 text-slate-300 text-sm shadow-inner"
+                        className="w-full rounded-2xl border border-dashed border-gray-600 bg-gray-900/70 px-4 py-2 text-slate-300 text-xs sm:text-sm shadow-inner"
                       />
                       {draft.photo && (
                         <button
@@ -160,14 +160,14 @@ export default function Enrollment() {
               </div>
 
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Couleur de fond</p>
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">Couleur de fond</p>
                 <div className="mt-3 flex flex-wrap gap-3">
                   {palette.map(color => (
                     <button
                       type="button"
                       key={color}
                       onClick={() => setDraft(prev => ({ ...prev, color }))}
-                      className={`h-10 w-10 rounded-full border-4 ${draft.color === color ? 'border-red-600' : 'border-gray-700'} shadow`}
+                      className={`h-8 w-8 sm:h-10 sm:w-10 rounded-full border-4 ${draft.color === color ? 'border-red-600' : 'border-gray-700'} shadow`}
                       style={{ background: color }}
                       aria-label={`Choisir la couleur ${color}`}
                     />
@@ -176,42 +176,42 @@ export default function Enrollment() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button type="submit" className="btn-red">{editingId ? 'Enregistrer' : 'Ajouter'}</button>
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
+              <button type="submit" className="btn-red px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base">{editingId ? 'Enregistrer' : 'Ajouter'}</button>
               {editingId && (
-                <button type="button" onClick={cancelEdit} className="btn-red">Annuler</button>
+                <button type="button" onClick={cancelEdit} className="btn-red px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base">Annuler</button>
               )}
             </div>
-            {feedback && <p className="mt-4 text-sm text-slate-300">{feedback}</p>}
+            {feedback && <p className="mt-4 text-xs sm:text-sm text-slate-300">{feedback}</p>}
           </form>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-100">Profils enregistrés</h2>
+            <h2 className="text-lg sm:text-xl font-semibold text-slate-100">Profils enregistrés</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               {sortedProfiles.map(profile => (
                 <article key={profile.id} className="relative overflow-hidden rounded-3xl bg-gray-800/70 shadow-lg">
                   <div className="absolute inset-0 opacity-30" style={{ background: profile.color }} aria-hidden="true" />
-                  <div className="relative p-6">
-                    <div className="grid h-28 w-full place-items-center overflow-hidden rounded-2xl bg-gray-900">
+                  <div className="relative p-4 sm:p-6">
+                    <div className="grid h-24 sm:h-28 w-full place-items-center overflow-hidden rounded-2xl bg-gray-900">
                       {profile.photo ? (
-                        <img src={profile.photo} alt={profile.name} className="h-28 w-full rounded-2xl object-cover" />
+                        <img src={profile.photo} alt={profile.name} className="h-24 sm:h-28 w-full rounded-2xl object-cover" />
                       ) : (
-                        <div className="grid h-28 w-full place-items-center text-2xl font-bold text-white">
+                        <div className="grid h-24 sm:h-28 w-full place-items-center text-xl sm:text-2xl font-bold text-white">
                           {profile.name?.[0]?.toUpperCase() || '?'}
                         </div>
                       )}
                     </div>
-                    <h3 className="mt-4 text-lg font-semibold text-white">{profile.name}</h3>
-                    <p className="text-sm text-slate-300">Couleur associée : {profile.color}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <button type="button" onClick={() => startEdit(profile)} className="btn-red px-4 py-2 text-xs">Modifier</button>
-                      <button type="button" onClick={() => handleRemoveProfile(profile)} className="btn-red px-4 py-2 text-xs">Supprimer</button>
+                    <h3 className="mt-3 sm:mt-4 text-base sm:text-lg font-semibold text-white">{profile.name}</h3>
+                    <p className="text-xs sm:text-sm text-slate-300">Couleur associée : {profile.color}</p>
+                    <div className="mt-3 sm:mt-4 flex flex-wrap gap-2">
+                      <button type="button" onClick={() => startEdit(profile)} className="btn-red px-3 py-1.5 sm:px-4 sm:py-2 text-xs">Modifier</button>
+                      <button type="button" onClick={() => handleRemoveProfile(profile)} className="btn-red px-3 py-1.5 sm:px-4 sm:py-2 text-xs">Supprimer</button>
                     </div>
                   </div>
                 </article>
               ))}
               {!sortedProfiles.length && (
-                <p className="rounded-3xl bg-gray-800/70 p-6 text-center text-slate-300 shadow-inner">
+                <p className="rounded-3xl bg-gray-800/70 p-6 text-center text-sm sm:text-base text-slate-300 shadow-inner">
                   Aucun élève inscrit pour le moment. Ajoutez votre première fiche à gauche.
                 </p>
               )}
