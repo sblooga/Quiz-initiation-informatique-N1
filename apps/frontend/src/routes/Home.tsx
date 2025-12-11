@@ -103,7 +103,7 @@ export default function Home() {
         </section>
 
         {/* 4/4 - Slider profils élèves */}
-        <section className="row-start-4 row-end-5">
+        <section className="row-start-4 row-end-5 overflow-hidden">
           <div className="rounded-[2.75rem] surface-dark p-6 shadow-xl">
             <ProfilePicker />
           </div>
