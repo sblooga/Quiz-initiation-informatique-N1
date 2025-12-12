@@ -23,7 +23,18 @@ router.get('/id/:sessionId', async (req, res) => {
     }
     // Parse answers JSON if it exists
     if (session.answers) {
-      session.answers = JSON.parse(session.answers);
+      try {
+        // Si c'est une chaîne, on la parse
+        if (typeof session.answers === 'string') {
+          session.answers = JSON.parse(session.answers);
+        }
+        // Sinon c'est déjà un objet (PostgreSQL peut auto-parser)
+      } catch (parseError) {
+        console.error('Error parsing answers JSON:', parseError);
+        session.answers = [];
+      }
+    } else {
+      session.answers = [];
     }
     res.json(session);
   } catch (e) {
