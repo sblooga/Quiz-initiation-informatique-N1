@@ -123,6 +123,20 @@ if (isPostgres) {
     const schema = fs.readFileSync(path.join(__dirname, '../sql/schema.sql'), 'utf8');
     sqlite.exec(schema);
 
+    // Migration : Vérifier si la colonne 'answers' existe dans la table sessions
+    try {
+        const tableInfo = sqlite.prepare("PRAGMA table_info(sessions)").all() as any[];
+        const hasAnswersColumn = tableInfo.some((col: any) => col.name === 'answers');
+
+        if (!hasAnswersColumn) {
+            console.log('⚠️  Migration: Ajout de la colonne "answers" à la table sessions');
+            sqlite.exec('ALTER TABLE sessions ADD COLUMN answers TEXT');
+            console.log('✅ Migration réussie');
+        }
+    } catch (err) {
+        console.error('❌ Erreur lors de la migration:', err);
+    }
+
     db = {
         query: async (sql, params = []) => {
             return sqlite.prepare(sql).all(params);
