@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import pg from 'pg';
+import bcrypt from 'bcryptjs';
 
 const { Pool } = pg;
 
@@ -19,6 +20,23 @@ export interface IDatabase {
 let db: IDatabase;
 
 const isPostgres = process.env.DATABASE_URL && process.env.DATABASE_URL.startsWith('postgres');
+
+// Code par défaut (000000) haché
+const DEFAULT_CODE = '000000';
+
+const initSettings = async (database: IDatabase) => {
+    try {
+        const row = await database.get('SELECT value FROM settings WHERE key = ?', ['admin_code']);
+        if (!row) {
+            console.log('🔒 Initializing default admin code...');
+            const hash = await bcrypt.hash(DEFAULT_CODE, 10);
+            await database.run('INSERT INTO settings (key, value) VALUES (?, ?)', ['admin_code', hash]);
+            console.log('✅ Default admin code set to 000000');
+        }
+    } catch (err) {
+        console.error('❌ Error initializing settings:', err);
+    }
+};
 
 if (isPostgres) {
     console.log('🔌 Connecting to PostgreSQL...');
@@ -107,7 +125,14 @@ if (isPostgres) {
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 );
             `);
+            await pool.query(`
+                CREATE TABLE IF NOT EXISTS settings (
+                    key TEXT PRIMARY KEY,
+                    value TEXT
+                );
+            `);
             console.log('✅ PostgreSQL Schema initialized');
+            await initSettings(db);
         } catch (err) {
             console.error('❌ Error initializing PostgreSQL schema:', err);
         }
@@ -149,6 +174,9 @@ if (isPostgres) {
             return sqlite.prepare(sql).get(params);
         }
     };
+
+    // Init settings for SQLite
+    initSettings(db);
 }
 
 export default db;

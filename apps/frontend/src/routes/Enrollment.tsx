@@ -1,6 +1,7 @@
 import { FormEvent, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Profile, useProfiles } from '../lib/profiles';
+import { getFriendlyErrorMessage } from '../lib/errors';
 
 interface DraftProfile {
   name: string;
@@ -43,7 +44,8 @@ export default function Enrollment() {
       setFeedback(`Profil de ${draft.name.trim()} ajouté !`);
       resetDraft();
     } catch (e) {
-      setFeedback('Erreur lors de l\'ajout.');
+      const message = getFriendlyErrorMessage(e);
+      setFeedback(`Erreur lors de l'ajout : ${message}`);
     }
   };
 
@@ -71,7 +73,8 @@ export default function Enrollment() {
       setEditingId(null);
       resetDraft();
     } catch (e) {
-      setFeedback('Erreur lors de la modification.');
+      const message = getFriendlyErrorMessage(e);
+      setFeedback(`Erreur lors de la modification : ${message}`);
     }
   };
 
@@ -81,7 +84,8 @@ export default function Enrollment() {
       await removeProfile(profile.id);
       setFeedback(`${profile.name} a été retiré(e) de la liste.`);
     } catch (e) {
-      setFeedback('Erreur lors de la suppression.');
+      const message = getFriendlyErrorMessage(e);
+      setFeedback(`Erreur lors de la suppression : ${message}`);
     }
   };
 
@@ -222,4 +226,3 @@ export default function Enrollment() {
     </div>
   );
 }
-

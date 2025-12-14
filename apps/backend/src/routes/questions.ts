@@ -3,6 +3,7 @@ import { Router } from 'express';
 import multer from 'multer';
 import stream from 'node:stream';
 import db from '../db.js';
+import bcrypt from 'bcryptjs';
 
 // Configuration Multer pour gérer les fichiers en mémoire
 const upload = multer({
@@ -73,11 +74,28 @@ r.get('/', async (_req, res) => {
 // ─────────────────────────────────────────────────────────────
 r.post('/import', upload.single('quizFile'), async (req, res) => {
 
-  // 1. Vérification du code de sécurité (si besoin)
-  const SECURITY_CODE = process.env.SECURITY_CODE || '1234';
-  if (req.body.securityCode !== SECURITY_CODE) {
-    // Si vous avez un champ de sécurité, Multer le place dans req.body
-    // return res.status(401).json({ error: 'unauthorized', detail: 'Code de sécurité manquant ou invalide.' });
+
+  // ... (imports)
+
+  // ... (inside route)
+  // 1. Vérification du code de sécurité
+  const providedCode = req.body.securityCode || '';
+
+  // Récupérer le hash depuis la BDD
+  const setting = await db.get('SELECT value FROM settings WHERE key = ?', ['admin_code']);
+
+  let isValid = false;
+  if (setting && setting.value) {
+    isValid = await bcrypt.compare(providedCode, setting.value);
+  } else {
+    // Fallback si pas de settings (ne devrait pas arriver avec le nouveau init)
+    // On accepte le code par défaut 000000 ou l'ancien code env pour la transition
+    const legacyCode = process.env.SECURITY_CODE || '000000';
+    isValid = providedCode === legacyCode;
+  }
+
+  if (!isValid) {
+    return res.status(401).json({ error: 'unauthorized', detail: 'Code de sécurité invalide.' });
   }
 
   // 2. Vérification du fichier

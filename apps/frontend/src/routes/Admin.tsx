@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getFriendlyErrorMessage } from '../lib/errors';
 
 // ✅ chemins réels (depuis src/routes → remonter d’un cran puis aller dans lib/)
 import { parseCSV } from '../lib/csv';
@@ -22,6 +23,8 @@ export default function Admin() {
   const [teacherPhoto, setTeacherPhoto] = useState(settings.teacherPhotoUrl);
   const [summary, setSummary] = useState(settings.courseSummary);
 
+  const api = import.meta.env.PROD ? '' : (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000');
+
   const handleFile = async (file: File) => {
     setIsLoading(true);
     try {
@@ -33,19 +36,13 @@ export default function Admin() {
         await saveQuestions(questions);
         setReport(errors.length ? errors : ['Import réussi dans IndexedDB !']);
       } else {
-        // Appel backend → import en base (SQLite/NocoDB selon votre implémentation)
-        const api = import.meta.env.PROD ? '' : (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000');
-
+        // Appel backend → import en base
         const formData = new FormData();
         formData.append('quizFile', file);
-        // Le code de sécurité est géré par l'état 'code' dans ce composant, mais le backend attend 'securityCode'
-        // Admin.tsx a un état 'code' qui est validé avant d'arriver ici.
-        // On peut l'envoyer si le backend le vérifie (ce qui est le cas dans questions.ts)
         formData.append('securityCode', code);
 
         const response = await fetch(`${api}/api/questions/import`, {
           method: 'POST',
-          // Ne PAS mettre 'Content-Type': 'multipart/form-data', fetch le fait automatiquement avec boundary
           body: formData,
         });
 
@@ -58,30 +55,51 @@ export default function Admin() {
         setReport(['Import réussi via le backend !', `Questions insérées : ${result.inserted}`]);
       }
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'Erreur inconnue';
+      const message = getFriendlyErrorMessage(error);
       setReport([`Import impossible : ${message}`]);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const onSaveSettings = (event: FormEvent) => {
+  const onSaveSettings = async (event: FormEvent) => {
     event.preventDefault();
     if (!authorized) return;
 
+    // 1. Sauvegarde locale (photo, résumé)
     const patch: any = { teacherPhotoUrl: teacherPhoto, courseSummary: summary };
+    setSettings(patch);
+    const msgs = ['Paramètres visuels sauvegardés.'];
 
+    // 2. Sauvegarde du code (Backend)
     if (newCode.trim()) {
-      if (!/^\d{5}$/.test(newCode.trim())) {
-        setReport(['Le code doit contenir 5 chiffres.']);
+      if (!/^\d{6}$/.test(newCode.trim())) {
+        setReport([...msgs, 'Erreur : Le code doit contenir 6 chiffres.']);
         return;
       }
-      patch.adminCode = newCode.trim();
+
+      try {
+        const res = await fetch(`${api}/api/settings/change-code`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ oldCode: code, newCode: newCode.trim() })
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.detail || 'Erreur lors du changement de code');
+        }
+
+        msgs.push('Nouveau code de sécurité enregistré avec succès.');
+        setCode(newCode.trim()); // Met à jour le code actuel pour rester connecté
+        setNewCode('');
+      } catch (e: any) {
+        const message = getFriendlyErrorMessage(e);
+        msgs.push(`Erreur code : ${message}`);
+      }
     }
 
-    setSettings(patch);
-    setReport(['Paramètres sauvegardés.']);
-    setNewCode('');
+    setReport(msgs);
   };
 
   const onUploadTeacherPhoto = async (file: File | null) => {
@@ -95,14 +113,36 @@ export default function Admin() {
     reader.readAsDataURL(file);
   };
 
-  const onSubmitCode = (event: FormEvent) => {
+  const onSubmitCode = async (event: FormEvent) => {
     event.preventDefault();
-    if (code.trim() === settings.adminCode) {
-      setAuthorized(true);
-      setReport(['Code accepté. Vous pouvez importer un fichier.']);
-    } else {
-      setAuthorized(false);
-      setReport(['Code incorrect. Merci de vérifier auprès du formateur.']);
+
+    // Vérification via Backend
+    try {
+      const res = await fetch(`${api}/api/settings/verify-code`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code })
+      });
+
+      const data = await res.json();
+
+      if (data.valid) {
+        setAuthorized(true);
+        setReport(['Code accepté. Vous pouvez importer un fichier.']);
+      } else {
+        setAuthorized(false);
+        setReport(['Code incorrect.']);
+      }
+    } catch (e) {
+      console.error(e);
+      // Fallback local si backend injoignable (pour dev indexeddb)
+      if (code === settings.adminCode) {
+        setAuthorized(true);
+        setReport(['Code accepté (Mode hors-ligne).']);
+      } else {
+        setAuthorized(false);
+        setReport(['Erreur de vérification.']);
+      }
     }
   };
 
@@ -134,7 +174,7 @@ export default function Admin() {
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 className="input-dark mt-2 w-full rounded-2xl px-4 py-3 text-lg tracking-[0.4em] shadow-inner"
-                placeholder="00000"
+                placeholder="000000"
                 aria-label="Code de sécurité"
               />
             </label>
@@ -184,7 +224,7 @@ export default function Admin() {
           className={`rounded-3xl p-6 shadow-lg ${authorized ? 'bg-gray-800/70' : 'bg-gray-800/50 opacity-70'}`}
           aria-disabled={!authorized}
         >
-          <h2 className="text-xl font-semibold text-slate-100">Étape 3 - Paramètres de la page d&apos;accueil</h2>
+          <h2 className="text-xl font-semibold text-slate-100">Étape 3 - Paramètres</h2>
           <form onSubmit={onSaveSettings} className="mt-4 grid gap-4 sm:grid-cols-2">
             <label className="block sm:col-span-2">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
@@ -216,14 +256,11 @@ export default function Admin() {
                   Effacer
                 </button>
               </div>
-              <p className="mt-2 text-xs text-slate-400">
-                L&apos;image locale sera enregistrée dans votre navigateur (base64). Les URLs restent supportées.
-              </p>
             </div>
 
-            <label className="block">
+            <label className="block sm:col-span-2">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
-                Nouveau code d&apos;accès (5 chiffres)
+                Nouveau code d&apos;accès (6 chiffres)
               </span>
               <input
                 type="password"
@@ -231,13 +268,14 @@ export default function Admin() {
                 value={newCode}
                 onChange={(e) => setNewCode(e.target.value)}
                 className="input-dark mt-2 w-full rounded-2xl px-4 py-3 text-lg tracking-[0.4em] shadow-inner"
-                placeholder="00000"
+                placeholder="000000"
                 disabled={!authorized}
               />
+              <p className="mt-1 text-xs text-slate-400">Laissez vide pour conserver le code actuel.</p>
             </label>
 
-            <div className="sm:self-end">
-              <button type="submit" disabled={!authorized} className="btn-red">
+            <div className="sm:self-end sm:col-span-2">
+              <button type="submit" disabled={!authorized} className="btn-red w-full">
                 Enregistrer les paramètres
               </button>
             </div>

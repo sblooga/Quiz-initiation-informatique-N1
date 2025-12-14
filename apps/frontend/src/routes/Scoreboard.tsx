@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useProfiles } from '../lib/profiles';
 import { fetchSessions, Session } from '../services/quizApiService';
+import { getFriendlyErrorMessage } from '../lib/errors';
 
 interface ChartDatum {
   profile: string;

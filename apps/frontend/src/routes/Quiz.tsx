@@ -6,6 +6,7 @@ import QuestionRenderer from '../components/QuestionRenderer';
 import { seedFromProfile, shuffle } from '../lib/random';
 import { Question } from '../lib/types';
 import { fetchQuestions, fetchStudents, saveSession as saveSessionAPI } from '../services/quizApiService';
+import { getFriendlyErrorMessage } from '../lib/errors';
 
 type QuizStatus = 'loading' | 'ready' | 'empty' | 'error';
 
@@ -75,7 +76,7 @@ export default function Quiz() {
       } catch (error) {
         if (cancelled) return;
         console.error(error);
-        const message = error instanceof Error ? error.message : 'Erreur inconnue';
+        const message = getFriendlyErrorMessage(error);
         setErrorMessage(message);
         setStatus('error');
       }
