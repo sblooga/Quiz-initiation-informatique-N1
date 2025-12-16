@@ -64,7 +64,7 @@ r.post('/change-code', async (req, res) => {
             // Utilisation de "key" entre guillemets pour éviter les conflits de mots-clés SQL (surtout Postgres)
             result = await db.run('UPDATE settings SET value = ? WHERE "key" = ?', [hash, 'admin_code']);
         } else {
-            result = await db.run('INSERT INTO settings ("key", value) VALUES (?, ?)', ['admin_code', hash]);
+            result = await db.run('INSERT INTO settings ("key", value) VALUES (?, ?) RETURNING "key"', ['admin_code', hash]);
         }
 
         console.log(`🔑 Admin code updated. Changes: ${result.changes}`);

@@ -61,7 +61,7 @@ if (isPostgres) {
         run: async (sql, params = []) => {
             let finalSql = convertSql(sql);
             // Si c'est un INSERT et qu'il n'y a pas déjà de RETURNING, on l'ajoute
-            if (/^\s*INSERT\s+/i.test(finalSql) && !/RETURNING\s+id/i.test(finalSql)) {
+            if (/^\s*INSERT\s+/i.test(finalSql) && !/RETURNING\s+/i.test(finalSql)) {
                 finalSql += ' RETURNING id';
             }
 
