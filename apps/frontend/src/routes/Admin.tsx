@@ -19,6 +19,7 @@ export default function Admin() {
   const [code, setCode] = useState('');
   const [authorized, setAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const [newCode, setNewCode] = useState('');
   const [teacherPhoto, setTeacherPhoto] = useState(settings.teacherPhotoUrl);
   const [summary, setSummary] = useState(settings.courseSummary);
@@ -82,6 +83,7 @@ export default function Admin() {
     event.preventDefault();
     if (!authorized) return;
 
+    setIsSaving(true);
     // 1. Sauvegarde locale (photo, résumé)
     const patch: any = { teacherPhotoUrl: teacherPhoto, courseSummary: summary };
     setSettings(patch);
@@ -108,6 +110,7 @@ export default function Admin() {
     if (newCode.trim()) {
       if (!/^\d{6}$/.test(newCode.trim())) {
         setReport([...msgs, 'Erreur : Le code doit contenir 6 chiffres.']);
+        setIsSaving(false);
         return;
       }
 
@@ -135,6 +138,7 @@ export default function Admin() {
     }
 
     setReport(msgs);
+    setIsSaving(false);
   };
 
   const onUploadTeacherPhoto = async (file: File | null) => {
@@ -192,7 +196,7 @@ export default function Admin() {
               Protégez l&apos;accès au contenu pédagogique grâce à votre code formateur.
             </p>
           </div>
-          <Link to="/" className="btn-red">Retour</Link>
+          <Link to="/" className="btn-red whitespace-nowrap">Retour à l'accueil</Link>
         </header>
 
         {/* Étape 1 - Code formateur */}
@@ -310,8 +314,14 @@ export default function Admin() {
             </label>
 
             <div className="sm:self-end sm:col-span-2">
-              <button type="submit" disabled={!authorized} className="btn-red w-full">
-                Enregistrer les paramètres
+              <button type="submit" disabled={!authorized || isSaving} className="btn-red w-full flex items-center justify-center gap-2">
+                {isSaving ? (
+                  <>
+                    <span className="animate-spin text-xl">⏳</span> Enregistrement...
+                  </>
+                ) : (
+                  'Enregistrer les paramètres'
+                )}
               </button>
             </div>
           </form>
