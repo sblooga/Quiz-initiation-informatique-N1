@@ -59,10 +59,19 @@ r.post('/change-code', async (req, res) => {
         // Upsert (SQLite supporte REPLACE INTO ou ON CONFLICT, Postgres ON CONFLICT)
         // db.ts run() gère les requêtes simples. Pour la compatibilité, on fait un UPDATE car on sait qu'il existe (ou INSERT si vide)
 
+        let result;
         if (setting) {
-            await db.run('UPDATE settings SET value = ? WHERE key = ?', [hash, 'admin_code']);
+            // Utilisation de "key" entre guillemets pour éviter les conflits de mots-clés SQL (surtout Postgres)
+            result = await db.run('UPDATE settings SET value = ? WHERE "key" = ?', [hash, 'admin_code']);
         } else {
-            await db.run('INSERT INTO settings (key, value) VALUES (?, ?)', ['admin_code', hash]);
+            result = await db.run('INSERT INTO settings ("key", value) VALUES (?, ?)', ['admin_code', hash]);
+        }
+
+        console.log(`🔑 Admin code updated. Changes: ${result.changes}`);
+
+        if (result.changes === 0) {
+            console.warn('⚠️ Warning: No rows updated when changing admin code.');
+            // On ne renvoie pas forcément une erreur 500 car ça peut être un cas limite, mais c'est suspect.
         }
 
         return res.json({ success: true });

@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 // Interface unifiée pour la base de données
 export interface IDatabase {
     query(sql: string, params?: any[]): Promise<any[]>;
-    run(sql: string, params?: any[]): Promise<{ id?: number | string }>;
+    run(sql: string, params?: any[]): Promise<{ id?: number | string, changes?: number }>;
     get(sql: string, params?: any[]): Promise<any>;
 }
 
@@ -71,9 +71,9 @@ if (isPostgres) {
 
                 // Si on a un retour avec id (cas du INSERT RETURNING id)
                 if (res.rows.length > 0 && res.rows[0].id) {
-                    return { id: res.rows[0].id };
+                    return { id: res.rows[0].id, changes: res.rowCount ?? 0 };
                 }
-                return {};
+                return { changes: res.rowCount ?? 0 };
             } catch (err) {
                 console.error('❌ SQL Error:', err);
                 throw err;
@@ -168,7 +168,7 @@ if (isPostgres) {
         },
         run: async (sql, params = []) => {
             const info = sqlite.prepare(sql).run(params);
-            return { id: Number(info.lastInsertRowid) };
+            return { id: Number(info.lastInsertRowid), changes: info.changes };
         },
         get: async (sql, params = []) => {
             return sqlite.prepare(sql).get(params);
