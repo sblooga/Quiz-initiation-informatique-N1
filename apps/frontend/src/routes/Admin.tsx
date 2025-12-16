@@ -1,6 +1,6 @@
 // apps/frontend/src/routes/Admin.tsx
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getFriendlyErrorMessage } from '../lib/errors';
 
@@ -24,6 +24,22 @@ export default function Admin() {
   const [summary, setSummary] = useState(settings.courseSummary);
 
   const api = import.meta.env.PROD ? '' : (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000');
+
+  // Charger les paramètres distants au montage
+  useEffect(() => {
+    fetch(`${api}/api/settings`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.teacherPhotoUrl) setTeacherPhoto(data.teacherPhotoUrl);
+        if (data.courseSummary) setSummary(data.courseSummary);
+        // Mettre à jour le store local aussi pour la cohérence
+        setSettings({
+          teacherPhotoUrl: data.teacherPhotoUrl || settings.teacherPhotoUrl,
+          courseSummary: data.courseSummary || settings.courseSummary
+        });
+      })
+      .catch(err => console.error('Erreur chargement settings:', err));
+  }, []);
 
   const handleFile = async (file: File) => {
     setIsLoading(true);
@@ -69,7 +85,24 @@ export default function Admin() {
     // 1. Sauvegarde locale (photo, résumé)
     const patch: any = { teacherPhotoUrl: teacherPhoto, courseSummary: summary };
     setSettings(patch);
-    const msgs = ['Paramètres visuels sauvegardés.'];
+    const msgs = ['Paramètres visuels sauvegardés localement.'];
+
+    // 1b. Sauvegarde distante (Backend)
+    try {
+      const res = await fetch(`${api}/api/settings`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ teacherPhotoUrl: teacherPhoto, courseSummary: summary })
+      });
+      if (res.ok) {
+        msgs.push('Paramètres sauvegardés sur le serveur.');
+      } else {
+        msgs.push('Erreur lors de la sauvegarde sur le serveur.');
+      }
+    } catch (e) {
+      console.error(e);
+      msgs.push('Impossible de contacter le serveur pour la sauvegarde.');
+    }
 
     // 2. Sauvegarde du code (Backend)
     if (newCode.trim()) {

@@ -1,13 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ProfilePicker from '../components/ProfilePicker';
 import ImageSlider from '../components/ImageSlider';
-import { getSettings } from '../lib/settings';
+import { useSettings } from '../lib/settings';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const settings = getSettings();
+  const [settings, setSettings] = useSettings();
+
+  useEffect(() => {
+    const api = import.meta.env.PROD ? '' : (import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000');
+    fetch(`${api}/api/settings`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.teacherPhotoUrl || data.courseSummary) {
+          setSettings(prev => ({
+            ...prev,
+            teacherPhotoUrl: data.teacherPhotoUrl || prev.teacherPhotoUrl,
+            courseSummary: data.courseSummary || prev.courseSummary
+          }));
+        }
+      })
+      .catch(err => console.error('Erreur chargement settings:', err));
+  }, []);
 
   const goToFirstProfile = () => {
     navigate('/inscription');
