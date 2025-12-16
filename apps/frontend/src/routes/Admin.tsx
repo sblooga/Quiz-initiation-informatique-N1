@@ -320,7 +320,7 @@ export default function Admin() {
                     <span className="animate-spin text-xl">⏳</span> Enregistrement...
                   </>
                 ) : (
-                  'Enregistrer les paramètres'
+                  'Enregistrer'
                 )}
               </button>
             </div>
