@@ -196,7 +196,7 @@ export default function Admin() {
               Protégez l&apos;accès au contenu pédagogique grâce à votre code formateur.
             </p>
           </div>
-          <Link to="/" className="btn-red whitespace-nowrap">Retour à l'accueil</Link>
+          <Link to="/" className="btn-red whitespace-nowrap flex items-center justify-center">Retour à l'accueil</Link>
         </header>
 
         {/* Étape 1 - Code formateur */}
