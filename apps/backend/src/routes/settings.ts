@@ -82,4 +82,53 @@ r.post('/change-code', async (req, res) => {
     }
 });
 
+// GET /settings/debug-db
+// Endpoint temporaire pour diagnostiquer la DB
+r.get('/debug-db', async (req, res) => {
+    const logs: string[] = [];
+    const log = (msg: string) => logs.push(`[${new Date().toISOString()}] ${msg}`);
+
+    try {
+        log('Starting DB debug...');
+
+        // 1. Check DB type
+        const dbType = process.env.DATABASE_URL?.startsWith('postgres') ? 'Postgres' : 'SQLite';
+        log(`DB Type: ${dbType}`);
+
+        // 2. Read current settings
+        log('Reading settings...');
+        const setting = await db.get('SELECT * FROM settings WHERE "key" = ?', ['admin_code']);
+        log(`Current setting found: ${!!setting}`);
+        if (setting) {
+            log(`Current value length: ${setting.value?.length}`);
+            log(`Current key: ${setting.key}`);
+        }
+
+        // 3. Try a dummy update (same value)
+        if (setting) {
+            log('Attempting dummy UPDATE...');
+            const result = await db.run('UPDATE settings SET value = ? WHERE "key" = ?', [setting.value, 'admin_code']);
+            log(`Update result: ${JSON.stringify(result)}`);
+        } else {
+            log('No setting to update.');
+        }
+
+        // 4. Test table info (Postgres only)
+        if (dbType === 'Postgres') {
+            try {
+                const tables = await db.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'");
+                log(`Tables: ${tables.map(t => t.table_name).join(', ')}`);
+            } catch (e: any) {
+                log(`Error listing tables: ${e.message}`);
+            }
+        }
+
+        log('Debug complete.');
+        return res.json({ logs });
+    } catch (e: any) {
+        log(`FATAL ERROR: ${e.message}`);
+        return res.status(500).json({ logs, error: e.message });
+    }
+});
+
 export default r;

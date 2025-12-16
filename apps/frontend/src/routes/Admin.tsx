@@ -94,8 +94,10 @@ export default function Admin() {
         setCode(newCode.trim()); // Met à jour le code actuel pour rester connecté
         setNewCode('');
       } catch (e: any) {
-        const message = getFriendlyErrorMessage(e);
-        msgs.push(`Erreur code : ${message}`);
+        // Afficher l'erreur détaillée si disponible (pour le debug)
+        const detail = e.message || 'Erreur inconnue';
+        msgs.push(`Erreur technique : ${detail}`);
+        console.error('Change code error:', e);
       }
     }
 
