@@ -167,8 +167,15 @@ if (isPostgres) {
             return sqlite.prepare(sql).all(params);
         },
         run: async (sql, params = []) => {
-            const info = sqlite.prepare(sql).run(params);
-            return { id: Number(info.lastInsertRowid), changes: info.changes };
+            const stmt = sqlite.prepare(sql);
+            if (stmt.reader) {
+                // Si la requête retourne des données (ex: INSERT ... RETURNING), on utilise .all()
+                const rows = stmt.all(params);
+                return { changes: rows.length };
+            } else {
+                const info = stmt.run(params);
+                return { id: Number(info.lastInsertRowid), changes: info.changes };
+            }
         },
         get: async (sql, params = []) => {
             return sqlite.prepare(sql).get(params);
